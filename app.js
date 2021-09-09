@@ -5,6 +5,7 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const auth = require('./routes/auth.routes');
 
 var app = express();
 
@@ -33,4 +34,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
