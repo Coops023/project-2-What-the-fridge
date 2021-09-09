@@ -6,6 +6,10 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www"
   },
+<<<<<<< HEAD
+=======
+  
+>>>>>>> ba1af9504f9b9b41999d6bdabfaa757d2d6ba153
   "dependencies": {
     "bcrypt": "^5",
     "connect-mongo": "^4",
@@ -26,4 +30,9 @@
     "debug": "^2",
     "nodemon": "^2"
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> ba1af9504f9b9b41999d6bdabfaa757d2d6ba153
