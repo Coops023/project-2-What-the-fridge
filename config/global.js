@@ -23,7 +23,7 @@ module.exports = (app) => {
   app.use(cookieParser());
 
   // Normalizes the path to the views folder
-  app.set("views", [path.join(__dirname, "..", "views"),path.join(__dirname, "..", "views/pages/auth")]);
+  app.set("views", [path.join(__dirname, "..", "views"),path.join(__dirname, "..", "views/pages")]);
   // Sets the view engine to handlebars
   app.set("view engine", "hbs");
 
