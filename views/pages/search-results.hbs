@@ -1,0 +1,18 @@
+<h1>Found recipes</h1>
+<br>
+<ul>
+    {{#each data}}
+    <div>
+    <h2>{{this.title}}</h2>
+    {{!-- <form action="/search"></form> --}}
+    <a href="/search/save/recipe/{{this.id}}"><img src="{{this.image}}" alt=""></a>
+    </div>
+    {{/each}}
+</ul>
+
+{{!-- <form action="/search/save/recipe" method="POST">
+     <input type="hidden" id="recipeId" name="recipeId" value="{{this.id}}">
+      <input type="hidden" id="recipeTitle" name="recipeTitle" value="{{this.title}}">
+       <input type="hidden" id="recipeImg" name="recipeImg" value="{{this.image}}">
+       <button type="submit"><img src="{{this.image}}" alt=""></button>
+       </form> --}}
