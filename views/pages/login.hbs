@@ -1,1 +1,21 @@
-<h1>login</h1>
+<form action="/auth/login"
+    method="POST">
+    <label for="username">Username: </label>
+    <input type="text"
+        name="username"
+        minlength="3"
+        maxlength="10"
+        required>
+
+    <label for="password">Password:</label>
+    <input type="password"
+        name="password"
+        id="password"
+        required>
+
+    <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}

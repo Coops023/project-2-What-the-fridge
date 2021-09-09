@@ -1,39 +1,25 @@
-<<<<<<< HEAD
-<form action=""
+<h1>signup page</h1>
+<br>
+<form action="/auth/signup"
     method="POST">
-    <label for="userame">Username: </label>
+    <label for="username">Username: </label>
     <input type="text"
         name="username"
         minlength="3"
         maxlength="10"
-        placeholder="Create a username"
         required>
 
-    <label for="email">Email: </label>
-    <input type="text"
+    <label for="email">Email:</label>
+    <input type="email"
         name="email"
-        placeholder="Enter an email"
+        id="email"
         required>
 
     <label for="password">Password:</label>
     <input type="password"
         name="password"
         id="password"
-        placeholder="Create a password"
         required>
-=======
-<h1>signup page</h1>
-<br>
-<form action="/auth/signup" method="POST">
-    <label for="username">Username: </label>
-    <input type="text" name="username" minlength="3" maxlength="10" required>
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required>
->>>>>>> ba1af9504f9b9b41999d6bdabfaa757d2d6ba153
 
     <button type="submit">Submit</button>
 </form>
