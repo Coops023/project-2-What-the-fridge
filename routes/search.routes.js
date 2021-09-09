@@ -16,7 +16,6 @@ router.post('/ingredients', (req,res) => {
     axios({
         method: 'get',
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=60dcb55702f14e43ab172bf6ff6ac5a4&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`
-        // url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=60dcb55702f14e43ab172bf6ff6ac5a4&ingredients=apples,+flour,+sugar&number=2`
     })
     .then(data => res.render('search-results', {data: data.data}))
     .catch(err => console.log(err));
@@ -33,7 +32,11 @@ router.get('/save/recipe/:id', (req,res) => {
             allIngredients.push(data.data.extendedIngredients[ingredient].name);
         };
         Recipe.create({ apidDBId: req.params.id,image: data.data.image, title: data.data.title ,ingredients: allIngredients})
-        .then(recipe => console.log(recipe))
+        .then(recipe => 
+            User.findByIdAndUpdate(req.session.currentUser._id, {$addToSet: { recipes: recipe._id }})
+            .then(() => console.log('recipe saved to user!'))
+            .catch(err => console.log(err))
+        )
         .catch(err => console.log(err));
     })
     .catch(err => console.log(err));

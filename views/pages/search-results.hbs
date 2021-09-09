@@ -1,10 +1,10 @@
 <h1>Found recipes</h1>
+<a href="/private/profile">Return to profile</a>
 <br>
 <ul>
     {{#each data}}
     <div>
     <h2>{{this.title}}</h2>
-    {{!-- <form action="/search"></form> --}}
     <a href="/search/save/recipe/{{this.id}}"><img src="{{this.image}}" alt=""></a>
     </div>
     {{/each}}

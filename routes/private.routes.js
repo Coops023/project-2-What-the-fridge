@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const Recipes = require('../models/Recipe.model');
+const User = require('../models/User.model');
 
 function isLoggedIn(req, res, next) {
     if (req.session.currentUser) next() // next invocation tells Express that the middleware has done all it work
@@ -7,8 +9,17 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get("/profile", isLoggedIn, (req, res) => {
-    if (req.session.currentUser) res.render("user-profile", { user: req.session.currentUser })
-    else res.redirect("/private")
+    if (req.session.currentUser) {
+        const userId = req.session.currentUser._id
+        User.findById(userId)
+        .populate('recipes')
+        .then(userData => res.render("user-profile", { user: userData }))
+
+        // console.log('entered here')
+
+        // res.render("user-profile", { user: req.session.currentUser });
+    }
+    else {res.redirect("/private")}
 })
 
 router.get("/", isLoggedIn, (req, res) => {
