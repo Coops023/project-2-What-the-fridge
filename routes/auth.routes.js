@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User.model')
+const saltRound = 10;
 
 const bcrypt = require('bcrypt');
 
@@ -27,9 +28,11 @@ router.post('/signup', (req, res, next) => {
 			const salt = bcrypt.genSaltSync(saltRound);
 			const hashPassword = bcrypt.hashSync(password, salt);
 
-			User.create({ username, password: hashPassword })
-				.then(() => res.render('index'))
+			User.create({ username, password: hashPassword, email })
+				.then((user) => res.render('user-profile', {user}))
 				.catch((error) => res.render('signup', { errorMessage: error }));
 		})
 		.catch((error) => next(error));
 });
+
+module.exports = router
