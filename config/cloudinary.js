@@ -1,6 +1,6 @@
 const multer = require('multer')
 const cloudinary = require('cloudinary').v2
-const { CloudinaryStorage} = require('multer-storage-cloudinary')
+const { CloudinaryStorage } = require('multer-storage-cloudinary')
 
 cloudinary.config(
   {
@@ -18,4 +18,4 @@ const storage = new CloudinaryStorage({
   }
 })
 cl
-module.exports = multer({storage}) // Multer will be responsible for reading the forma and store on the cloud
+module.exports = multer({ storage }) // Multer will be responsible for reading the forma and store on the cloud
