@@ -1,1 +1,29 @@
-<h1>signup page</h1>
+<form action=""
+    method="POST">
+    <label for="userame">Username: </label>
+    <input type="text"
+        name="username"
+        minlength="3"
+        maxlength="10"
+        placeholder="Create a username"
+        required>
+
+    <label for="email">Email: </label>
+    <input type="text"
+        name="email"
+        placeholder="Enter an email"
+        required>
+
+    <label for="password">Password:</label>
+    <input type="password"
+        name="password"
+        id="password"
+        placeholder="Create a password"
+        required>
+
+    <button type="submit">Submit</button>
+</form>
+
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}

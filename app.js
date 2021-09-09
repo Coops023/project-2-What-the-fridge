@@ -5,17 +5,18 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const auth = require('./routes/auth.routes');
+const authRouter = require('./routes/auth.routes');
 
 var app = express();
 
 // Functional curling style of loading configuration
-require('./config/db')
+require('./config/db.config')
 require('./config/global')(app)
 
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
