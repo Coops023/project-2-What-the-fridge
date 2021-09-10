@@ -9,8 +9,8 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get("/profile", isLoggedIn, (req, res) => {
-        const userId = req.session.currentUser._id
-        User.findById(userId)
+    const userId = req.session.currentUser._id
+    User.findById(userId)
         .populate('recipes')
         .then(userData => res.render("user-profile", { user: userData }))
 })
@@ -19,14 +19,27 @@ router.get("/", isLoggedIn, (req, res) => {
     res.render("private")
 })
 
-router.get('/fridge/add', isLoggedIn,(req,res) => {
-    ingredients = req.query.ingredients.split(',');
-    User.findByIdAndUpdate(req.session.currentUser._id, {$push: { ingredients: ingredients }})
-    .then(data => {
-        console.log(data)
-    })
-    .catch(err => console.log(err))
+router.post('/fridge/add', isLoggedIn, (req, res) => {
+    ingredients = req.body.ingredients.split(',');
+    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { ingredients: ingredients } })
+        .then(data => {
+            console.log("line 26", data)
+            res.render('fridge', { ingredients: data.ingredients });
+        })
+
+        .catch(err => console.log(err))
 })
 
+
+router.get('/fridge', (req, res) => {
+    const user = req.session.currentUser
+    console.log("USER:", user)
+    User.findById(req.session.currentUser._id)
+        .then(userData => {
+            res.render('fridge', { ingredients: userData.ingredients });
+            window.reload()
+        })
+
+})
 
 module.exports = router;

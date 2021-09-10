@@ -15,8 +15,8 @@ router.post('/ingredients', (req,res) => {
         method: 'get',
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.API_KEY}&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`
     })
-    .then(response => res.render('search-results', {data: response.data}))
-    .catch(err => console.log(err));
+        .then(response => res.render('search-results', { data: response.data }))
+        .catch(err => console.log(err));
 })
 
 router.get('/fridge/recipe/save/:id', (req,res) => {

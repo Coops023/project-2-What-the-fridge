@@ -1,7 +1,19 @@
 <h1>Fridge</h1>
 <br>
-<form action="/private/fridge/add">
-<label for="ingredients">Ingredients</label>
-<input type="text" name="ingredients">
-<button type="submit">Search</button>
+<form action="/private/fridge/add"
+    method="POST">
+    <label for="ingredients">Ingredients</label>
+    <input type="text"
+        name="ingredients">
+    <button type="submit">Search</button>
 </form>
+
+<div class="fridge">
+    <ul>
+        {{#each ingredients}}
+        <li>
+            {{this}}
+        </li>
+        {{/each }}
+    </ul>
+</div>
