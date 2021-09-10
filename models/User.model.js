@@ -17,7 +17,8 @@ const userSchema = new Schema({
     },
     recipes: [{
         type: Schema.Types.ObjectId, ref: 'Recipe', default: []
-    }]
+    }],
+    ingredients: [String]
     // favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
 });
 

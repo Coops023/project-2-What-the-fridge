@@ -1,18 +1,26 @@
 <h1>Fridge: {{user.username}}</h1>
+<a href="/private/fridge">ADD TO FRIDGE</a>
 <a href="/search/ingredients">search for recipe</a>
 
-{{!-- delete later vvv --}}
-<a href="/search/recipes">COOPER SEARCH </a>
 
 <ul>
     {{#each user.recipes}}
-    <h4>{{this.title}}</h4>
-    <img src="{{this.image}}"
-        width="50"
-        height="50"
-        alt="">
-    <button>add</button> <button>Remove</button>
+    <li>
+        <h4>{{this.title}}</h4>
+        <img src="{{this.image}}"
+            width="50"
+            height="50"
+            alt="">
+        <button>add</button> <button>Remove</button>
+    </li>
     {{/each}}
+
+
+
 </ul>
+
+
+
+
 
 <a href="http://localhost:3000/auth/logout">GET OUT OF THE FRIDGE</a>

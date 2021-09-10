@@ -9,39 +9,37 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get("/profile", isLoggedIn, (req, res) => {
-    if (req.session.currentUser) {
-        const userId = req.session.currentUser._id
-        User.findById(userId)
+    const userId = req.session.currentUser._id
+    User.findById(userId)
         .populate('recipes')
         .then(userData => res.render("user-profile", { user: userData }))
-
-        // console.log('entered here')
-
-        // res.render("user-profile", { user: req.session.currentUser });
-    }
-    else {res.redirect("/private")}
 })
 
 router.get("/", isLoggedIn, (req, res) => {
     res.render("private")
 })
 
-// function isAdmin(req, res, next) {
+router.post('/fridge/add', isLoggedIn, (req, res) => {
+    ingredients = req.body.ingredients.split(',');
+    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { ingredients: ingredients } })
+        .then(data => {
+            console.log("line 26", data)
+            res.render('fridge', { ingredients: data.ingredients });
+        })
 
-//     if (req.session.currentUser)) // Any criteria to determin role is as good as any
-//     {
-//         req.session.currentUser.isAdmin = true;
-//         req.session.currentUser.isInternal = true;
-//     } else if (req.session.currentUser) {
-//         req.session.currentUser.isAdmin = false;
-//         req.session.currentUser.isInternal = false;
-//     } else {
-//         res.redirect("/auth/login")
-//     }
-
-//     next() // next invocation tells Express that the middleware has done all it work
-// }
+        .catch(err => console.log(err))
+})
 
 
+router.get('/fridge', (req, res) => {
+    const user = req.session.currentUser
+    console.log("USER:", user)
+    User.findById(req.session.currentUser._id)
+        .then(userData => {
+            res.render('fridge', { ingredients: userData.ingredients });
+            window.reload()
+        })
+
+})
 
 module.exports = router;
