@@ -1,11 +1,57 @@
-<h1>Search Recipes</h1>
-<br>
-<a href="/private/profile">My Fridge</a>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
 
-<form action="/search/ingredients" method="POST">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<label for="ingredients">Ingredients</label>
-<input type="text" name="ingredients">
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/private/profile">
+        Profile
+      </a>
+
+      <a class="navbar-item" href="/private/fridge">
+        Fridge
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+         <button class="button is-primary">
+    <span class="icon">
+      <i class="fab fa-twitter"></i>
+    </span>
+    <span>User {{user.username}}</span>
+  </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- SEARCH FORM --}}
+
+
+<div class="field">
+<form  action="/search/ingredients" method="POST">
+<label class="label" for="ingredients">Ingredients</label>
+<div class="control">
+<input class="input is-primary"  type="text" name="ingredients">
+</div>
+
+<div class="control">
+<button class="button is-primary" type="submit">Search</button>
+</div>
+</form>
+</div>
+
+
 
 {{!-- <label for="searchBy"></label>
 <select name="searchBy" id="searchBy">
@@ -13,6 +59,3 @@
   <option name="ingredient">Ingredients</option>
   <option name="name">Receipe name</option>
 </select> --}}
-
-<button type="submit">Search</button>
-</form>

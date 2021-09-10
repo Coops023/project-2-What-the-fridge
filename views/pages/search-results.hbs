@@ -1,14 +1,88 @@
-<h1>Found recipes</h1>
-<a href="/private/profile">Return to Fridge</a>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/private/profile">
+        Profile
+      </a>
+
+      <a class="navbar-item" href="/private/fridge">
+        Fridge
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+         <button class="button is-primary">
+    <span class="icon">
+      <i class="fab fa-twitter"></i>
+    </span>
+    <span>User {{user.username}}</span>
+  </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- SEARCH RESULTS --}}
+
+<h1 class="is-family-primary has-text-centered is-size-1">Found recipes!</h1>
 <br>
+
 <ul>
+    <div class="columns is-multiline is-centered ">
+    {{#each data}}
+    <div class="column is-one-quarter mx-1">
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="{{this.image}}" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">{{this.title}}</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+{{/each}}
+</div>
+</ul>
+
+
+{{!-- <ul>
     {{#each data}}
     <div>
     <h2>{{this.title}}</h2>
     <a href="/search/fridge/recipe/save/{{this.id}}"><img src="{{this.image}}" alt=""></a>
     </div>
     {{/each}}
-</ul>
+</ul> --}}
+
+
+
+
 
 {{!-- <form action="/search/save/recipe" method="POST">
      <input type="hidden" id="recipeId" name="recipeId" value="{{this.id}}">

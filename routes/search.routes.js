@@ -5,7 +5,7 @@ const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
 
 router.get('/ingredients', (req,res) => {
-    res.render('search-recipes');
+    res.render('search-recipes', {user: req.session.currentUser});
 });
 
 router.post('/ingredients', (req,res) => {

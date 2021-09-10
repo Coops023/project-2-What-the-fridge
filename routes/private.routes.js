@@ -28,22 +28,5 @@ router.get('/fridge/add', isLoggedIn,(req,res) => {
     .catch(err => console.log(err))
 })
 
-// function isAdmin(req, res, next) {
-
-//     if (req.session.currentUser)) // Any criteria to determin role is as good as any
-//     {
-//         req.session.currentUser.isAdmin = true;
-//         req.session.currentUser.isInternal = true;
-//     } else if (req.session.currentUser) {
-//         req.session.currentUser.isAdmin = false;
-//         req.session.currentUser.isInternal = false;
-//     } else {
-//         res.redirect("/auth/login")
-//     }
-
-//     next() // next invocation tells Express that the middleware has done all it work
-// }
-
-
 
 module.exports = router;
