@@ -6,8 +6,9 @@ const recipeSchema = new Schema({
     apiDBId: String,
     image: String,
     title: String,
-    ingredients: [String]
-	
+    ingredients: [String],
+    instructions: [String]
+    
 	// favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
 });
 
