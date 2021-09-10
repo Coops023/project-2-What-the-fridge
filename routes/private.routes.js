@@ -9,21 +9,23 @@ function isLoggedIn(req, res, next) {
 }
 
 router.get("/profile", isLoggedIn, (req, res) => {
-    if (req.session.currentUser) {
         const userId = req.session.currentUser._id
         User.findById(userId)
         .populate('recipes')
         .then(userData => res.render("user-profile", { user: userData }))
-
-        // console.log('entered here')
-
-        // res.render("user-profile", { user: req.session.currentUser });
-    }
-    else {res.redirect("/private")}
 })
 
 router.get("/", isLoggedIn, (req, res) => {
     res.render("private")
+})
+
+router.get('/fridge/add', isLoggedIn,(req,res) => {
+    ingredients = req.query.ingredients.split(',');
+    User.findByIdAndUpdate(req.session.currentUser._id, {$push: { ingredients: ingredients }})
+    .then(data => {
+        console.log(data)
+    })
+    .catch(err => console.log(err))
 })
 
 // function isAdmin(req, res, next) {
