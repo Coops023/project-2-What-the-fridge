@@ -4,10 +4,10 @@
     aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item"
-            href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28">
+            href="https://pngtree.com/so/Vector">
+            <img  src="/images/Pngtrevectorfridgeicon_4051836.png"
+                width="40"
+                height="30">
         </a>
 
         <a role="button"
@@ -38,7 +38,10 @@
             </a>
         </div>
 
-
+        <a class="navbar-item has-text-white"
+                href="/auth/logout">
+                Logout
+         </a>
         <div class="tags has-addons mr-3 p-2">
             <span class="tag is-normal">Fridge: </span>
             <span class="tag is-primary is-normal">{{user.username}}</span>
@@ -54,35 +57,8 @@
     </div>
 </div>
 
-{{!-- <h1>Fridge: {{user.username}}</h1> --}}
-{{!-- <div class="columns is-centered">
-    <div class="column is-half is-offset-one-quarter">
-        <a class="button is-primary "
-            href="/private/fridge">ADD TO FRIDGE</a>
-        <a class="button is-primary"
-            href="/search/ingredients">search for recipe</a>
-    </div>
-</div> --}}
-
-{{!-- is-3 is-offset-5 py-6 is-size-1 --}}
-
-
-
-{{!-- <ul>
-    {{#each user.recipes}}
-    <li>
-        <h4>{{this.title}}</h4>
-        <img src="{{this.image}}"
-            width="50"
-            height="50"
-            alt="">
-        <button>add</button> <button>Remove</button>
-    </li>
-    {{/each}}
-</ul> --}}
-
 {{!-- ALL SAVED RECIPES --}}
-<ul>
+<ul class="recipe-view">
     <div class="columns is-multiline is-centered ">
         {{#each user.recipes}}
         <div class="column is-one-quarter mx-1">
@@ -107,6 +83,16 @@
         {{/each}}
     </div>
 </ul>
+
+<div class="bottom">
+     <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong> by <strong class="has-text-white">Alex Vasconcelos de Almeids</strong> and <strong class="has-text-white">Cooper Bjorkelund
+</strong> <br>
+    With credit to <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
+  </div>
+</div>
 
 {{!-- <div class="columns is-12 pb-0 has-background-black has-text-centered has-text-white">
     <div class="column pb-0">

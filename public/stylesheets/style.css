@@ -2,11 +2,15 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(240, 232, 209);
-  height: 100vh;
+  min-height: 100vh;
 }
 
 a {
   color: #00B7FF;
+}
+
+.form-save {
+  display: inline-flex;
 }
 
 .fridge {
@@ -18,4 +22,19 @@ a {
 
 #saved-recipes-text {
   border-bottom: 1px solid white;
+}
+
+div.bottom {
+  background-color: black;
+  width: 100%;
+  padding: 2em;
+}
+
+.recipe-view {
+  min-height: 100vh;
+  margin: 0 0 20px 0;
+}
+
+.fridge-img {
+  background-image: url('../images/—Pngtree—vector\ fridge\ icon_4051836.png');
 }
