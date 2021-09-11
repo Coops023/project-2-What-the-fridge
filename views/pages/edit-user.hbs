@@ -1,0 +1,32 @@
+<h2>Edit user</h2>
+
+
+
+<form action="profile"
+    method="POST">
+
+
+    <label for=''>Username</label>
+    <input type='text'
+        name='username'
+        value="{{username}}">
+
+    <br>
+    {{!-- when updating the password the new password shows in the database --}}
+
+    {{!-- <label for=''>Password</label>
+    <input type='password'
+        name='password'
+        value="**********"> --}}
+    <br>
+    <label for=''>Ingredients</label>
+    <input type='text'
+        name='ingredients'
+        value="{{ingredients}}">
+
+
+
+    <br>
+    <button type='submit'>Edit user</button>
+
+</form>

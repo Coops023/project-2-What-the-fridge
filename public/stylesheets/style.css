@@ -11,7 +11,9 @@ a {
 
 .fridge {
   border: 1px solid black;
-  height: 100px;
+  height: 400px;
+ display: flex;
+ flex-wrap: wrap;
 }
 
 #saved-recipes-text {
