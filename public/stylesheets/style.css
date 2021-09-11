@@ -24,10 +24,11 @@ a {
   border-bottom: 1px solid white;
 }
 
+/* -- ensures footer places at bottom of page -- */
 div.bottom {
   background-color: black;
   width: 100%;
-  padding: 2em;
+  padding: 4em;
 }
 
 .recipe-view {
@@ -39,11 +40,10 @@ div.bottom {
   background-image: url('../images/—Pngtree—vector\ fridge\ icon_4051836.png');
 }
 
+/* position login form to center of screen */
 .form-center-screen {
   /* border: 1px solid black; */
-
   margin-top: 12em;
-
 }
 
 #my-form-center {

@@ -2,14 +2,13 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User.model')
+const bcrypt = require('bcrypt');
 const saltRound = 10;
 
-const bcrypt = require('bcrypt');
 
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
-
 
 router.post('/signup', (req, res, next) => {
     const { username, password, email } = req.body;
@@ -18,7 +17,7 @@ router.post('/signup', (req, res, next) => {
             errorMessage: 'Username and password are requiered'
         });
     }
-
+    
     User.findOne({ username })
         .then((user) => {
             if (user) {
