@@ -31,7 +31,7 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
 })
 
 
-router.get('/fridge', (req, res) => {
+router.get('/fridge', isLoggedIn, (req, res) => {
     const user = req.session.currentUser
     console.log("USER:", user)
     User.findById(req.session.currentUser._id)
@@ -42,15 +42,47 @@ router.get('/fridge', (req, res) => {
 
 })
 
-router.get('/fridge/remove/recipe/:id', (req,res) => {
+router.get('/fridge/remove/recipe/:id', (req, res) => {
     User.updateOne(
-        {_id: req.session.currentUser._id}, 
-        { $pullAll: { recipes: [{ _id: req.params.id}] } }, 
+        { _id: req.session.currentUser._id },
+        { $pullAll: { recipes: [{ _id: req.params.id }] } },
         { new: true }
-        )
+    )
         .then(() => res.redirect('/private/profile'))
-        .catch(err => console.log(err)) 
+        .catch(err => console.log(err))
 })
+
+router.route("/edit/:id")
+    .get((req, res) => {
+        User.findById({ _id: req.session.currentUser._id })
+            .then(user => res.render("edit-user", user))
+
+    })
+    .post((req, res) => {
+        const {
+            username,
+            password,
+            email,
+            recipes,
+            ingredients
+        } = req.body
+        User.findByIdAndUpdate(req.session.currentUser._id, {
+            username,
+            password,
+            email,
+            recipes,
+            ingredients
+        }
+        )
+            .then(updateUser => res.redirect(`profile`))
+            .catch(error => console.log(error))
+    })
+
+
+
+
+
+
 
 
 module.exports = router;
