@@ -38,3 +38,18 @@ div.bottom {
 .fridge-img {
   background-image: url('../images/—Pngtree—vector\ fridge\ icon_4051836.png');
 }
+
+.form-center-screen {
+  /* border: 1px solid black; */
+
+  margin-top: 12em;
+
+}
+
+#my-form-center {
+  border: 1px solid black;
+  padding: 2em 3em;
+  border-radius: .5em;
+  background-color: black;
+  font-size: 2em;
+}

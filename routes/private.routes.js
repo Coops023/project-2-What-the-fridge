@@ -23,7 +23,6 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
     ingredients = req.body.ingredients.split(',');
     User.findByIdAndUpdate(req.session.currentUser._id, { $push: { ingredients: ingredients } })
         .then(data => {
-            console.log("line 26", data)
             res.render('fridge', { ingredients: data.ingredients });
         })
 
