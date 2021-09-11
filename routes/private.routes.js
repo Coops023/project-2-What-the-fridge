@@ -42,4 +42,15 @@ router.get('/fridge', (req, res) => {
 
 })
 
+router.get('/fridge/remove/recipe/:id', (req,res) => {
+    User.updateOne(
+        {_id: req.session.currentUser._id}, 
+        { $pullAll: { recipes: [{ _id: req.params.id}] } }, 
+        { new: true }
+        )
+        .then(() => res.redirect('/private/profile'))
+        .catch(err => console.log(err)) 
+})
+
+
 module.exports = router;
