@@ -65,11 +65,8 @@ router.route("/edit/:id")
     })
     .post((req, res) => {
 
-        const {
-            username,
-            password,
-            email
-        } = req.body
+        const { username, password, email } = req.body
+
         const salt = bcrypt.genSaltSync(saltRound);
         const hashPassword = bcrypt.hashSync(password, salt);
         if (!password) {

@@ -1,12 +1,139 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(240, 232, 209);
+  background-color: white;
   min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.my-is-active {
+  background-color: rgb(124, 158, 221);
+  color: white;
+  border-radius: 5px;
+}
+
+.my-a-white {
+  color: white;
 }
 
 a {
   color: #00B7FF;
+}
+
+.my-navbar {
+  height: 80px;
+  width: 100%;
+}
+
+.my-navbar ul {
+  float: right;
+  margin-right: 20px;
+}
+
+.my-navbar ul li {
+  list-style: none;
+  margin: 2px 12px;
+  padding: 0 18px;
+  display: inline-block;
+  line-height: 80px;
+}
+
+.my-navbar ul li a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* .my-logout {
+  float: left;
+  margin-left: 50px;
+} */
+
+.my-nav-items {
+  margin: 0 2em;
+  border-bottom: 1px solid rgb(168, 191, 235);
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px 3px 0px 1px rgba(0, 0, 255, .2);
+}
+
+.my-logo-container{
+  display: flex;
+  align-items: center;
+}
+
+.my-logout-link{
+  
+  font-size: 1.2em;
+  
+  
+}
+
+
+
+
+.my-logo {
+  width: 100px;
+  height: auto;
+  padding: 10px 20px;
+}
+
+.my-center {
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  transform: translate(-60%, -60%);
+  font-family: sans-serif;
+  user-select: none;
+}
+
+.my-image-index {
+  position: absolute;
+  top: 30%;
+  left: 51%;
+  transform: translate(-60%, -60%);
+}
+
+.my-image-index img {
+  width: 300px;
+  height: auto;
+}
+
+.my-center h1 {
+  font-size: 70px;
+  font-weight: bold;
+  width: 900px;
+  text-align: center;
+}
+
+.my-center h2 {
+  font-size: 20px;
+  font-weight: bold;
+  width: 885px;
+  margin-top: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+.my-center .my-buttons {
+  margin: 35px 280px;
+}
+
+.my-buttons button {
+  height: 50px;
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(87, 183, 221);
+  border-radius: 7px;
+  border: none;
+}
+
+.my-buttons .my-btn {
+  background-color: rgb(28, 209, 155);
+}
+
+.my-buttons a {
+  color:white;
 }
 
 .form-save {
@@ -14,7 +141,7 @@ a {
 }
 
 .fridge {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 400px;
  display: flex;
  flex-wrap: wrap;
@@ -47,7 +174,7 @@ div.bottom {
 }
 
 #my-form-center {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 2em 3em;
   border-radius: .5em;
   background-color: black;

@@ -27,7 +27,7 @@ router.post('/ingredients', (req,res) => {
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.API_KEY}&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`
     })
     .then(response => {
-        User.findById(req.session.id)
+        User.findById(req.session.currentUser._id)
         .populate('recipes')
         .then(user => {
             res.render('search-results', { recipes: response.data, user: user.recipes })
