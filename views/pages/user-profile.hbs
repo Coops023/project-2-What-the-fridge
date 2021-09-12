@@ -1,6 +1,6 @@
-{{! NAV BAR }}
+{{!-- {{! NAV BAR }}
 <nav
-  class="navbar has-background-black py-4"
+  class="navbar is-transparent has-background-black py-4"
   role="navigation"
   aria-label="main navigation"
 >
@@ -26,9 +26,9 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item is-active has-text-white" href="/private/profile">
+      <a class="navbar-item is-tab is-active has-text-white" href="/private/profile">
         Profile
       </a>
       <a class="navbar-item has-text-white" href="/private/fridge">
@@ -47,19 +47,36 @@
       <span class="tag is-primary is-normal">{{user.username}}</span>
     </div>
   </div>
-</nav>
+</nav> --}}
+
+<div class="my-navbar">
+    <div class="my-nav-items">
+    <img class="my-logo" src="/images/—Pngtree—vector fridge icon_4237845.png" alt="">
+    <ul>
+    <li class="my-is-active"><a class="my-a-white" href="/private/profile">Recipes</a></li>
+    <li><a href="/private/fridge">Fridge</a></li>
+   <li><a href="/search/ingredients">Search</a></li>
+   <li><a href="/auth/logout">Logout</a></li>
+    </ul>
+    </div>
+</div>
+
+{{!-- <div class="my-image-index">
+    <img src="/images/—Pngtree—vector fridge icon_4237845.png" alt="">
+</div> --}}
 
 {{! SUB HEADING OF PAGE }}
-<div class="columns is-centered mt-1">
-  <div class="column is-narrow is-size-1 has-text-white">
-    <img
-      src="/images/Pngtrevectorfridgeicon_4051836.png"
-      width="100"
-      height="100"
-      alt=""
-    />
+<div class="columns is-centered mt-2">
+  <div class="column is-narrow is-size-3">
+    <span class="icon">
+        <i class="fas fa-utensils"></i>
+      </span>
   </div>
 </div>
+
+{{!-- <span class="icon">
+        <i class="fas fa-utensils"></i>
+      </span> --}}
 
 {{! DISPLAY ALL SAVED RECIPES }}
 <ul class="recipe-view">
@@ -72,7 +89,7 @@
               <img src="{{this.image}}" alt="Placeholder image" />
             </figure>
           </div>
-          <div class="card-content has-background-black">
+          <div class="card-content">
             <a
               class="button is-link"
               href="/private/fridge/remove/recipe/{{this._id}}"
@@ -80,7 +97,7 @@
               Remove
             </a>
             <span class="ml-2">
-              <span class="title is-4 has-text-white">{{this.title}}</span>
+              <span class="title is-4">{{this.title}}</span>
             </span>
           </div>
         </div>
