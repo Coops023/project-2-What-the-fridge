@@ -1,117 +1,107 @@
-{{!-- NAV BAR --}}
-<nav class="navbar has-background-black"
-    role="navigation"
-    aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item"
-            href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28">
-        </a>
+{{! NAV BAR }}
+<nav
+  class="navbar has-background-black py-4"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://pngtree.com/so/Vector">
+      <img
+        src="/images/Pngtrevectorfridgeicon_4051836.png"
+        width="30"
+        height="30"
+      />
+    </a>
 
-        <a role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item is-active has-text-white" href="/private/profile">
+        Profile
+      </a>
+      <a class="navbar-item has-text-white" href="/private/fridge">
+        Fridge
+      </a>
+      <a class="navbar-item has-text-white" href="/search/ingredients">
+        Search
+      </a>
     </div>
 
-    <div id="navbarBasicExample"
-        class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item is-active has-text-white"
-                href="/private/profile">
-                Profile
-            </a>
-            <a class="navbar-item has-text-white"
-                href="/private/fridge">
-                Fridge
-            </a>
-            <a class="navbar-item has-text-white"
-                href="/search/ingredients">
-                Search
-            </a>
-        </div>
-
-
-        <div class="tags has-addons mr-3 p-2">
-            <span class="tag is-normal">Fridge: </span>
-            <span class="tag is-primary is-normal">{{user.username}}</span>
-        </div>
+    <a class="navbar-item has-text-white" href="/auth/logout">
+      Logout
+    </a>
+    <div class="tags has-addons mr-3 p-2">
+      <span class="tag is-normal">Fridge: </span>
+      <span class="tag is-primary is-normal">{{user.username}}</span>
     </div>
+  </div>
 </nav>
 
-{{!-- SUB HEADING OF PAGE --}}
-<div class="columns is-centered">
-    <div class="column is-narrow is-size-1 has-text-white">
-        <h1 id="saved-recipes-text"
-            class="is-italic">Saved Recipes</h1>
-    </div>
+{{! SUB HEADING OF PAGE }}
+<div class="columns is-centered mt-1">
+  <div class="column is-narrow is-size-1 has-text-white">
+    <img
+      src="/images/Pngtrevectorfridgeicon_4051836.png"
+      width="100"
+      height="100"
+      alt=""
+    />
+  </div>
 </div>
 
-{{!-- <h1>Fridge: {{user.username}}</h1> --}}
-{{!-- <div class="columns is-centered">
-    <div class="column is-half is-offset-one-quarter">
-        <a class="button is-primary "
-            href="/private/fridge">ADD TO FRIDGE</a>
-        <a class="button is-primary"
-            href="/search/ingredients">search for recipe</a>
-    </div>
-</div> --}}
-
-{{!-- is-3 is-offset-5 py-6 is-size-1 --}}
-
-
-
-{{!-- <ul>
+{{! DISPLAY ALL SAVED RECIPES }}
+<ul class="recipe-view">
+  <div class="columns is-multiline is-centered">
     {{#each user.recipes}}
-    <li>
-        <h4>{{this.title}}</h4>
-        <img src="{{this.image}}"
-            width="50"
-            height="50"
-            alt="">
-        <button>add</button> <button>Remove</button>
-    </li>
-    {{/each}}
-</ul> --}}
-
-{{!-- ALL SAVED RECIPES --}}
-<ul>
-    <div class="columns is-multiline is-centered ">
-        {{#each user.recipes}}
-        <div class="column is-one-quarter mx-1">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                        <img src="{{this.image}}"
-                            alt="Placeholder image">
-                    </figure>
-                </div>
-                <div class="card-content has-background-black">
-                    <a class="button is-link"
-                        href="/private/fridge/remove/recipe/{{this._id}}">
-                        Remove
-                    </a>
-                    <span class="ml-2">
-                        <span class="title is-4 has-text-white ">{{this.title}}</span>
-                    </span>
-                </div>
-            </div>
+      <div class="column is-one-quarter mx-1">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{{this.image}}" alt="Placeholder image" />
+            </figure>
+          </div>
+          <div class="card-content has-background-black">
+            <a
+              class="button is-link"
+              href="/private/fridge/remove/recipe/{{this._id}}"
+            >
+              Remove
+            </a>
+            <span class="ml-2">
+              <span class="title is-4 has-text-white">{{this.title}}</span>
+            </span>
+          </div>
         </div>
-        {{/each}}
-    </div>
+      </div>
+    {{/each}}
+  </div>
 </ul>
 
-
-
-
-
-<a href="http://localhost:3000/auth/logout">GET OUT OF THE FRIDGE</a>
-
-<a href="http://localhost:3000/private/edit/:id">Edit user profile</a>
+{{! FOOTER }}
+<div class="bottom">
+  <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong>
+      by
+      <strong class="has-text-white">Alex Vasconcelos de Almeids</strong>
+      and
+      <strong class="has-text-white">Cooper Bjorkelund
+      </strong>
+      <br />
+      With credit to
+      <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
+  </div>
+</div>

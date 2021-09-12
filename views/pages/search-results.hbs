@@ -1,7 +1,7 @@
-{{!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    <a class="navbar-item" href="https://pngtree.com/so/Vector">
+      <img src="../public/images/—Pngtree—vector fridge icon_4051836.png" width="112" height="28">
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -33,62 +33,37 @@
       </div>
     </div>
   </div>
-</nav> --}}
+</nav>
 
-{{>navBar user}}
 
 {{!-- SEARCH RESULTS --}}
-
 <h1 class="is-family-primary has-text-centered is-size-1">Found recipes!</h1>
 <br>
-
 <ul>
     <div class="columns is-multiline is-centered ">
-    {{#each data}}
-    <div class="column is-one-quarter mx-1">
-<div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="{{this.image}}" alt="Placeholder image">
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-        <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-        </figure>
-      </div>
-      <div class="media-content">
-        <p class="title is-4">{{this.title}}</p>
-        <p class="subtitle is-6">@johnsmith</p>
-      </div>
+        {{#each recipes}}
+        <div class="column is-one-quarter mx-1">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="{{this.image}}"
+                            alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="card-content has-background-black">
+                    <form class="form-save" action="/search/fridge/recipe/save" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button class="button is-link" type="submit">
+                        Save
+                    </button>
+                    </form>
+                    <span class="ml-2">
+                        <span class="title is-4 has-text-white ">{{this.title}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
-
-  </div>
-</div>
-</div>
-{{/each}}
-</div>
 </ul>
 
-
-{{!-- <ul>
-    {{#each data}}
-    <div>
-    <h2>{{this.title}}</h2>
-    <a href="/search/fridge/recipe/save/{{this.id}}"><img src="{{this.image}}" alt=""></a>
-    </div>
-    {{/each}}
-</ul> --}}
-
-
-
-
-
-{{!-- <form action="/search/save/recipe" method="POST">
-     <input type="hidden" id="recipeId" name="recipeId" value="{{this.id}}">
-      <input type="hidden" id="recipeTitle" name="recipeTitle" value="{{this.title}}">
-       <input type="hidden" id="recipeImg" name="recipeImg" value="{{this.image}}">
-       <button type="submit"><img src="{{this.image}}" alt=""></button>
-       </form> --}}

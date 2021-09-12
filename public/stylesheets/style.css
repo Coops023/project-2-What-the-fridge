@@ -1,11 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(69, 209, 174);
+  background-color: rgb(240, 232, 209);
+  min-height: 100vh;
 }
 
 a {
   color: #00B7FF;
+}
+
+.form-save {
+  display: inline-flex;
 }
 
 .fridge {
@@ -17,4 +22,34 @@ a {
 
 #saved-recipes-text {
   border-bottom: 1px solid white;
+}
+
+/* -- ensures footer places at bottom of page -- */
+div.bottom {
+  background-color: black;
+  width: 100%;
+  padding: 4em;
+}
+
+.recipe-view {
+  min-height: 100vh;
+  margin: 0 0 20px 0;
+}
+
+.fridge-img {
+  background-image: url('../images/—Pngtree—vector\ fridge\ icon_4051836.png');
+}
+
+/* position login form to center of screen */
+.form-center-screen {
+  /* border: 1px solid black; */
+  margin-top: 12em;
+}
+
+#my-form-center {
+  border: 1px solid black;
+  padding: 2em 3em;
+  border-radius: .5em;
+  background-color: black;
+  font-size: 2em;
 }
