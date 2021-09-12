@@ -9,11 +9,6 @@ function isLoggedIn(req, res, next) {
     if (req.session.currentUser) next() // next invocation tells Express that the middleware has done all it work
     else res.redirect("/auth/login");
 };
-// -- private page was removed so this is dead code -- 
-// router.get("/", isLoggedIn, (req, res) => {
-//     res.render("private");
-// });
-
 
 
 
@@ -25,15 +20,18 @@ router.get("/profile", isLoggedIn, (req, res) => {
 });
 
 
+
+// have tried a few different ways to fix this but but all attempts broke the code and i reverted back to this, i also tried adding a delete route for the fridge items but also couldnt figure out what was going wrong.  
 router.post('/fridge/add', isLoggedIn, (req, res) => {
     ingredients = req.body.ingredients.split(',');
-    // I still struggle a lot with this. I think you are pushing the whole array into one array element
-    // Try looking up adding an array into an array of a mongoose model. It seems very anal about syntax
-    // and requirements. You might have to make a function that loops through and adds each element
-    User.findByIdAndUpdate(req.session.currentUser._id, { $push: { ingredients: ingredients } })
+
+    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredients } })
         .then(user => {
             res.render('fridge', { ingredients: user.ingredients });
         })
+        // .then(() => {
+        //     window.reload()
+        // })
         .catch(err => console.log(err));
 });
 
@@ -41,7 +39,7 @@ router.get('/fridge', isLoggedIn, (req, res) => {
     User.findById(req.session.currentUser._id)
         .then(userData => {
             res.render('fridge', { ingredients: userData.ingredients });
-            window.reload();
+
         })
         .catch(err => console.log(err));
 });
@@ -57,10 +55,7 @@ router.get('/fridge/remove/recipe/:id', (req, res) => {
         .catch(err => console.log(err));
 });
 
-// remember you need to encrypt the password before saving it to the database!
-// here you are trying to save the new password without encryption. 
-// look at the signup routes in auth.routes that uses bcrypt
-// updating a model is a pain in the ass. I think we have to use special syntax
+
 router.route("/edit/:id")
     .get((req, res) => {
         User.findById({ _id: req.session.currentUser._id })
@@ -85,7 +80,7 @@ router.route("/edit/:id")
             ingredients
         }
         )
-            .then(() => res.redirect(`profile`))
+            .then(() => res.redirect(`/private/profile`))
             .catch(error => console.log(error));
     });
 
