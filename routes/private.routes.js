@@ -23,17 +23,18 @@ router.get("/profile", isLoggedIn, (req, res) => {
 
 // have tried a few different ways to fix this but but all attempts broke the code and i reverted back to this, i also tried adding a delete route for the fridge items but also couldnt figure out what was going wrong.  
 router.post('/fridge/add', isLoggedIn, (req, res) => {
-    ingredients = req.body.ingredients.split(',');
+    const { ingredient } = req.body
 
-    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredients } })
+    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredient } })
         .then(user => {
-            res.render('fridge', { ingredients: user.ingredients });
+            res.redirect(`/private/fridge`)
         })
-        // .then(() => {
-        //     window.reload()
-        // })
+
         .catch(err => console.log(err));
 });
+
+
+
 
 router.get('/fridge', isLoggedIn, (req, res) => {
     User.findById(req.session.currentUser._id)
@@ -63,25 +64,35 @@ router.route("/edit/:id")
             .catch(err => console.log(err));
     })
     .post((req, res) => {
+
         const {
             username,
             password,
-            email,
-            recipes,
-            ingredients
+            email
         } = req.body
         const salt = bcrypt.genSaltSync(saltRound);
         const hashPassword = bcrypt.hashSync(password, salt);
-        User.findByIdAndUpdate(req.session.currentUser._id, {
-            username,
-            password: hashPassword,
-            email,
-            recipes,
-            ingredients
+        if (!password) {
+
+            User.findByIdAndUpdate(req.session.currentUser._id, {
+                username: username,
+                email: email
+
+            })
+                .then(() => res.redirect(`/private/profile`))
+                .catch(error => console.log(error));
         }
-        )
-            .then(() => res.redirect(`/private/profile`))
-            .catch(error => console.log(error));
+        else {
+            User.findByIdAndUpdate(req.session.currentUser._id, {
+                username: username,
+                password: hashPassword,
+                email: email
+
+            })
+                .then(() => res.redirect(`/private/profile`))
+                .catch(error => console.log(error));
+        }
+
     });
 
 // remember RENDER = PAGE | REDIRECT = URL  -! (/) !-

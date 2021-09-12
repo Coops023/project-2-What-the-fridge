@@ -2,18 +2,20 @@
 <br>
 <form action="/private/fridge/add"
     method="POST">
-    <label for="ingredients">Ingredients</label>
+    <label for="ingredient">Ingredients</label>
     <input type="text"
-        name="ingredients">
+        name="ingredient">
     <button type="submit">Search</button>
 </form>
 
 <div class="fridge">
     <ul>
-        {{#each ingredients}}
-        <li>
-            {{this}}
-        </li>
-        {{/each}}
+        <form action="/private/fridge/remove">
+            {{#each ingredients}}
+            <li>
+                {{this}} <button type="submit">remove</button>
+            </li>
+            {{/each}}
+        </form>
     </ul>
 </div>
