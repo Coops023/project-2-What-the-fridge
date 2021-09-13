@@ -41,7 +41,7 @@ router.post('/ingredients', (req, res) => {
 // -- SAVE NEW RECIPE TO USER ROUTES --
 
 router.post('/fridge/recipe/save', (req, res) => {
-    const newRecipe = { title: '', image: '', ingredients: [], instructions: [] };
+    const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
     axios({
         method: 'get',
         url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
@@ -53,6 +53,7 @@ router.post('/fridge/recipe/save', (req, res) => {
             newRecipe.title = response1.data.title;
             newRecipe.image = response1.data.image;
             newRecipe.ingredients = allIngredients;
+            newRecipe.missingIngredients = 0;
 
             axios({
                 method: 'get',
@@ -61,7 +62,7 @@ router.post('/fridge/recipe/save', (req, res) => {
                 .then(response2 => {
                     // data is returned as an array of 1
                     newRecipe.instructions = response2.data[0].steps.map((nextStep) => nextStep.step);
-                    Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions })
+                    Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
                         .then(recipe => {
                             User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
                                 .then(() => console.log('new recipe added: ', recipe))
@@ -87,15 +88,15 @@ module.exports = router;
  * newReceipe.save().then(res.send("done"))
  * })
  *
- * 
+ *
  * router("/someAsyncRoute", async (req, res)=>{
- * 
+ *
  *  const spoonReceipe = await spoonacularApi.get("...")
  *  const {spoonIngredients} = spoonReceipe
  *  const arrayOfMgsIngredients = await spoonIngredients.map(async (ingredient)=> await Ingredient.create())
- *  
+ *
  *  const newReceipe = await Receipe.create({ingredients: arrayOfMgsIngredients})
  *  return res.render("receipe-template", {receipe: newReceipe})
  * })
- * 
+ *
  */

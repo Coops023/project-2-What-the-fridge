@@ -40,7 +40,9 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
 //             .then(userData => res.render("recipe-detail", { user: userData }));
 // });
 
+
 router.get('/fridge/compare/recipe/:id', (req, res) => {
+    console.log("THIS IS THE ID", req.params.id)
     Recipes.findById(req.params.id)
         .then((recipe) => {
             User.findById(req.session.currentUser._id)
@@ -49,12 +51,17 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
                     for (let index in recipe.ingredients) {
                         if (!user.ingredients.includes(recipe.ingredients[index].name)) {
                             recipe.ingredients[index].isMissing = true
+                            recipe.missingIngredients += 1
+
                         }
                     }
 
-                    res.render('recipe-detail', { recipe: recipe, user: user });
-                })
 
+
+                    console.log("here is the recipe:", recipe)
+
+                    res.render('recipe-detail', { recipe: recipe, user: user })
+                })
         })
         .catch((error) => {
             console.log(error);

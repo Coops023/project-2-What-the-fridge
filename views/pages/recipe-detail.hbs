@@ -15,39 +15,26 @@
       <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
     </ul>
 
-  </div>
+    </div>
 </div>
 <h1>recipe detail</h1>
-<div>
-    {{#each recipe}}
 
-    <img src="{{image}}"
+<div id="compare-container">
+    <img src="{{recipe.image}}"
         alt="">
 
-    <h1>{{title}}</h1>
-
+    <h1>{{recipe.title}} </h1>
+    <p>you are missing {{recipe.missingIngredients}} ingredients</p>
     <ul>
-        {{#each this.ingredients}}
+        {{#each recipe.ingredients}}
         {{#if isMissing}}
         <li style="color: red;">{{name}}</li>
 
         {{else}}
-
         <li style="color: green;">{{name}}</li>
         {{/if}}
         {{/each}}
     </ul>
 
-    <p>{{this.instructions}}</p>
-
-
-    {{/each}}
+    <p>{{recipe.instructions}}</p>
 </div>
-<ul>
-
-    {{#each user.ingredients}}
-    <li>
-        {{this}}
-    </li>
-    {{/each}}
-</ul>

@@ -11,7 +11,8 @@
     <ul>
       <li><a href="/private/profile">Recipes</a></li>
       <li><a href="/private/fridge">Fridge</a></li>
-      <li class="my-is-active"><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
     </ul>
   </div>
 </div>
@@ -19,23 +20,30 @@
 {{!-- SEARCH FORM --}}
 
 
-<div class="field">
+<h2 id="search-heading">What The Fridge!</h2>
+<div id="background-img">
+</div>
+<div id="search-bar-container"
+  class="wrap">
+
   <form action="/search/ingredients"
     method="POST">
-    <label class="label"
-      for="ingredients">Ingredients</label>
-    <div class="control">
-      <input class="input is-primary"
-        type="text"
-        name="ingredients">
+
+
+    <div class="search">
+      <input type="text"
+        class="searchTerm"
+        name="ingredients"
+        placeholder="What are you looking for?">
+      <button type="submit"
+        class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
 
-    <div class="control">
-      <button class="button is-primary"
-        type="submit">Search</button>
-    </div>
   </form>
 </div>
+
 
 {{!-- <form action="/search/ingredients"
   method="POST">
