@@ -202,12 +202,6 @@ div.bottom {
   margin-top: 1em;
 }
 
-#search-bar-container{
-  margin-top: 15%;
-  display: flex;
-  justify-content: center;
-}
-
 .search {
   width: 100%;
   position: relative;
@@ -219,34 +213,50 @@ div.bottom {
   border: 3px solid #00B4CC;
   border-right: none;
   padding: 5px;
-  height: 40px;
-  border-radius: 5px 0 0 5px;
+  height: 60px;
+  border-radius: 2em 0 0 2em;
   outline: none;
   color: #9DBFAF;
+  font-size: 1.7em;
 }
 
 .searchTerm:focus{
   color: #00B4CC;
+  z-index: 1;
 }
 
 .searchButton {
   width: 50px;
-  height: 40px;
+  height: 60px;
   border: 1px solid #00B4CC;
   background: #00B4CC;
   text-align: center;
   color: #fff;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 1.5em 1.5em 0;
   cursor: pointer;
   font-size: 20px;
 }
+/* #9DBFAF */
+#background-img{
+  background-image: url('/images/fridge.png');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 100%;
+  height: 100vh;
+}
 
-/*Resize the wrap to see the search bar change!*/
+
 .wrap{
+  height: 40%;
   width: 60%;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
 
