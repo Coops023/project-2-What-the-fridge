@@ -1,11 +1,18 @@
-<h1>signup page</h1>
-<br>
+<div class="my-navbar">
+    <div class="my-nav-items">
+    <img class="my-logo" src="/images/—Pngtree—vector fridge icon_4237845.png" alt="">
+    <ul>
+   <li><a href="/auth/login">Login</a></li>
+    </ul>
+    </div>
+</div>
 
+<div class="my-signup-container">
 <div class="form-center-screen">
 <div id="my-form-center" class="column  is-one-third is-offset-one-third">
 <form action="/auth/signup" method="POST">
 <div class="field">
-     <label id="my-lable-username" class="lable is-large has-text-white">Username</label>
+     <label id="my-lable-username" class="lable is-large has-text-black">Username</label>
   <p class="control has-icons-left has-icons-right">
     <input class="input is-large" type="text" placeholder="Username" name="username">
     <span class="icon is-small is-left">
@@ -17,16 +24,16 @@
   </p>
 </div>
 <div class="field">
-     <label id="my-lable-email" class="lable is-large has-text-white">Email</label>
+     <label id="my-lable-email" class="lable is-large has-text-black">Email</label>
   <p class="control has-icons-left">
     <input class="input is-large" type="email" placeholder="email" name="email">
     <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
+      <i class="fas fa-envelope"></i>
     </span>
   </p>
 </div>
 <div class="field">
-     <label id="my-lable-password" class="lable is-large has-text-white">Password</label>
+     <label id="my-lable-password" class="lable is-large has-text-black">Password</label>
   <p class="control has-icons-left">
     <input class="input is-large" type="password" placeholder="Password" name="password">
     <span class="icon is-small is-left">
@@ -36,14 +43,15 @@
 </div>
 <div class="field is-centered">
   <p class="control is-centered">
-    <button class="button is-primary is-large" type="submit">
-      Login
+    <button id="my-signup-button" class="button is-primary is-large" type="submit">
+      Signup
     </button>
   </p>
 </div>
 </form>
 </div>
 <div>
+</div>
 
 
 {{!-- <form action="/auth/signup"

@@ -1,39 +1,22 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://pngtree.com/so/Vector">
-      <img src="../public/images/—Pngtree—vector fridge icon_4051836.png" width="112" height="28">
-    </a>
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/private/profile">
-        Profile
-      </a>
-
-      <a class="navbar-item" href="/private/fridge">
-        Fridge
-      </a>
+<div class="my-navbar">
+  <div class="my-nav-items">
+    <div class="my-logo-container">
+      <img class="my-logo"
+        src="/images/—Pngtree—vector fridge icon_4237845.png"
+        alt="">
+      <a class="my-logout-link"
+        href="/auth/logout">Logout</a>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-         <button class="button is-primary">
-    <span class="icon">
-      <i class="fab fa-twitter"></i>
-    </span>
-    <span>User {{user.username}}</span>
-  </button>
-      </div>
-    </div>
+    <ul>
+      <li class="my-is-active"><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      <li><a href="/private/fridge">Fridge</a></li>
+      <li><a href="/search/ingredients">Search</a></li>
+    </ul>
+
   </div>
-</nav>
+</div>
 
 
 <h1 class="is-family-primary has-text-centered is-size-1">Found recipes!</h1>
@@ -51,10 +34,7 @@
                 </div>
                 <div class="card-content has-background-black">
                     <form class="form-save" action="/search/fridge/recipe/save" method="POST">
-                    {{!-- returning full recipe data to access ingredients instead of just _id --}}
-                    <input type="hidden" name="id" value="{{this.missedIngredients}}">
                     <input type="hidden" name="id" value="{{this.id}}">
-                    <input type="hidden" name="id" value="{{this.missedIngredients}}">
                     <button class="button is-link" type="submit">
                         Save
                     </button>
