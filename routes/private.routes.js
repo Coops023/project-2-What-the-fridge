@@ -21,7 +21,6 @@ router.get("/profile", isLoggedIn, (req, res) => {
 
 
 
-// have tried a few different ways to fix this but but all attempts broke the code and i reverted back to this, i also tried adding a delete route for the fridge items but also couldnt figure out what was going wrong.  
 router.post('/fridge/add', isLoggedIn, (req, res) => {
     const { ingredient } = req.body
 
@@ -33,6 +32,35 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
         .catch(err => console.log(err));
 });
 
+// router.get("/fridge/compare/recipe/:id", isLoggedIn, (req, res) => {
+//     const userId = req.session.currentUser._id;
+//     const recipeId =
+//         User.findById(userId)
+//             .populate('recipes')
+//             .then(userData => res.render("recipe-detail", { user: userData }));
+// });
+
+router.get('/fridge/compare/recipe/:id', (req, res) => {
+    Recipes.findById(req.params.id)
+        .then((recipe) => {
+            User.findById(req.session.currentUser._id)
+                .then(user => {
+                    //compare logic
+                    for (let index in recipe.ingredients) {
+                        if (!user.ingredients.includes(recipe.ingredients[index].name)) {
+                            recipe.ingredients[index].isMissing = true
+                        }
+                    }
+
+                    res.render('recipe-detail', { recipe: recipe, user: user });
+                })
+
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+});
 
 
 
@@ -91,6 +119,8 @@ router.route("/edit/:id")
         }
 
     });
+
+
 
 // remember RENDER = PAGE | REDIRECT = URL  -! (/) !-
 // Maybe think of them as pairs/brothers
