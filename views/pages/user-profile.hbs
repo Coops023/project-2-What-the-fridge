@@ -2,45 +2,40 @@
   <div class="my-nav-items">
     <div class="my-logo-container">
       <img class="my-logo"
-        src="/images/—Pngtree—vector fridge icon_4237845.png"
+        src="/images/Electronic_Devices__506_-removebg-preview.png"
         alt="">
-      <a class="my-logout-link"
+      <a class="my-logout-link my-a-white"
         href="/auth/logout">Logout</a>
     </div>
-
     <ul>
-      <li class="my-is-active"><a class="my-a-white"
-          href="/private/profile">Recipes</a></li>
-      <li><a href="/private/fridge">Fridge</a></li>
-      <li><a href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a id="my-a-white" class="my-a-white" href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
+      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
     </ul>
 
   </div>
 </div>
 
-{{!-- <div class="my-image-index">
-  <img src="/images/—Pngtree—vector fridge icon_4237845.png"
-    alt="">
-</div> --}}
-
 {{! SUB HEADING OF PAGE }}
-<div class="columns is-centered mt-2">
+
+<div class="my-profile-image-container">
+    <img src="/images/k020-removebg-preview.png" alt="">
+</div>
+
+
+{{!-- <div class="columns is-centered mt-2">
   <div class="column is-narrow is-size-3">
     <span class="icon">
       <i class="fas fa-utensils"></i>
     </span>
   </div>
-</div>
-
-{{!-- <span class="icon">
-  <i class="fas fa-utensils"></i>
-</span> --}}
+</div> --}}
 
 {{! DISPLAY ALL SAVED RECIPES }}
-<ul class="recipe-view">
+<ul id="my-recipe-view" class="recipe-view">
   <div class="columns is-multiline is-centered">
     {{#each user.recipes}}
-    <div class="column is-one-quarter mx-1">
+    <div id="card-container" class="column is-one-quarter mx-5">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
@@ -48,18 +43,14 @@
               alt="Placeholder image" />
           </figure>
         </div>
-        <div class="card-content">
-          <a class="button is-link"
-            href="/private/fridge/remove/recipe/{{this._id}}">
-            Remove
-          </a>
-          <a class="button is-link"
-            href="/private/fridge/compare/recipe/{{this._id}}">
-            compare
-          </a>
-          <span class="ml-2">
-            <span class="title is-4">{{this.title}}</span>
+        <div id="my-card-content" class="card-content">
+            <span class="my-title ml-2">
+            <span id="my-recipe-title" class="title is-3">{{this.title}}</span>
           </span>
+            <div class="my-buttons-other">
+          <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
+          <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>
+          </div>
         </div>
       </div>
     </div>

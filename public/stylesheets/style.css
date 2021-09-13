@@ -1,13 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Comfortaa:wght@300&display=swap');
+
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: rgb(119, 161, 224);
   min-height: 100vh;
   font-family: sans-serif;
 }
 
 .my-intro-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -16,13 +20,26 @@ body {
 }
 
 .my-is-active {
-  background-color: rgb(124, 158, 221);
   color: white;
   border-radius: 5px;
+  position: absolute;
+  right: 43%;
+  /* margin-right: 15em; */
+}
+
+.my-is-active a {
+  font-size: 3em;
 }
 
 .my-a-white {
   color: white;
+  font-size: 3em;
+}
+
+#my-a-white {
+  color: white;
+  font-size: 5em;
+  font-family: 'Caveat', cursive;
 }
 
 a {
@@ -37,6 +54,11 @@ a {
 .my-navbar ul {
   float: right;
   margin-right: 20px;
+}
+
+.my-navbar ul:nth-child(1) {
+  position: absolute;
+  right: 50%;
 }
 
 .my-navbar ul li {
@@ -59,7 +81,6 @@ a {
 
 .my-nav-items {
   margin: 0 2em;
-  border-bottom: 2px solid rgb(168, 191, 235);
   display: flex;
   justify-content: space-between;
 }
@@ -78,8 +99,6 @@ a {
   height: auto;
   padding: 10px 20px;
 }
-
-
 
 .my-image-index img {
   width: 300px;
@@ -116,11 +135,36 @@ a {
   border: none;
 }
 
+.my-buttons-other {
+  display: flex;
+  justify-content:center;
+  align-items:center
+}
+
+.my-buttons-other button{
+  height: 50px;
+  width: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(87, 183, 221);
+  border-radius: 7px;
+  border: none;
+  margin: .5em;
+}
+
 .my-buttons .my-btn {
   background-color: rgb(28, 209, 155);
 }
 
+.my-buttons-other .my-btn {
+  background-color: rgb(28, 209, 155);
+}
+
 .my-buttons a {
+  color:white;
+}
+
+.my-buttons-other a {
   color:white;
 }
 
@@ -148,7 +192,13 @@ div.bottom {
 
 .recipe-view {
   min-height: 100vh;
-  margin: 0 0 20px 0;
+  margin: 1em;
+  padding: 5em 0;
+  border: 5px solid white;
+  border-radius: 1em;
+  background-image: url('/images/vecteezy_nature-winter-floral-background1_DI0221.jpg');
+  size: cover;
+
 }
 
 .fridge-img {
@@ -158,18 +208,24 @@ div.bottom {
 /* position login form to center of screen */
 .form-center-screen {
   width: 40em;
-  background-color: white;
 }
 
 #my-form-center {
   /* border: 2px solid rgb(168, 191, 235); */
-  box-shadow: 1px 5px 10px rgb(168, 191, 235);
+  /* box-shadow: 1px 5px 10px rgb(170, 62, 173); */
   padding: 2em 3em;
   border-radius: .5em;
   font-size: 2em;
   margin: 0;
   width: 100%;
+  background-color: rgb(235, 240, 252);
+  overflow: hidden;
 }
+
+/* #my-input-color-username {
+  /* background-color: rgb(218, 228, 248);
+  border: none; 
+} */
 
 #my-login-button {
   margin-left: 6em;
@@ -269,3 +325,45 @@ div.bottom {
 
 
 
+.my-color-white {
+  color: white;
+}
+
+.my-profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-profile-image-container img{
+  height: 45em;
+  width: 50%;
+  margin-bottom: .3em;
+}
+
+#card-container {
+  
+border: 3px solid white;
+border-radius: .7em;
+margin: 1em 5em;
+padding: 0;
+overflow: hidden;
+}
+
+#my-card-content {
+  min-height: 8em;
+  padding: 0;
+  background-color: rgb(203, 217, 243);
+}
+
+#my-recipe-title {
+  font-size: 1.5em;
+  font-family: 'Caveat', cursive;
+  margin-bottom: .5em;
+}
+
+.my-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
