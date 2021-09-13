@@ -6,10 +6,10 @@ const recipeSchema = new Schema({
     apiDBId: String,
     image: String,
     title: String,
-    ingredients: [String],
+    ingredients: [{ name: String, isMissing: false }],
     instructions: [String]
-    
-	// favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
+
+    // favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
 });
 
 const User = model('Recipe', recipeSchema);

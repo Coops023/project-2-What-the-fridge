@@ -1,0 +1,34 @@
+<h1>recipe detail</h1>
+<div>
+    {{#each recipe}}
+
+    <img src="{{image}}"
+        alt="">
+
+    <h1>{{title}}</h1>
+
+    <ul>
+        {{#each this.ingredients}}
+        {{#if isMissing}}
+        <li style="color: red;">{{name}}</li>
+
+        {{else}}
+
+        <li style="color: green;">{{name}}</li>
+        {{/if}}
+        {{/each}}
+    </ul>
+
+    <p>{{this.instructions}}</p>
+
+
+    {{/each}}
+</div>
+<ul>
+
+    {{#each user.ingredients}}
+    <li>
+        {{this}}
+    </li>
+    {{/each}}
+</ul>
