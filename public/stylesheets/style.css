@@ -202,6 +202,16 @@ div.bottom {
   margin-top: 1em;
 }
 
+/* search page styling */
+
+#search-heading{
+  text-align: center;
+  margin-top: 1em;
+  font-size: 4em;
+  z-index: 1;
+  font-family: 'Bangers';
+}
+
 .search {
   width: 100%;
   position: relative;
@@ -241,14 +251,13 @@ div.bottom {
   background-image: url('/images/fridge.png');
   background-repeat: no-repeat;
   background-size: 30%;
+  z-index: 0;
   position: absolute;
   top: 20%;
   left: 35%;
   width: 100%;
   height: 100vh;
 }
-
-
 .wrap{
   height: 40%;
   width: 60%;
