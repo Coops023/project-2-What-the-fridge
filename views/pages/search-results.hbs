@@ -51,7 +51,10 @@
                 </div>
                 <div class="card-content has-background-black">
                     <form class="form-save" action="/search/fridge/recipe/save" method="POST">
+                    {{!-- returning full recipe data to access ingredients instead of just _id --}}
+                    <input type="hidden" name="id" value="{{this.missedIngredients}}">
                     <input type="hidden" name="id" value="{{this.id}}">
+                    <input type="hidden" name="id" value="{{this.missedIngredients}}">
                     <button class="button is-link" type="submit">
                         Save
                     </button>

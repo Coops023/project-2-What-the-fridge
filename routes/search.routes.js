@@ -1,5 +1,6 @@
 const axios = require('axios');
 const express = require('express');
+const Ingredient = require('../models/Ingredient.model');
 const router = express.Router();
 const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
@@ -41,24 +42,29 @@ router.post('/ingredients', (req,res) => {
 
 router.post('/fridge/recipe/save', (req,res) => {
     const newRecipe = {title: '', image: '', ingredients: [], instructions: []};
+
+    console.log('line 56', req.body[0].id, req.body[0].missedIngredients)
+
     axios({
         method: 'get',
         url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
     })
     .then(response => {
-        const allIngredients = response.data.extendedIngredients.map((ingredient)=>ingredient.name)
-        newRecipe.title = response.data.title;
-        newRecipe.image = response.data.image;
-        newRecipe.ingredients = allIngredients; 
-   
+       
+            const newRepIngriList = response.data.extendedIngredients.map(ingredient => {
+                return { api_id: ingredient.id, name: ingredient.name, image: ingredient.image }
+            })
+            newRecipe.title = response.data.title;
+            newRecipe.image = response.data.image;
+            newRecipe.ingredients = newRepIngriList;
         axios({
             method: 'get',
-            url: `https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
+            url: `https://api.spoonacular.com/recipes/${req.body.this.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
         })
         .then(response => {
             // data is returned as an array of 1
             newRecipe.instructions = response.data[0].steps.map((nextStep) => nextStep.step);
-            Recipe.create({apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions})
+            Recipe.create({apidDBId: req.body.this.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions})
             .then(recipe => {
                 User.findByIdAndUpdate(req.session.currentUser._id, {$addToSet: { recipes: recipe._id }})
                 .then(() => console.log('new recipe added: ', recipe))
