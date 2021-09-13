@@ -1,79 +1,44 @@
-<nav class="navbar has-background-black py-3"
-  role="navigation"
-  aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item"
-      href="https://pngtree.com/so/Vector">
-      <img src="/images/Pngtrevectorfridgeicon_4051836.png"
-        width="30"
-        height="30">
-    </a>
-
-    <a role="button"
-      class="navbar-burger"
-      aria-label="menu"
-      aria-expanded="false"
-      data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample"
-    class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item has-text-white"
-        href="/private/profile">
-        Profile
-      </a>
-
-      <a class="navbar-item has-text-white"
-        href="/private/fridge">
-        Fridge
-      </a>
-      <a class="navbar-item is-tab is-active has-text-white"
-        href="/private/fridge">
-        Search
-      </a>
+<div class="my-navbar">
+  <div class="my-nav-items">
+    <div class="my-logo-container">
+      <img class="my-logo"
+        src="/images/—Pngtree—vector fridge icon_4237845.png"
+        alt="">
+      <a class="my-logout-link"
+        href="/auth/logout">Logout</a>
     </div>
 
-    <div class="navbar-end">
-      <a class="navbar-item has-text-white"
-        href="/auth/logout">
-        Logout
-      </a>
-      <div class="navbar-item">
-        <button class="button is-primary">
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
-          </span>
-          <span>User {{user.username}}</span>
-        </button>
-      </div>
-    </div>
+    <ul>
+      <li><a href="/private/profile">Recipes</a></li>
+      <li><a href="/private/fridge">Fridge</a></li>
+      <li class="my-is-active"><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
+    </ul>
   </div>
-</nav>
+</div>
 
 {{!-- SEARCH FORM --}}
 
 
-<div class="field">
+<div id="search-bar-container"
+  class="wrap">
 
   <form action="/search/ingredients"
     method="POST">
-    <label class="label"
-      for="ingredients">Ingredients</label>
-    <div class="control">
-      <input class="input is-primary"
-        type="text"
-        name="ingredients">
+
+    <label class="ingredient-search-label"
+      for="ingredients">What the Fridge!</label>
+    <div class="search">
+      <input type="text"
+        class="searchTerm"
+        name="ingredients"
+        placeholder="What are you looking for?">
+      <button type="submit"
+        class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
 
-    <div class="control">
-      <button class="button is-primary"
-        type="submit">Search</button>
-    </div>
   </form>
 </div>
 

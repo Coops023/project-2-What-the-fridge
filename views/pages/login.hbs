@@ -1,66 +1,30 @@
-<nav class="navbar has-background-black py-4"
-    role="navigation"
-    aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item"
-            href="https://pngtree.com/so/Vector">
-            <img  src="/images/Pngtrevectorfridgeicon_4051836.png">
-        </a>
-        <a role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            {{!-- aria-expanded="false" --}}
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
+
+<div class="my-navbar">
+    <div class="my-nav-items">
+    <img class="my-logo" src="/images/—Pngtree—vector fridge icon_4237845.png" alt="">
+    <ul>
+
+   <li><a href="/auth/signup">Sign-up</a></li>
+    </ul>
     </div>
+</div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-end">
-      <div class="navbar-item">
-         <button class="button is-primary">
-    <span><a href="/auth/signup"> Sign-up</a></span>
-  </button>
-      </div>
-    </div>
-  </div>
-</nav>
+{{!-- LOGIN CONTAINER--}}
+<div class="my-login-container">
 
+{{!-- FRIDGE IMAGE --}}
+<div class="my-fridge-container">
+    <img class="my-fridge-login-img" src="/images/—Pngtree—refrigerator_574843.png" alt="">
+</div>
 
-{{!-- <form action="/auth/login"method="POST">
-    <div class="field">
-        <div class="control has-icons has-icons-right">
-             <input class="input" type="text" name="username"minlength="3"maxlength="10" placeholder="Username" required>
-             <span class="icon is-small is-left">
-             <i class="fas fa-user"></i>
-            </span>
-         <div>
-    <div>
-    <div class="field">
-     <div class="control has-icons-left"> 
-        <input class="input" type="password"
-        name="password"
-        id="password"
-        placeholder="Password"
-        required>
-        <span class="icon is-small is-left">
-         <i class="fas fa-lock"></i>
-        </span>
-    </div>  
-   </div>
-    <button class="button is-success" type="submit">Submit</button>
-</form> --}}
-
-
+{{!-- LOGIN FORM --}}
 <div class="form-center-screen">
-<div id="my-form-center" class="column  is-one-third is-offset-one-third">
+<div id="my-form-center" class="column is-one-third is-offset-one-third">
 <form action="/auth/login" method="POST">
 <div class="field">
-     <label id="my-lable-username" class="lable is-large has-text-white">Username</label>
+     <label class="lable is-large has-text-black">Username</label>
   <p class="control has-icons-left has-icons-right">
-    <input class="input is-large" type="text" placeholder="Username" name="username">
+    <input class="input is-large is-success" type="text" placeholder="Username" name="username">
     <span class="icon is-small is-left">
       <i class="fas fa-user"></i>
     </span>
@@ -70,9 +34,9 @@
   </p>
 </div>
 <div class="field">
-     <label id="my-lable-password" class="lable is-large has-text-white">Password</label>
+     <label class="lable is-large has-text-black">Password</label>
   <p class="control has-icons-left">
-    <input class="input is-large" type="password" placeholder="Password" name="password">
+    <input class="input is-large is-success" type="password" placeholder="Password" name="password">
     <span class="icon is-small is-left">
       <i class="fas fa-lock"></i>
     </span>
@@ -80,7 +44,7 @@
 </div>
 <div class="field is-centered">
   <p class="control is-centered">
-    <button class="button is-primary is-large" type="submit">
+    <button id="my-login-button" class="button is-primary is-large" type="submit">
       Login
     </button>
   </p>
@@ -88,6 +52,7 @@
 </form>
 </div>
 <div>
+</div>
 
 
 

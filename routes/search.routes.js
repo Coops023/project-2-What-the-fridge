@@ -1,5 +1,6 @@
 const axios = require('axios');
 const express = require('express');
+const Ingredient = require('../models/Ingredient.model');
 const router = express.Router();
 const Recipe = require('../models/Recipe.model');
 const User = require('../models/User.model');
@@ -21,7 +22,7 @@ router.get('/ingredients', (req, res) => {
 
 router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
-    concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr });
+    concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr });//.join(",+")
     axios({
         method: 'get',
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.API_KEY}&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`
@@ -45,12 +46,12 @@ router.post('/fridge/recipe/save', (req, res) => {
         method: 'get',
         url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
     })
-        .then(response => {
+        .then(response1 => {
 
-            const allIngredients = response.data.extendedIngredients.map(ingredient => { return { name: ingredient.name, isMissing: false } })
+            const allIngredients = response1.data.extendedIngredients.map(ingredient => ({ name: ingredient.name, isMissing: false }))
 
-            newRecipe.title = response.data.title;
-            newRecipe.image = response.data.image;
+            newRecipe.title = response1.data.title;
+            newRecipe.image = response1.data.image;
             newRecipe.ingredients = allIngredients;
             newRecipe.missingIngredients = 0;
 
@@ -58,9 +59,9 @@ router.post('/fridge/recipe/save', (req, res) => {
                 method: 'get',
                 url: `https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
             })
-                .then(response => {
+                .then(response2 => {
                     // data is returned as an array of 1
-                    newRecipe.instructions = response.data[0].steps.map((nextStep) => nextStep.step);
+                    newRecipe.instructions = response2.data[0].steps.map((nextStep) => nextStep.step);
                     Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
                         .then(recipe => {
                             User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
@@ -75,3 +76,27 @@ router.post('/fridge/recipe/save', (req, res) => {
 });
 
 module.exports = router;
+
+
+/**
+ *  router.get("/someroute", (req, res)=>{
+ * Receipe.create({...})
+ * .then(newReceipe=>{
+ *  spoonacularApi.get("...")
+ * .then(spoonResponse=> {
+ * newReceipe.title = spoonResponse.data.title
+ * newReceipe.save().then(res.send("done"))
+ * })
+ *
+ *
+ * router("/someAsyncRoute", async (req, res)=>{
+ *
+ *  const spoonReceipe = await spoonacularApi.get("...")
+ *  const {spoonIngredients} = spoonReceipe
+ *  const arrayOfMgsIngredients = await spoonIngredients.map(async (ingredient)=> await Ingredient.create())
+ *
+ *  const newReceipe = await Receipe.create({ingredients: arrayOfMgsIngredients})
+ *  return res.render("receipe-template", {receipe: newReceipe})
+ * })
+ *
+ */

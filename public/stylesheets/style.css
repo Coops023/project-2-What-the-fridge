@@ -6,6 +6,15 @@ body {
   font-family: sans-serif;
 }
 
+.my-intro-container {
+  border: 1px solid black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .my-is-active {
   background-color: rgb(124, 158, 221);
   color: white;
@@ -32,10 +41,10 @@ a {
 
 .my-navbar ul li {
   list-style: none;
-  margin: 2px 12px;
-  padding: 0 18px;
+  margin: 10px 12px;
+  padding: 0px 12px;
   display: inline-block;
-  line-height: 80px;
+  line-height: 60px;
 }
 
 .my-navbar ul li a {
@@ -50,10 +59,9 @@ a {
 
 .my-nav-items {
   margin: 0 2em;
-  border-bottom: 1px solid rgb(168, 191, 235);
+  border-bottom: 2px solid rgb(168, 191, 235);
   display: flex;
   justify-content: space-between;
-  box-shadow: 0px 3px 0px 1px rgba(0, 0, 255, .2);
 }
 
 .my-logo-container{
@@ -62,14 +70,8 @@ a {
 }
 
 .my-logout-link{
-  
   font-size: 1.2em;
-  
-  
 }
-
-
-
 
 .my-logo {
   width: 100px;
@@ -77,21 +79,7 @@ a {
   padding: 10px 20px;
 }
 
-.my-center {
-  position: absolute;
-  top: 60%;
-  left: 55%;
-  transform: translate(-60%, -60%);
-  font-family: sans-serif;
-  user-select: none;
-}
 
-.my-image-index {
-  position: absolute;
-  top: 30%;
-  left: 51%;
-  transform: translate(-60%, -60%);
-}
 
 .my-image-index img {
   width: 300px;
@@ -169,14 +157,96 @@ div.bottom {
 
 /* position login form to center of screen */
 .form-center-screen {
-  /* border: 1px solid black; */
-  margin-top: 12em;
+  width: 40em;
+  background-color: white;
 }
 
 #my-form-center {
-  /* border: 1px solid black; */
+  /* border: 2px solid rgb(168, 191, 235); */
+  box-shadow: 1px 5px 10px rgb(168, 191, 235);
   padding: 2em 3em;
   border-radius: .5em;
-  background-color: black;
   font-size: 2em;
+  margin: 0;
+  width: 100%;
 }
+
+#my-login-button {
+  margin-left: 6em;
+  margin-top: 1em;
+}
+
+.my-login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+.my-fridge-login-img {
+  width: 35em;
+  height: auto;
+}
+
+.my-signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+
+}
+
+#my-signup-button {
+  margin-left: 6em;
+  margin-top: 1em;
+}
+
+#search-bar-container{
+  margin-top: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 50px;
+  height: 40px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

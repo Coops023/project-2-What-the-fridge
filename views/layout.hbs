@@ -6,15 +6,22 @@
   <link rel="shortcut icon"
     type="image/png"
     href="/images/Pngtrevectorfridgeicon_4051836.png" />
-  <link rel='stylesheet'
+  <link defer
+    rel='stylesheet'
     href='/stylesheets/style.css' />
-  <link rel="stylesheet"
+  <link defer
+    rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <script defer
     src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
 <body>
+  {{!-- {{#if loggedIn}}
+  {{>navBar}}
+  {{else}}
+  {{navBar-guest}}
+  {{/if}} --}}
 
   {{{body}}}
 </body>
