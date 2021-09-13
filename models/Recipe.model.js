@@ -7,7 +7,8 @@ const recipeSchema = new Schema({
     image: String,
     title: String,
     ingredients: [{ name: String, isMissing: false }],
-    instructions: [String]
+    instructions: [String],
+    missingIngredients: Number
 
     // favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
 });
