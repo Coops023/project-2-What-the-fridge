@@ -23,7 +23,7 @@ router.get("/profile", isLoggedIn, (req, res) => {
 
 router.post('/fridge/add', isLoggedIn, (req, res) => {
     const { ingredient } = req.body
-
+    console.log(req.body.ingredient)
     User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredient } })
         .then(user => {
             res.redirect(`/private/fridge`)
@@ -32,13 +32,20 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
         .catch(err => console.log(err));
 });
 
-// router.get("/fridge/compare/recipe/:id", isLoggedIn, (req, res) => {
-//     const userId = req.session.currentUser._id;
-//     const recipeId =
-//         User.findById(userId)
-//             .populate('recipes')
-//             .then(userData => res.render("recipe-detail", { user: userData }));
-// });
+router.post('/fridge/remove', isLoggedIn, (req, res) => {
+    const { ingredient } = req.body
+    // joinIngredients = ingredient.split("")
+    console.log("line 37 ingredient", ingredient)
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { ingredients: ingredient } })
+        .then(user => {
+            console.log("ingedient", ingredient)
+            res.redirect(`/private/fridge`)
+        })
+
+        .catch(err => console.log(err));
+});
+
+
 
 
 router.get('/fridge/compare/recipe/:id', (req, res) => {

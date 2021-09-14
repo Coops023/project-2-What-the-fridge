@@ -10,7 +10,8 @@
 
     <ul>
       <li><a href="/private/profile">Recipes</a></li>
-      <li class="my-is-active"><a class="my-a-white" href="/private/fridge">Fridge</a></li>
+      <li class="my-is-active"><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
       <li><a href="/search/ingredients">Search</a></li>
     </ul>
 
@@ -19,21 +20,24 @@
 
 <br>
 <form action="/private/fridge/add"
-    method="POST">
-    <label for="ingredient">Ingredients</label>
-    <input type="text"
-        name="ingredient">
-    <button type="submit">Search</button>
+  method="POST">
+  <label for="ingredient">Ingredients</label>
+  <input type="text"
+    name="ingredient">
+  <button type="submit">Search</button>
 </form>
 
 <div class="fridge">
-    <ul>
-        <form action="/private/fridge/remove">
-            {{#each ingredients}}
-            <li>
-                {{this}} <button type="submit">remove</button>
-            </li>
-            {{/each}}
-        </form>
-    </ul>
+  <ul>
+    <form action="/private/fridge/remove"
+      method="POST">
+      {{#each ingredients}}
+      <input type="checkbox"
+        value="{{this}}"
+        name="ingredient">
+      <label for="ingredient">{{this}}</label>
+      {{/each}}
+      <button type="submit">remove</button>
+    </form>
+  </ul>
 </div>
