@@ -44,35 +44,42 @@
         <i class="fa fa-search"></i>
       </button>
     </div>
-    <div class="ingredient-container-wrap">
-      <div class="ingredient-container">
-        {{#each user.ingredients}}
-        <input type="checkbox"
-          id="contactChoice3"
-          name="ingredients"
-          value="{{this}}">
-        <label for="contactChoice3">{{this}}</label>
-        {{/each }}
+    {{!-- checkbox area --}}
 
+    <div class="ingredient-container-wrap">
+      {{!-- <div class="ingredient-container"> --}}
+        <div class="container">
+          <ul class="ks-cboxtags">
+            {{#each user.ingredients}}
+            <li> <input type="checkbox"
+                id="01"
+                name="ingredients"
+                value="{{this}}">
+              <label for="01">{{this}}</label>
+            </li>
+            {{/each }}
+          </ul>
+        </div>
       </div>
-    </div>
   </form>
 </div>
 
 
-{{!-- <form action="/search/ingredients"
-  method="POST">
-  <label class="label"
-    for="ingredients">Ingredients</label>
-  <div class="control">
-    <input class="input is-primary"
-      type="text"
-      name="ingredients">
-  </div>
 
-  <div class="control">
-    <button class="button is-primary"
-      type="submit">Search</button>
+
+<div id="footer-search-page"
+  class="bottom">
+  <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong>
+      by
+      <strong class="has-text-white">Alex Vasconcelos de Almeids</strong>
+      and
+      <strong class="has-text-white">Cooper Bjorkelund
+      </strong>
+      <br />
+      With credit to
+      <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
   </div>
-</form>
-</div> --}}
+</div>
