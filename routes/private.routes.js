@@ -33,15 +33,13 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
 });
 
 router.post('/fridge/remove', isLoggedIn, (req, res) => {
-    const { ingredient } = req.body
-    // joinIngredients = ingredient.split("")
-    console.log("line 37 ingredient", ingredient)
-    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { ingredients: ingredient } })
-        .then(user => {
-            console.log("ingedient", ingredient)
+    let { ingredient } = req.body
+    if (typeof ingredient === "undefined") ingredient = []
+    if (typeof ingredient === "string") ingredient = [ingredient]
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pullAll: { ingredients: ingredient } })
+        .then(() => {
             res.redirect(`/private/fridge`)
         })
-
         .catch(err => console.log(err));
 });
 
