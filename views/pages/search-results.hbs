@@ -9,8 +9,8 @@
     </div>
 
     <ul>
-      <li class="my-is-active"><a class="my-a-white"
-          href="/private/profile">Recipes</a></li>
+       <li id="my-a-white" class="my-is-active my-a-white">Results</li>
+      <li ><a href="/private/profile">Recipes</a></li>
       <li><a href="/private/fridge">Fridge</a></li>
       <li><a href="/search/ingredients">Search</a></li>
     </ul>
@@ -18,10 +18,8 @@
   </div>
 </div>
 
-
-<h1 class="is-family-primary has-text-centered is-size-1">Found recipes!</h1>
 <br>
-<ul>
+{{!-- <ul>
     <div class="columns is-multiline is-centered ">
         {{#each recipes}}
         <div class="column is-one-quarter mx-1">
@@ -33,7 +31,7 @@
                     </figure>
                 </div>
                 <div class="card-content has-background-black">
-                    {{!-- remove ingredient / later --}}
+                    {{!-- remove ingredient / later 
                     <form class="form-save" action="/search/fridge/recipe/save" method="POST">
                     <input type="hidden" name="id" value="{{this.id}}">
                     <button class="button is-link" type="submit">
@@ -48,5 +46,51 @@
         </div>
         {{/each}}
     </div>
+</ul> --}}
+
+<ul id="my-recipe-view" class="recipe-view">
+  <div class="columns is-multiline is-centered">
+    {{#each recipes}}
+    <div id="card-container" class="column is-one-quarter mx-5">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{this.image}}"
+              alt="Placeholder image" />
+          </figure>
+        </div>
+        <div id="my-card-content" class="card-content">
+            <div class="content">
+            <div class="my-title">
+            <p id="my-recipe-title" class="title">{{this.title}}</p>
+          </div>
+          </div>
+        </div>
+            <footer id="my-results-footer" class="card-footer">
+                <div id="my-result-save-button" class="card-footer-item">
+                <form class="form-save" action="/search/fridge/recipe/save" method="POST">
+                    <input type="hidden" name="id" value="{{this.id}}">
+                    <button id="my-save-button" type="submit">
+                        Save
+                    </button>
+                    </form>
+                    </div>
+                {{!-- <a href="/private/fridge/remove/recipe/{{this._id}}" class="card-footer-item">save</a> --}}
+             </footer>
+            {{!-- <div class="my-buttons-other">
+          <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
+          <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>
+          </div>
+          <div id="my-missing-ingredients" class="tags has-addons">
+            <span class="tag is-warning">Missing</span>
+             <span class="tag is-danger">{{this.missingIngredients}}</span>
+        </div>  --}}
+          {{!-- <div >
+          <p><strong>Missing</strong> <span style="color: red">{{this.missingIngredients}}</span></p>
+          </div> --}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </ul>
 

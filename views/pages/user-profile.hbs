@@ -51,9 +51,9 @@
           </div>
         </div>
             <footer id="my-footer" class="card-footer">
-                <a href="/private/fridge/remove/recipe/{{this._id}}" class="card-footer-item">Remove</a>
-                 <a href="/private/fridge/compare/recipe/{{this._id}}" class="card-footer-item">Compare</a>
-                 <a href="#" class="card-footer-item">M:{{this.missingIngredients}}</a>
+                <a  id="my-remove-btn" href="/private/fridge/remove/recipe/{{this._id}}" class="card-footer-item">Remove</a>
+                 <a  id="my-compare-btn"  href="/private/fridge/compare/recipe/{{this._id}}" class="card-footer-item">Compare</a>
+                 <a  id="my-missing-btn" href="#" class="card-footer-item">M:{{this.missingIngredients}}</a>
              </footer>
             {{!-- <div class="my-buttons-other">
           <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>

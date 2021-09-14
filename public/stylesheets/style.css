@@ -169,10 +169,6 @@ a {
   color:white;
 }
 
-.form-save {
-  display: inline-flex;
-}
-
 .fridge {
   /* border: 1px solid black; */
   height: 400px;
@@ -194,12 +190,12 @@ div.bottom {
 .recipe-view {
   min-height: 100vh;
   padding: 5em 0;
-  border: 5px solid white;
+   border: 5px solid white;
   border-radius: 1em; 
   background-image: url('/images/vecteezy_nature-winter-floral-background1_DI0221.jpg');
-  size: cover;
+  size: cover; 
   margin: 1em;
-  /* background-color: rgb(54, 64, 119); */
+  /* background-color: rgb(92, 106, 187); */
 
 }
 
@@ -391,10 +387,80 @@ display: block;
   /* margin-bottom: 0; */
   border: 1px solid rgb(201, 27, 27);
 }
-/* 
-#my-footer {
-  padding: .2em;
+
+/* #my-footer {
+  border: 1px solid red;
+} 
+
+#my-footer a {
+  border: 1px solid blue;
 } */
 
+#my-missing-btn{
+  /* background-color: rgb(76, 118, 207); */
+  color: rgb(201, 59, 40);
+  font-family: 'Bangers';
+  font-size: 1.5em;
+  padding: 0;
+} 
 
+
+#my-compare-btn{
+  /* background-color: rgb(91, 216, 189); */
+  color: rgb(64, 95, 194);
+  font-family: 'Bangers';
+  font-size: 1.5em;
+  padding: 0;
+} 
+
+#my-remove-btn{
+  /* background-color: rgb(240, 205, 90); */
+  color: rgb(79, 103, 182);
+  font-family: 'Bangers';
+  font-size: 1.5em;
+} 
+
+#my-footer a:hover {
+  background-color: rgb(79, 115, 214);
+  color: white;
+}
+
+#my-footer #my-missing-btn:hover {
+  background-color: white;
+  color: rgb(201, 59, 40);
+}
+
+#my-results-footer {
+  padding:0;
+  margin: 0;
+}
+
+.form-save {
+  /* display: inline-flex; */
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#my-result-save-button {
+  padding: 0;
+  margin: 0;
+}
+
+#my-save-button {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(43, 94, 170);
+  color: white;
+  padding: .4em 0;
+  font-family: 'Bangers';
+  font-size: 1.5em;
+  border: none;
+}
+
+#my-save-button:hover{
+  background-color: rgb(133, 169, 209);
+}
 
