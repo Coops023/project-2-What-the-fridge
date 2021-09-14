@@ -9,7 +9,8 @@
     </div>
 
     <ul>
-    <li id="my-a-white" class="my-is-active my-a-white">Search</li>
+      <li id="my-a-white"
+        class="my-is-active my-a-white">Search</li>
       <li><a href="/private/profile">Recipes</a></li>
       <li><a href="/private/fridge">Fridge</a></li>
     </ul>
@@ -19,11 +20,15 @@
 {{!-- SEARCH FORM --}}
 
 
-<h2 id="search-heading">What The Fridge!</h2>
-<div id="background-img">
+
+
 </div>
 <div id="search-bar-container"
   class="wrap">
+  <h2 id="search-heading">What The Fridge!</h2>
+  <img id="fridge-backdrop"
+    src="/images/fridge.png"
+    alt="">
 
   <form action="/search/ingredients"
     method="POST">
