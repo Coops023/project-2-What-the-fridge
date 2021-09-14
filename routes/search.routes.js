@@ -22,7 +22,16 @@ router.get('/ingredients', (req, res) => {
 
 router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
-    concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr });//.join(",+")
+    console.log("line 25", ingredients)
+
+    if (ingredients.includes('') && Array.isArray(ingredients)) {
+
+        concatIngredients = ingredients.reduce((prev, curr) => { return prev + ',+' + curr })
+    } else if (typeof ingredients === "string") {
+
+        concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr })//.join(",+")
+    }
+
     axios({
         method: 'get',
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.API_KEY}&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`

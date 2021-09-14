@@ -17,7 +17,7 @@ router.post('/signup', (req, res, next) => {
             errorMessage: 'Username and password are requiered'
         });
     }
-    
+
     User.findOne({ username })
         .then((user) => {
             if (user) {
@@ -28,7 +28,7 @@ router.post('/signup', (req, res, next) => {
             const hashPassword = bcrypt.hashSync(password, salt);
 
             User.create({ username, password: hashPassword, email })
-                .then((user) => res.render('user-profile', { user }))
+                .then((user) => res.render('login', { user }))
                 .catch((error) => res.render('signup', { errorMessage: error }));
         })
         .catch((error) => next(error));

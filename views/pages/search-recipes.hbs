@@ -39,7 +39,18 @@
         <i class="fa fa-search"></i>
       </button>
     </div>
+    <div class="ingredient-container-wrap">
+      <div class="ingredient-container">
+        {{#each user.ingredients}}
+        <input type="checkbox"
+          id="contactChoice3"
+          name="ingredients"
+          value="{{this}}">
+        <label for="contactChoice3">{{this}}</label>
+        {{/each }}
 
+      </div>
+    </div>
   </form>
 </div>
 

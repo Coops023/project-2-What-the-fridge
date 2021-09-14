@@ -5,14 +5,11 @@ const User = require('../models/User.model');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
 
-function isLoggedIn(req, res, next) {
-    if (req.session.currentUser) next() // next invocation tells Express that the middleware has done all it work
-    else res.redirect("/auth/login");
-};
 
 
 
-router.get("/profile", isLoggedIn, (req, res) => {
+
+router.get("/profile", (req, res) => {
     const userId = req.session.currentUser._id;
     User.findById(userId)
         .populate({
@@ -38,23 +35,29 @@ router.get("/profile", isLoggedIn, (req, res) => {
 
 
 
-router.post('/fridge/add', isLoggedIn, (req, res) => {
+router.post('/fridge/add', (req, res) => {
     const { ingredient } = req.body
-
+    console.log(req.body.ingredient)
     User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredient } })
         .then(user => {
+
             res.redirect(`/private/fridge`)
         })
         .catch(err => console.log(err));
 });
 
-// router.get("/fridge/compare/recipe/:id", isLoggedIn, (req, res) => {
-//     const userId = req.session.currentUser._id;
-//     const recipeId =
-//         User.findById(userId)
-//             .populate('recipes')
-//             .then(userData => res.render("recipe-detail", { user: userData }));
-// });
+router.post('/fridge/remove', (req, res) => {
+    let { ingredient } = req.body
+    if (typeof ingredient === "undefined") ingredient = []
+    if (typeof ingredient === "string") ingredient = [ingredient]
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pullAll: { ingredients: ingredient } })
+        .then(() => {
+            res.redirect(`/private/fridge`)
+        })
+        .catch(err => console.log(err));
+});
+
+
 
 
 router.get('/fridge/compare/recipe/:id', (req, res) => {
@@ -83,7 +86,7 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
 
 
 
-router.get('/fridge', isLoggedIn, (req, res) => {
+router.get('/fridge', (req, res) => {
     User.findById(req.session.currentUser._id)
         .then(userData => {
             res.render('fridge', { ingredients: userData.ingredients });

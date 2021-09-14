@@ -368,8 +368,21 @@ overflow: hidden;
   transform: translate(-50%, -50%);
 }
 
-#my-missing-ingredients {
-  display:flex;
+.ingredient-container-wrap{
+width: 100%;
+height: 50px;
+background-color: red;
+display: block;
+}
+
+
+
+.my-color-white {
+  color: white;
+}
+
+.my-profile-image-container {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
