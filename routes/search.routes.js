@@ -28,6 +28,7 @@ router.post('/ingredients', (req, res) => {
         url: `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${process.env.API_KEY}&ingredients=${concatIngredients}&ranking=2&ignorePantry=true`
     })
         .then(response => {
+            console.log('line 32', req.session.currentUser)
             User.findById(req.session.currentUser._id)
                 .populate('recipes')
                 .then(user => {
@@ -40,42 +41,76 @@ router.post('/ingredients', (req, res) => {
 
 // -- SAVE NEW RECIPE TO USER ROUTES --
 
-router.post('/fridge/recipe/save', (req, res) => {
+// router.post('/fridge/recipe/save', (req, res) => {
+//     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
+//     axios({
+//         method: 'get',
+//         url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
+//     })
+//         .then(response1 => {
+
+//             const allIngredients = response1.data.extendedIngredients.map(ingredient => ({ name: ingredient.name, isMissing: false }))
+
+//             newRecipe.title = response1.data.title;
+//             newRecipe.image = response1.data.image;
+//             newRecipe.ingredients = allIngredients;
+//             newRecipe.missingIngredients = 0;
+
+//             axios({
+//                 method: 'get',
+//                 url: `https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
+//             })
+//                 .then(response2 => {
+//                     // data is returned as an array of 1
+//                     newRecipe.instructions = response2.data[0].steps.map((nextStep) => nextStep.step);
+//                     Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
+//                         .then(recipe => {
+//                             User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
+//                                 .then(() => console.log('new recipe added: ', recipe))
+//                                 .catch(err => console.log(err));
+//                         })
+//                         .catch(err => console.log(err));
+//                 })
+//                 .catch((err) => console.log(err));
+//         })
+//         .catch(err => console.log(err));
+// });
+
+router.post('/fridge/recipe/save', async(req, res) => {
     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
-    axios({
-        method: 'get',
-        url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
-    })
-        .then(response1 => {
 
-            const allIngredients = response1.data.extendedIngredients.map(ingredient => ({ name: ingredient.name, isMissing: false }))
-
-            newRecipe.title = response1.data.title;
-            newRecipe.image = response1.data.image;
-            newRecipe.ingredients = allIngredients;
-            newRecipe.missingIngredients = 0;
-
-            axios({
-                method: 'get',
-                url: `https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
-            })
-                .then(response2 => {
-                    // data is returned as an array of 1
-                    newRecipe.instructions = response2.data[0].steps.map((nextStep) => nextStep.step);
-                    Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
-                        .then(recipe => {
-                            User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
-                                .then(() => console.log('new recipe added: ', recipe))
-                                .catch(err => console.log(err));
-                        })
-                        .catch(err => console.log(err));
-                })
-                .catch((err) => console.log(err));
+    const recipeInfoResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`);
+    const { extendedIngredients } = recipeInfoResponse.data;
+    
+    const arrayOfMgsIngredients = await extendedIngredients.map(async (ingredient)=> {
+        const user = await User.findById(req.session.currentUser._id)
+        const userHas = user.ingredients.includes(ingredient.name)
+        await Ingredient.create({name: ingredient.name, image: ingredient.image, userMissing: userHas})
+        .then(ingredient => {
+            newRecipe.ingredients.push(ingredient._id);
         })
+        .catch(err => console.log(err)) 
+    })
+
+    const recipeInstructionsResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`)
+    const { steps } = recipeInstructionsResponse.data[0] 
+    
+    newRecipe.instructions = steps.map((nextStep) => nextStep.step)
+    newRecipe.title = recipeInfoResponse.data.title;
+    newRecipe.image = recipeInfoResponse.data.image;
+
+    Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
+    .then(recipe => {
+        User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
+        .then(() => console.log('new recipe added: ', recipe))
         .catch(err => console.log(err));
+    })
+
 });
 
+
 module.exports = router;
+
 
 
 /**

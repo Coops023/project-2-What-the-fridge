@@ -15,8 +15,25 @@ function isLoggedIn(req, res, next) {
 router.get("/profile", isLoggedIn, (req, res) => {
     const userId = req.session.currentUser._id;
     User.findById(userId)
-        .populate('recipes')
-        .then(user => res.render("user-profile", { user }));
+        .populate({
+             path: 'recipes',
+            populate: {
+            path: 'ingredients',
+            model: 'Ingredient'
+             }
+         })
+        .then(user => {
+            userRecipes = user.recipes
+            for (let indexRecipe in userRecipes) {
+                for(let indexIngredient in userRecipes[indexRecipe].ingredients)
+                if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
+                    userRecipes[indexRecipe].ingredients[indexIngredient].isMissing = true
+                    userRecipes[indexRecipe].missingIngredients += 1
+                }
+            }
+            console.log('line 29', userRecipes);
+            res.render("user-profile", { user })
+        });
 });
 
 
@@ -28,7 +45,6 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
         .then(user => {
             res.redirect(`/private/fridge`)
         })
-
         .catch(err => console.log(err));
 });
 
@@ -44,6 +60,7 @@ router.post('/fridge/add', isLoggedIn, (req, res) => {
 router.get('/fridge/compare/recipe/:id', (req, res) => {
     console.log("THIS IS THE ID", req.params.id)
     Recipes.findById(req.params.id)
+        .populate('ingredients')
         .then((recipe) => {
             User.findById(req.session.currentUser._id)
                 .then(user => {
@@ -55,11 +72,6 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
 
                         }
                     }
-
-
-
-                    console.log("here is the recipe:", recipe)
-
                     res.render('recipe-detail', { recipe: recipe, user: user })
                 })
         })

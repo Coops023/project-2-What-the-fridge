@@ -6,13 +6,15 @@ const recipeSchema = new Schema({
     apiDBId: String,
     image: String,
     title: String,
-    ingredients: [{ name: String, isMissing: false }],
+    ingredients: [{
+        type: Schema.Types.ObjectId, ref: 'Ingredient', default: []
+    }],
     instructions: [String],
     missingIngredients: Number
 
     // favorites: [{ type: Schema.Types.ObjectId, ref: 'Room', default: [] }]
 });
 
-const User = model('Recipe', recipeSchema);
+const Recipe = model('Recipe', recipeSchema);
 
-module.exports = User;
+module.exports = Recipe;

@@ -44,16 +44,30 @@
           </figure>
         </div>
         <div id="my-card-content" class="card-content">
-            <span class="my-title ml-2">
-            <span id="my-recipe-title" class="title is-3">{{this.title}}</span>
-          </span>
-            <div class="my-buttons-other">
+            <div class="content">
+            <div class="my-title">
+            <p id="my-recipe-title" class="title">{{this.title}}</p>
+          </div>
+          </div>
+        </div>
+            <footer id="my-footer" class="card-footer">
+                <a href="/private/fridge/remove/recipe/{{this._id}}" class="card-footer-item">Remove</a>
+                 <a href="/private/fridge/compare/recipe/{{this._id}}" class="card-footer-item">Compare</a>
+                 <a href="#" class="card-footer-item">M:{{this.missingIngredients}}</a>
+             </footer>
+            {{!-- <div class="my-buttons-other">
           <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
           <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>
           </div>
+          <div id="my-missing-ingredients" class="tags has-addons">
+            <span class="tag is-warning">Missing</span>
+             <span class="tag is-danger">{{this.missingIngredients}}</span>
+        </div>  --}}
+          {{!-- <div >
+          <p><strong>Missing</strong> <span style="color: red">{{this.missingIngredients}}</span></p>
+          </div> --}}
         </div>
       </div>
-    </div>
     {{/each}}
   </div>
 </ul>
