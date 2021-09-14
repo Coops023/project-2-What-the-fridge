@@ -8,6 +8,7 @@ var usersRouter = require('./routes/users');
 const auth = require('./routes/auth.routes');
 const search = require('./routes/search.routes')
 const privateRouter = require('./routes/private.routes');
+const isLoggedIn = require('./middleware/isLoggedIn');
 
 var app = express();
 
@@ -19,8 +20,8 @@ require('./config/global')(app)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', auth);
-app.use('/search', search);
-app.use('/private', privateRouter);
+app.use('/search', isLoggedIn, search);
+app.use('/private', isLoggedIn, privateRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
