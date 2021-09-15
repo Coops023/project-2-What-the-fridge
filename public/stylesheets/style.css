@@ -6,9 +6,11 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(119, 161, 224);
+  /* background: linear-gradient(0deg, rgb(143, 197, 248) 0%, rgb(80, 132, 228) 100%); */
   /* background-color: rgb(119, 224, 159); */
   min-height: 100vh;
   font-family: sans-serif;
+  
 }
 
 .my-intro-container {
@@ -126,7 +128,7 @@ a {
   margin: 35px 280px;
 }
 
-.my-buttons button {
+/* .my-buttons button {
   height: 50px;
   width: 150px;
   font-size: 18px;
@@ -134,15 +136,15 @@ a {
   background-color: rgb(87, 183, 221);
   border-radius: 7px;
   border: none;
-}
+} */
 
-.my-buttons-other {
+/* .my-buttons-other {
   display: flex;
   justify-content:center;
   align-items:center
-}
+} */
 
-.my-buttons-other button{
+/* .my-buttons-other button{
   height: 50px;
   width: 100px;
   font-size: 18px;
@@ -167,7 +169,7 @@ a {
 
 .my-buttons-other a {
   color:white;
-}
+} */
 
 .fridge {
   /* border: 1px solid black; */
@@ -264,12 +266,14 @@ div.bottom {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(84, 121, 224);
+  margin: 7em 25em;
 }
 
 .my-profile-image-container img{
   height: 45em;
-  width: 50%;
-  margin-bottom: .3em;
+  width: 70%;
+  /* margin-bottom: .3em; */
 }
 
 #card-container {
@@ -388,14 +392,6 @@ display: block;
   border: 1px solid rgb(201, 27, 27);
 }
 
-/* #my-footer {
-  border: 1px solid red;
-} 
-
-#my-footer a {
-  border: 1px solid blue;
-} */
-
 #my-missing-btn{
   /* background-color: rgb(76, 118, 207); */
   color: rgb(201, 59, 40);
@@ -463,4 +459,231 @@ display: block;
 #my-save-button:hover{
   background-color: rgb(133, 169, 209);
 }
+
+.my-dropdown {
+  display: inline-block;
+  width: 5em;
+  height: 5em;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.my-dropbtn {
+  color: white;
+  width: 50%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 7em;
+  background-color: #929ec5;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  padding-top: 0; 
+}
+
+.dropdown-content a {
+  color: white;
+  font-family: 'Bangers';
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 .2em;
+  margin: .5em 0;
+  height: 1.5em;
+}
+
+.dropdown-content a:hover {
+  background-color: rgb(101, 113, 168);
+  color: white;
+}
+
+.my-dropdown:hover .dropdown-content {
+  display: block; 
+  background-color: rgb(134, 146, 199);
+  margin: 0;
+  padding: 0;
+}
+
+/* .my-dropdown:hover .my-dropdown-icon {background-color: #3e8e41;} */
+
+#my-menu-item {
+  padding: 0;
+  margin: 0;
+}
+
+.menu-icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: 2em;
+  height: 2em;
+  margin-left: 10px;
+}
+
+.recipe-container {
+  display: flex;
+  /* border: 1px solid rgb(154, 245, 8); */
+  /* background-color: rgb(236, 170, 216); */
+  /* background: rgb(252, 183, 236); */
+background: linear-gradient(0deg, rgb(245, 157, 183) 0%, rgb(241, 60, 130) 100%);
+/* background: rgb(255,155,232);
+background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 100%); */
+  /* border-radius: 1em; */
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.recipe-card-container {
+  background-color: white;
+  border-radius: 1%;
+  width: 25%;
+  margin: 2em;
+  padding: 2em;
+  text-align: center;
+  font-family: 'Bangers';
+  box-shadow: 0px 4px 8px 0px rgba(63, 63, 63, 0.2);
+}
+
+.recipe-card-container:hover {
+  box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+}
+
+.recipe-card-container h2 {
+  padding: 1em 0;
+  margin: .5em 2em;
+  font-size: 1.5em;
+  color: rgb(173, 172, 172);
+}
+
+.my-buttons-other {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.my-buttons-other button{
+  height: 80px;
+  width: 150px;
+  font-size: 25px;
+  font-family: 'Bangers';
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid rgb(87, 183, 221);
+  border-radius: 7px;
+  margin: .3em;
+  color: rgb(87, 183, 221);
+  box-shadow: 0px 1px 8px 0px rgb(201, 214, 219);
+}
+
+.my-buttons-other button:hover {
+  background-color: rgb(87, 183, 221);
+}
+
+.my-buttons-other:hover {
+  color: white;
+}
+
+.my-buttons-other button a:hover {
+  background-color: rgb(87, 183, 221);
+  color: white;
+}
+
+.my-buttons-other .my-btn:hover {
+  background-color: rgb(28, 209, 155);
+  color: white;
+}
+
+.my-buttons-other .my-btn{
+  border: 1px solid rgb(28, 209, 155);
+  color: rgb(28, 209, 155);
+}
+
+.my-buttons-other .my-btn a {
+  color:rgb(28, 209, 155);
+}
+
+.my-buttons-other a {
+  color:rgb(87, 183, 221);
+}
+
+.my-buttons button {
+  height: 50px;
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(87, 183, 221);
+  border-radius: 7px;
+}
+
+ .missing-dropdown {
+  height: 300px;
+  z-index: -1;
+}
+
+/* .missing-dropdown-content {
+  display:none;
+  position: absolute;
+  background-color: grey;
+  color: white;
+}  */
+
+.missing-dropdown-content {
+  background-color: rgba(250,140,180,0);
+  color: rgba(63, 63, 63, 0);
+  font-size: 5em;
+  z-index: 0;
+  position: relative; 
+  bottom: 110px;
+} 
+
+.missing-dropdown-content:hover {
+  display: block;
+  background-color: rgba(253, 222, 222, 0.589);
+  color: black;
+  z-index: 0;
+  font-size: 5em;
+  position: relative;
+  bottom: 110px;
+} 
+
+
+/* button click effect */
+
+/* button {
+  background: none;
+  border: 1px solid;
+  border-radius: 0.5em;
+  color: #02c39a;
+  padding: 0.5em 2em;
+  font-size: 1em;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  border-color: #540d6e;
+  color: white;
+  box-shadow: 0 0.5em 1em -0.5em #540d6e;
+transform: translateY(-0.2em); 
+  cursor:pointer
+}
+
+button:focus {
+  outline: none;;
+}
+button:active {
+  border-color: #540d6e;
+ background: #bfacfb;
+  box-shadow: 0 0 0 0 #540d6e;
+  transform: scale(0.9);
+} */
 

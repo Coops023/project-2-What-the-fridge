@@ -8,9 +8,20 @@
         href="/auth/logout">Logout</a>
     </div>
     <ul>
-      <li class="my-is-active"><a id="my-a-white" class="my-a-white" href="/private/profile">Recipes</a></li>
+      <li class="my-is-active"><a id="my-a-white" class="my-orange" href="/private/profile">Recipes</a></li>
       <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
       <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li>
+        <div class="my-dropdown">
+          <div class="menu-icon-div">
+          <span id="profile-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+          </div>
+        <div class="dropdown-content">
+          <a  href="/auth/logout">Logout</a>
+        <a href="/private/edit">View Account</a>
+        </div>
+      </div>
+      </li>
     </ul>
 
   </div>
@@ -32,7 +43,7 @@
 </div> --}}
 
 {{! DISPLAY ALL SAVED RECIPES }}
-<ul id="my-recipe-view" class="recipe-view">
+{{!-- <ul id="my-recipe-view" class="recipe-view">
   <div class="columns is-multiline is-centered">
     {{#each user.recipes}}
     <div id="card-container" class="column is-one-quarter mx-5">
@@ -55,22 +66,40 @@
                  <a  id="my-compare-btn"  href="/private/fridge/compare/recipe/{{this._id}}" class="card-footer-item">Compare</a>
                  <a  id="my-missing-btn" href="#" class="card-footer-item">M:{{this.missingIngredients}}</a>
              </footer>
-            {{!-- <div class="my-buttons-other">
+            <div class="my-buttons-other">
           <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
           <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>
           </div>
           <div id="my-missing-ingredients" class="tags has-addons">
             <span class="tag is-warning">Missing</span>
              <span class="tag is-danger">{{this.missingIngredients}}</span>
-        </div>  --}}
-          {{!-- <div >
+        </div>  
+          <div >
           <p><strong>Missing</strong> <span style="color: red">{{this.missingIngredients}}</span></p>
-          </div> --}}
+          </div> 
         </div>
       </div>
     {{/each}}
   </div>
-</ul>
+</ul> --}}
+
+<div class="recipe-container">
+  
+{{#each user.recipes}}
+    <div class="recipe-card-container">
+      <div class="missing-dropdown">
+    <img src="{{this.image}}" alt="">
+    <span class="missing-dropdown-content">M:{{this.missingIngredients}}</span>
+    </div>
+    <h2>{{this.title}}</h3>
+    <div class="my-buttons-other">
+          <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
+          <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>   
+    </div>
+    </div>
+    {{/each}}
+</div>
+
 
 {{! FOOTER }}
 <div class="bottom">
