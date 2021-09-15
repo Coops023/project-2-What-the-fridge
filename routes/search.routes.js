@@ -33,11 +33,9 @@ router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
     console.log("line 25", ingredients)
 
-    if (ingredients.includes('') && Array.isArray(ingredients)) {
-
+    if (ingredients.includes('') || Array.isArray(ingredients)) {
         concatIngredients = ingredients.reduce((prev, curr) => { return prev + ',+' + curr })
     } else if (typeof ingredients === "string") {
-
         concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr })//.join(",+")
     }
 
@@ -94,13 +92,13 @@ router.post('/ingredients', (req, res) => {
 //         .catch(err => console.log(err));
 // });
 
-router.post('/fridge/recipe/save', async(req, res) => {
+router.post('/fridge/recipe/save', async (req, res) => {
     const user = await User.findById(req.session.currentUser._id)
     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
-    
+
     const recipeInfoResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`);
     const { extendedIngredients } = recipeInfoResponse.data;
-    
+
     // const arrayOfMgsIngredients = await extendedIngredients.map(async (ingredient)=> {
     //     const user = await User.findById(req.session.currentUser._id)
     //     const userHas = user.ingredients.includes(ingredient.name)
@@ -108,9 +106,9 @@ router.post('/fridge/recipe/save', async(req, res) => {
     //     return newRecipe.ingredients.push(ingredient._id);
     // })
 
-    for(const ingredient of extendedIngredients) {
+    for (const ingredient of extendedIngredients) {
         const userHas = user.ingredients.includes(ingredient.name)
-        const ingredient = await Ingredient.create({name: ingredient.name, image: ingredient.image, userMissing: userHas})
+        const ingredient = await Ingredient.create({ name: ingredient.name, image: ingredient.image, userMissing: userHas })
         newRecipe.ingredients.push(ingredient._id);
     }
 

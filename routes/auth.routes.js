@@ -5,11 +5,12 @@ const User = require('../models/User.model')
 const bcrypt = require('bcrypt');
 const saltRound = 10;
 
-
+//Sign up page get
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+//sign up page new loggin create
 router.post('/signup', (req, res, next) => {
     const { username, password, email } = req.body;
     if (!username || !password || !email) {
@@ -34,10 +35,12 @@ router.post('/signup', (req, res, next) => {
         .catch((error) => next(error));
 });
 
+//log in page get/render
 router.get('/login', (req, res, next) => {
     res.render('login');
 });
 
+//login to user account
 router.post('/login', (req, res, next) => {
     const { username, password } = req.body;
     if (!username || !password) {
@@ -60,6 +63,7 @@ router.post('/login', (req, res, next) => {
     });
 });
 
+//logout of user account
 router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         if (err) res.redirect('/');
