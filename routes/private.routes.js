@@ -13,20 +13,20 @@ router.get("/profile", (req, res) => {
     const userId = req.session.currentUser._id;
     User.findById(userId)
         .populate({
-             path: 'recipes',
+            path: 'recipes',
             populate: {
-            path: 'ingredients',
-            model: 'Ingredient'
-             }
-         })
+                path: 'ingredients',
+                model: 'Ingredient'
+            }
+        })
         .then(user => {
             userRecipes = user.recipes
             for (let indexRecipe in userRecipes) {
-                for(let indexIngredient in userRecipes[indexRecipe].ingredients)
-                if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
-                    userRecipes[indexRecipe].ingredients[indexIngredient].isMissing = true
-                    userRecipes[indexRecipe].missingIngredients += 1
-                }
+                for (let indexIngredient in userRecipes[indexRecipe].ingredients)
+                    if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
+                        userRecipes[indexRecipe].ingredients[indexIngredient].isMissing = true
+                        userRecipes[indexRecipe].missingIngredients += 1
+                    }
             }
             console.log('line 29', userRecipes);
             res.render("user-profile", { user })
@@ -89,6 +89,7 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
 router.get('/fridge', (req, res) => {
     User.findById(req.session.currentUser._id)
         .then(userData => {
+
             res.render('fridge', { ingredients: userData.ingredients });
 
         })
