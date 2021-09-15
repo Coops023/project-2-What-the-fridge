@@ -17,8 +17,17 @@ function isSaved(user, recipes) {
 
 // -- SEARCH BY INGREDIENTS ROUTES --
 router.get('/ingredients', (req, res) => {
-    res.render('search-recipes', { user: req.session.currentUser });
-});
+    let userId = req.session.currentUser._id
+    User.findById(userId)
+        .then((user) => {
+            console.log("USER INGREDIENTS", user.ingredients)
+            res.render('search-recipes', { user: user })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
 
 router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
@@ -106,18 +115,18 @@ router.post('/fridge/recipe/save', async(req, res) => {
     }
 
     const recipeInstructionsResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`)
-    const { steps } = recipeInstructionsResponse.data[0] 
-    
+    const { steps } = recipeInstructionsResponse.data[0]
+
     newRecipe.instructions = steps.map((nextStep) => nextStep.step)
     newRecipe.title = recipeInfoResponse.data.title;
     newRecipe.image = recipeInfoResponse.data.image;
 
     Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
-    .then(recipe => {
-        User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
-        .then(() => console.log('new recipe added: ', recipe))
-        .catch(err => console.log(err));
-    })
+        .then(recipe => {
+            User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
+                .then(() => console.log('new recipe added: ', recipe))
+                .catch(err => console.log(err));
+        })
 
 });
 

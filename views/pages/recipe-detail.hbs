@@ -9,32 +9,68 @@
     </div>
 
     <ul>
-    <li class="my-is-active"><a id="my-a-white" class="my-a-white" href="/private/profile">Fridge</a></li>
-      <li><a class="my-a-white" href="/private/profile">Recipes</a></li>
-      {{!-- <li><a class="my-a-white" href="/private/fridge">Fridge</a></li> --}}
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a id="my-a-white"
+          class="my-a-white"
+          href="/private/profile">Details</a></li>
+      <li><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      {{!-- <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li> --}}
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
     </ul>
 
-    </div>
+  </div>
 </div>
-<h1>recipe detail</h1>
 
+<h1 class="detail-heading">{{recipe.title}} </h1>
 <div id="compare-container">
+  <div class="recipe-detail-image-wrap">
     <img src="{{recipe.image}}"
-        alt="">
+      alt="Recipe image">
+  </div>
 
-    <h1>{{recipe.title}} </h1>
-    <p>you are missing {{recipe.missingIngredients}} ingredients</p>
-    <ul>
+
+  <div class="recipe-detail-info">
+    <div class="ingredients-detail-wrap">
+      <h3>Ingredients</h3>
+      <p>You are missing {{recipe.missingIngredients}} ingredients.</p>
+
+      <ul>
         {{#each recipe.ingredients}}
         {{#if isMissing}}
-        <li style="color: red;">{{name}}</li>
+        <li style="color: red;">{{name}} <i class="fas fa-times"></i></li>
 
         {{else}}
-        <li style="color: green;">{{name}}</li>
+        <li style="color: green;">{{name}} <i class="fas fa-check"></i></li>
         {{/if}}
         {{/each}}
-    </ul>
+      </ul>
+    </div>
+    <div class="recipe-instruction-wrap">
+      <h3>Steps</h3>
+      <ol>
+        {{#each recipe.instructions}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
 
-    <p>{{recipe.instructions}}</p>
+<div id="footer-detail-page"
+  class="bottom">
+  <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong>
+      by
+      <strong class="has-text-white">Alex Vasconcelos de Almeids</strong>
+      and
+      <strong class="has-text-white">Cooper Bjorkelund
+      </strong>
+      <br />
+      With credit to
+      <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
+  </div>
 </div>
