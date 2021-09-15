@@ -33,11 +33,9 @@ router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
     console.log("line 25", ingredients)
 
-    if (ingredients.includes('') && Array.isArray(ingredients)) {
-
+    if (ingredients.includes('') || Array.isArray(ingredients)) {
         concatIngredients = ingredients.reduce((prev, curr) => { return prev + ',+' + curr })
     } else if (typeof ingredients === "string") {
-
         concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr })//.join(",+")
     }
 
@@ -62,7 +60,7 @@ router.post('/ingredients', (req, res) => {
 router.post('/fridge/recipe/save', async(req, res) => {
     const user = await User.findById(req.session.currentUser._id)
     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
-    
+
     const recipeInfoResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`);
     const { extendedIngredients } = recipeInfoResponse.data;
     

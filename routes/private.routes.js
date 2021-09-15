@@ -72,7 +72,6 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
                         if (!user.ingredients.includes(recipe.ingredients[index].name)) {
                             recipe.ingredients[index].isMissing = true
                             recipe.missingIngredients += 1
-
                         }
                     }
                     res.render('recipe-detail', { recipe: recipe, user: user })
@@ -82,22 +81,10 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
         .catch((error) => {
             console.log(error);
         });
-
 });
 
 
-
-router.get('/fridge', (req, res) => {
-    User.findById(req.session.currentUser._id)
-        .then(userData => {
-
-            res.render('fridge', { ingredients: userData.ingredients });
-
-        })
-        .catch(err => console.log(err));
-});
-
-
+//ROUTE REMOVE ITEMS FROM USER INGREDIENTS ARRAY
 router.get('/fridge/remove/recipe/:id', (req, res) => {
     User.updateOne(
         { _id: req.session.currentUser._id },
@@ -108,8 +95,40 @@ router.get('/fridge/remove/recipe/:id', (req, res) => {
         .catch(err => console.log(err));
 });
 
+//REMOVE ITEMS FROM FRIDGE
+router.post('/fridge/remove', (req, res) => {
+    let { ingredient } = req.body
+    if (typeof ingredient === "undefined") ingredient = []
+    if (typeof ingredient === "string") ingredient = [ingredient]
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pullAll: { ingredients: ingredient } })
+        .then(() => {
+            res.redirect(`/private/fridge`)
+        })
+        .catch(err => console.log(err));
+});
 
-router.route("/edit-profile")
+//ADD ITEMS TO FRIDGE
+router.post('/fridge/add', (req, res) => {
+    const { ingredient } = req.body
+    console.log(req.body.ingredient)
+    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredient } })
+        .then(user => {
+
+            res.redirect(`/private/fridge`)
+        })
+        .catch(err => console.log(err));
+});
+
+router.post("/edit/:id/delete", (req, res) => {
+    console.log("LINE 68", req.session.currentUser._id)
+    User.findByIdAndDelete(req.session.currentUser._id)
+        .then(() => {
+            res.redirect("/")
+        })
+})
+
+//ROUTE TO EDIT LOGIN ACCOUNT DETAILS
+router.route("/edit/:id")
     .get((req, res) => {
         User.findById({ _id: req.session.currentUser._id })
             .then(user => res.render("edit-user", user))
@@ -143,15 +162,40 @@ router.route("/edit-profile")
         }
 
     });
+//LOAD RECIPE/PROFILE PAGE 
+router.get("/profile", (req, res) => {
+    const userId = req.session.currentUser._id;
+    User.findById(userId)
+        .populate({
+            path: 'recipes',
+            populate: {
+                path: 'ingredients',
+                model: 'Ingredient'
+            }
+        })
+        .then(user => {
+            userRecipes = user.recipes
+            for (let indexRecipe in userRecipes) {
+                for (let indexIngredient in userRecipes[indexRecipe].ingredients)
+                    if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
+                        userRecipes[indexRecipe].ingredients[indexIngredient].isMissing = true
+                        userRecipes[indexRecipe].missingIngredients += 1
+                    }
+            }
+            console.log('line 29', userRecipes);
+            res.render("user-profile", { user })
+        });
+});
 
-    
+//FRIDGE PAGE GET ROUTE
+router.get('/fridge', (req, res) => {
+    User.findById(req.session.currentUser._id)
+        .then(userData => {
 
+            res.render('fridge', { ingredients: userData.ingredients });
 
-
-// remember RENDER = PAGE | REDIRECT = URL  -! (/) !-
-// Maybe think of them as pairs/brothers
-// brother1 renders what we see
-// brother2 maps where we go - / -
-
+        })
+        .catch(err => console.log(err));
+});
 
 module.exports = router;
