@@ -9,9 +9,20 @@
     </div>
 
     <ul>
-    <li id="my-a-white" class="my-is-active my-a-white">Fridge</li>
-      <li><a href="/private/profile">Recipes</a></li>
-      <li><a href="/search/ingredients">Search</a></li>
+    <li id="fridge-active" class="my-is-active">Fridge</li>
+      <li><a class="my-a-white" href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li>
+        <div class="my-dropdown">
+          <div class="menu-icon-div">
+          <span id="fridge-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+          </div>
+        <div class="dropdown-content">
+          <a  href="/auth/logout">Logout</a>
+        <a href="/private/edit-profile">View Account</a>
+        </div>
+      </div>
+      </li>
     </ul>
 
   </div>

@@ -21,10 +21,10 @@ router.get("/profile", (req, res) => {
         })
         .then(user => {
             userRecipes = user.recipes
-            for (let indexRecipe in userRecipes) {
-                for (let indexIngredient in userRecipes[indexRecipe].ingredients)
+            for (const indexRecipe in userRecipes) {
+                for (const indexIngredient in userRecipes[indexRecipe].ingredients)
                     if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
-                        userRecipes[indexRecipe].ingredients[indexIngredient].isMissing = true
+                        userRecipes[indexRecipe].ingredients[indexIngredient].userMissing = true
                         userRecipes[indexRecipe].missingIngredients += 1
                     }
             }
@@ -77,6 +77,7 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
                     }
                     res.render('recipe-detail', { recipe: recipe, user: user })
                 })
+                .catch(err => console.log(err))
         })
         .catch((error) => {
             console.log(error);
@@ -108,7 +109,7 @@ router.get('/fridge/remove/recipe/:id', (req, res) => {
 });
 
 
-router.route("/edit/:id")
+router.route("/edit-profile")
     .get((req, res) => {
         User.findById({ _id: req.session.currentUser._id })
             .then(user => res.render("edit-user", user))
