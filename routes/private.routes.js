@@ -74,7 +74,7 @@ router.post("/edit/:id/delete", (req, res) => {
 })
 
 //ROUTE TO EDIT LOGIN ACCOUNT DETAILS
-router.route("/edit/:id")
+router.route("/edit-profile")
     .get((req, res) => {
         User.findById({ _id: req.session.currentUser._id })
             .then(user => res.render("edit-user", user))

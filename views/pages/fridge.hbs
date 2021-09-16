@@ -9,19 +9,24 @@
     </div>
 
     <ul>
-    <li id="fridge-active" class="my-is-active">Fridge</li>
-      <li><a class="my-a-white" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li id="fridge-active"
+        class="my-is-active">Fridge</li>
+      <li><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="fridge-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="fridge-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
           </div>
-        <div class="dropdown-content">
-          <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit-profile">View Account</a>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+          </div>
         </div>
-      </div>
       </li>
     </ul>
 
@@ -29,25 +34,36 @@
 </div>
 
 <br>
-<form action="/private/fridge/add"
-  method="POST">
-  <label for="ingredient">Ingredients</label>
-  <input type="text"
-    name="ingredient">
-  <button type="submit">Add</button>
-</form>
+<div class="fridge-add-form">
+  <form action="/private/fridge/add"
+    method="POST">
+    <label for="ingredient">Ingredients</label>
+    <input type="text"
+      name="ingredient">
+    <button type="submit">Add</button>
+  </form>
+</div>
 
-<div class="fridge">
-  <ul>
-    <form action="/private/fridge/remove"
-      method="POST">
-      {{#each ingredients}}
-      <input type="checkbox"
-        value="{{this}}"
-        name="ingredient">
-      <label for="ingredient">{{this}}</label>
-      {{/each}}
-      <button type="submit">remove</button>
-    </form>
-  </ul>
+<div class="fridge-container">
+
+  <img class="open-fridge-img"
+    src="/images/open-fridge.png"
+    alt="open fridge image">
+  <div class="fridge-check-wrap">
+    <ul class="ks-cboxtags">
+      <form action="/private/fridge/remove"
+        method="POST">
+
+        {{#each ingredients}}
+        <input type="checkbox"
+          value="{{this}}"
+          name="ingredient">
+        <label for="ingredient">{{this}}</label>
+        {{/each}}
+
+        <button type="submit">remove</button>
+      </form>
+    </ul>
+  </div>
+
 </div>

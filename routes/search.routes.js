@@ -33,9 +33,10 @@ router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
     console.log("line 25", ingredients)
 
-    if (ingredients.includes('') || Array.isArray(ingredients)) {
+    if (ingredients.includes('') && Array.isArray(ingredients)) {
         concatIngredients = ingredients.reduce((prev, curr) => { return prev + ',+' + curr })
-    } else if (typeof ingredients === "string") {
+    }
+    else if (typeof ingredients === "string") {
         concatIngredients = ingredients.split(',').reduce((prev, curr) => { return prev + ',+' + curr })//.join(",+")
     }
 
