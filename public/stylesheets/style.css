@@ -1204,6 +1204,10 @@ padding: 2em;
   background-color: #d90429;
 }
 
+#search-active{
+  font-size: 5em;
+}
+
 
 /* #update-user-btn{
   
@@ -1243,4 +1247,111 @@ button:active {
   box-shadow: 0 0 0 0 #540d6e;
   transform: scale(0.9);
 } */
+
+@media screen and (max-width: 1300px) {
+  .recipe-card-container{
+    height: 20em;
+    width: 15em;
+  
+  }
+  .my-nav-items{
+    height: 5em;
+    margin: 0;
+  }
+
+  .btn-head-recipe-wrap{
+    position: relative;
+    bottom: 10em;
+  
+  }
+
+  .btn-head-recipe-wrap a{
+    width: 3em;
+    height: 2em;
+    padding: 5px 0 0 0 ;
+  }
+  .btn-head-recipe-wrap h2{
+    font-size: 1.2em;
+    padding-bottom: 0;
+    width: 8em;
+    margin: 0;
+  }
+  #profile-active{
+    font-size: 5em;
+   
+  }
+
+  .my-is-active{
+    width: 20em;
+    top: 30px;
+  }
+
+  .dropdown-content{
+    right: 4em;
+  }
+
+ 
+
+ 
+
+
+
+}
+
+@media screen and (max-width: 1000px){
+
+  #profile-active{
+    font-size: 3em;
+    
+  }
+
+  .my-is-active{
+    top: 100px;
+   
+  }
+ 
+}
+
+
+
+@media screen and (max-width: 800px){
+
+
+  .my-profile-image-container{
+    display: none;
+  }
+
+  .my-a-white{
+    display: none;
+  }
+
+  .my-nav-items{
+    height: 5em;
+    margin: 0;
+  }
+
+  .my-dropdown{
+    width: 2em;
+  }
+
+  .my-is-active{
+    display: inline;
+    top: 20px;
+  }
+
+  .dropdown-content{
+    right: 1.4em;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+.my-logout-link{
+  display: none;
+}
+  
+}
+
+
+
 

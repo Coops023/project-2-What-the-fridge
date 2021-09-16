@@ -51,12 +51,14 @@
         alt="">
       <span class="missing-dropdown-content">Missing: {{this.missingIngredients}}</span>
     </div>
-    <h2>{{this.title}}</h3>
-      <div class="my-buttons-other">
-        <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
-        <a class="my-btn"
-          href="/private/fridge/compare/recipe/{{this._id}}">Details</a>
-      </div>
+    <div class="btn-head-recipe-wrap">
+      <h2>{{this.title}}</h3>
+        <div class="my-buttons-other">
+          <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
+          <a class="my-btn"
+            href="/private/fridge/compare/recipe/{{this._id}}">Details</a>
+        </div>
+    </div>
   </div>
   {{/each}}
 </div>
