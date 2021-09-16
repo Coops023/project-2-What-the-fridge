@@ -28,7 +28,10 @@ body {
   top: 8%;
   text-align: center;
   transform: translate(-50%, -50%);
-  border: 1px solid rgb(255, 255, 255);
+  /* border: 1px solid rgb(255, 255, 255); */
+  background-image: url('/images/Dry-Brush-Stroke-PNG-File.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #profile-active {
@@ -314,7 +317,7 @@ div.bottom {
   background-color: rgb(84, 121, 224);
   border: 4px solid rgb(84, 121, 224);
   border-radius: 5px;
-  margin: 9em 13em;
+  margin: 9em 9em 5em 9em;
 }
 
 .my-profile-image-container img{
@@ -811,6 +814,15 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   padding: 1em;
 }
 
+.results-banner img {
+  height: 25em;
+}
+
+.results-banner span {
+  margin: .3em;
+  font-size: 10em;
+}
+
 /* -- END OF RECIPE RESULTS -- */
 
 
@@ -844,11 +856,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   padding: 2em;
   text-align: center;
   font-family: 'Bangers';
-  box-shadow: 0px 8px 12px 0px rgba(231, 137, 137, 0.521);
+  box-shadow: 0px 8px 12px 0px rgba(179, 94, 94, 0.521);
 }
 
 .recipe-card-container:hover {
-  box-shadow: 0px 20px 30px 0px rgba(177, 80, 80, 0.664);
+  box-shadow: 5px 15px 10px 5px rgba(122, 50, 50, 0.664);
 }
 
 .recipe-card-container h2 {
@@ -914,6 +926,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   color: white;
 }
 
+.my-buttons-other button:hover {
+  background-color: rgb(87, 183, 221);
+  color: white;
+}
+
 .my-buttons-other .my-btn:hover {
   background-color: rgb(28, 209, 155);
   color: white;
@@ -947,16 +964,7 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 }  */
 
 .missing-dropdown-content {
-  background-color: rgba(250,140,180,0);
-  color: rgba(63, 63, 63, 0);
-  font-size: 5em;
-  z-index: 0;
-  position: relative; 
-  bottom: 110px;
-} 
-
-.missing-dropdown-content:hover {
-  display: block;
+  display: none;
   background-color: rgba(253, 222, 222, 0.589);
   color: white;
   z-index: 0;
@@ -964,6 +972,26 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   position: relative;
   bottom: 58px;
 } 
+
+/* .missing-dropdown-content:hover {
+  display: block;
+  background-color: rgba(253, 222, 222, 0.589);
+  color: white;
+  z-index: 0;
+  font-size: 2.2em;
+  position: relative;
+  bottom: 58px;
+}  */
+
+/* .missing-dropdown-content-active {
+  display: block;
+  background-color: rgba(253, 222, 222, 0.589);
+  color: white;
+  z-index: 0;
+  font-size: 2.2em;
+  position: relative;
+  bottom: 58px;
+}  */
 
 /* FRIDGE STYLES */
 

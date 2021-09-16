@@ -36,24 +36,28 @@
 <br>
 
 <div class="results-banner">
-  <span class="icon has-text-white">
+  {{!-- <span class="icon has-text-info">
         <i class="fas fa-utensils"></i>
-      </span>
+      </span> --}}
+      <img src="/images/5533102.jpg" alt="">
+      {{!-- <span class="icon has-text-info">
+        <i class="fas fa-utensils"></i>
+      </span> --}}
 </div>
 
-<div class="recipe-results-container">
+<div class="recipe-container">
 {{#each recipes}}
-    <div class="recipe-results-card-container">
+    <div class="recipe-card-container">
       <img src="{{this.image}}" alt="">
-      {{!-- <div class="missing-dropdown">
+      <div class="missing-dropdown">
     
-    <span class="missing-dropdown-content">Missing: {{this.missingIngredients}}</span>
-    </div> --}}
+    <span class="missing-dropdown-content">Missing: {{this.missedIngredientCount}}</span>
+    </div>
     <h2>{{this.title}}</h3>
     <div class="my-buttons-other">
-      <form class="form-save" action="/search/fridge/recipe/save" method="POST">
+      <form action="/search/fridge/recipe/save" method="POST">
           <input type="hidden" name="id" value="{{this.id}}">
-            <button class="button is-link" type="submit">Save</button>
+            <button type="submit">Save</button>
       </form>
     </div>
     </div>
