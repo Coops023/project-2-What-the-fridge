@@ -28,7 +28,10 @@ body {
   top: 8%;
   text-align: center;
   transform: translate(-50%, -50%);
-  border: 1px solid rgb(255, 255, 255);
+  /* border: 1px solid rgb(255, 255, 255); */
+  background-image: url('/images/Dry-Brush-Stroke-PNG-File.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #profile-active {
@@ -225,9 +228,12 @@ div.bottom {
 
 .my-fridge-container {
   /* background-color: rgb(52, 243, 132); */
-  margin: 2em 1em 0 1em;
-  padding: 2em;
-  border-radius: .2em;
+  margin: 2em 5em 0 3em;
+  padding: 4em 2em;
+  background-image: url('/images/pinpng.com-paint-brush-stroke-png-27380.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .fridge-img {
@@ -237,6 +243,7 @@ div.bottom {
 /* position login form to center of screen */
 .form-center-screen {
   width: 40em;
+  margin-right: 14em;
 }
 
 #my-form-center {
@@ -248,8 +255,9 @@ div.bottom {
   margin: 0;
   width: 100%;
   background-color: rgb(235, 240, 252);
-  box-shadow: 0px 5px 16px 0px rgb(89, 93, 136);
+  box-shadow: 5px 10px 12px 5px rgb(89, 93, 136);
   overflow: hidden;
+  border: 3px solid rgb(0, 195, 255);
 }
 
 /* #my-input-color-username {
@@ -265,7 +273,7 @@ div.bottom {
 .my-login-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
   min-height: 90vh;
 }
@@ -273,6 +281,7 @@ div.bottom {
 .my-fridge-login-img {
   width: 50em;
   height: auto;
+  padding: 6em 6em 6em 9em;
 }
 
 .my-signup-container {
@@ -284,16 +293,29 @@ div.bottom {
 }
 
 .signup-image {
-  background-color: rgb(97, 36, 82);
-  margin: 0 8em 0 0;
-  padding: 3em 1em;
-  border-radius: .2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(163, 50, 135); */
+  /* border: 5px solid rgb(238, 90, 134); */
+  margin: 0 8em 0 4em;
+  /* padding: 4em 1em 4em 1em; */
+  border-radius: 5em;
+  height: 50em;
+  width: 50em;
+  padding: 0;
+  /* background-color: rgba(179, 33, 118, 0.856); */
+ 
 }
 
 .signup-image img {
-  width: 45em;
-  height: 25em;
-  margin: 0 5em 0 4em;
+  width: 100%;
+  height: 100%;
+  /* margin: 0 5em 0 4em; */
+  border-radius: 50em;
+  background-color: rgb(97, 36, 82);
+  margin: 0;
+  padding: 7em 7em;
 }
 
 
@@ -314,7 +336,7 @@ div.bottom {
   background-color: rgb(84, 121, 224);
   border: 4px solid rgb(84, 121, 224);
   border-radius: 5px;
-  margin: 9em 13em;
+  margin: 9em 9em 5em 9em;
 }
 
 .my-profile-image-container img{
@@ -811,6 +833,15 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   padding: 1em;
 }
 
+.results-banner img {
+  height: 25em;
+}
+
+.results-banner span {
+  margin: .3em;
+  font-size: 10em;
+}
+
 /* -- END OF RECIPE RESULTS -- */
 
 
@@ -844,11 +875,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   padding: 2em;
   text-align: center;
   font-family: 'Bangers';
-  box-shadow: 0px 8px 12px 0px rgba(231, 137, 137, 0.521);
+  box-shadow: 0px 8px 12px 0px rgba(179, 94, 94, 0.521);
 }
 
 .recipe-card-container:hover {
-  box-shadow: 0px 20px 30px 0px rgba(177, 80, 80, 0.664);
+  box-shadow: 5px 15px 10px 5px rgba(122, 50, 50, 0.664);
 }
 
 .recipe-card-container h2 {
@@ -914,6 +945,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   color: white;
 }
 
+.my-buttons-other button:hover {
+  background-color: rgb(87, 183, 221);
+  color: white;
+}
+
 .my-buttons-other .my-btn:hover {
   background-color: rgb(28, 209, 155);
   color: white;
@@ -947,16 +983,7 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 }  */
 
 .missing-dropdown-content {
-  background-color: rgba(250,140,180,0);
-  color: rgba(63, 63, 63, 0);
-  font-size: 5em;
-  z-index: 0;
-  position: relative; 
-  bottom: 110px;
-} 
-
-.missing-dropdown-content:hover {
-  display: block;
+  display: none;
   background-color: rgba(253, 222, 222, 0.589);
   color: white;
   z-index: 0;
@@ -964,6 +991,26 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   position: relative;
   bottom: 58px;
 } 
+
+/* .missing-dropdown-content:hover {
+  display: block;
+  background-color: rgba(253, 222, 222, 0.589);
+  color: white;
+  z-index: 0;
+  font-size: 2.2em;
+  position: relative;
+  bottom: 58px;
+}  */
+
+/* .missing-dropdown-content-active {
+  display: block;
+  background-color: rgba(253, 222, 222, 0.589);
+  color: white;
+  z-index: 0;
+  font-size: 2.2em;
+  position: relative;
+  bottom: 58px;
+}  */
 
 /* FRIDGE STYLES */
 
