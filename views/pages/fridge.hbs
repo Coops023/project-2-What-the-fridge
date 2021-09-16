@@ -49,21 +49,28 @@
   <img class="open-fridge-img"
     src="/images/open-fridge.png"
     alt="open fridge image">
-  <div class="fridge-check-wrap">
-    <ul class="ks-cboxtags">
-      <form action="/private/fridge/remove"
-        method="POST">
+  <div class="fridge-ingredient-wrap">
+    <form class="fridge-ingredient-form"
+      action="/private/fridge/remove"
+      method="POST">
 
-        {{#each ingredients}}
-        <input type="checkbox"
+      {{#each ingredients}}
+      <div class="checkbox-border">
+        <input id="fridge-checkbox-input"
+          type="checkbox"
           value="{{this}}"
           name="ingredient">
-        <label for="ingredient">{{this}}</label>
-        {{/each}}
+        <label id="ingredient-label"
+          for="ingredient">{{this}}</label>
+      </div>
+      {{/each}}
 
-        <button type="submit">remove</button>
-      </form>
-    </ul>
+
   </div>
+  <button id="fridge-remove-button"
+    type="submit">remove</button>
+  </form>
+
+</div>
 
 </div>
