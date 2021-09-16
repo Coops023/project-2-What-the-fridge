@@ -58,7 +58,7 @@ body {
   color: white;
   font-size: 10em;
   margin: .2em;
-  padding: 0 .4em .2em .3em;
+  padding: 0 .3em .2em .2em;
   font-family: 'Caveat', cursive;
 }
 
@@ -233,6 +233,7 @@ div.bottom {
   margin: 0;
   width: 100%;
   background-color: rgb(235, 240, 252);
+  box-shadow: 0px 5px 16px 0px rgb(89, 93, 136);
   overflow: hidden;
 }
 
@@ -266,6 +267,21 @@ div.bottom {
   min-height: 90vh;
 
 }
+
+.signup-image {
+  background-color: rgb(97, 36, 82);
+  margin: 0 8em 0 0;
+  padding: 3em 1em;
+  border-radius: .2em;
+}
+
+.signup-image img {
+  width: 45em;
+  height: 25em;
+  margin: 0 5em 0 4em;
+}
+
+
 
 #my-signup-button {
   margin-left: 6em;
@@ -680,7 +696,7 @@ margin-left: 1.2em;
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 7em;
+  right: 6em;
   background-color: #929ec5;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -858,11 +874,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 .missing-dropdown-content:hover {
   display: block;
   background-color: rgba(253, 222, 222, 0.589);
-  color: black;
+  color: white;
   z-index: 0;
-  font-size: 5em;
+  font-size: 2.2em;
   position: relative;
-  bottom: 110px;
+  bottom: 58px;
 } 
 
 /* FRIDGE STYLES */
