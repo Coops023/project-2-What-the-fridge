@@ -2,17 +2,27 @@
   <div class="my-nav-items">
     <div class="my-logo-container">
       <img class="my-logo"
-        src="/images/Electronic_Devices__506_-removebg-preview.png" alt="">
-        <span class="my-logout-link">WTF</span>
+        src="/images/Electronic_Devices__506_-removebg-preview.png"
+        alt="">
+      <span class="my-logout-link">WTF</span>
     </div>
     <ul>
-      <li class="my-is-active"><a id="profile-active" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a id="profile-active"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="profile-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="profile-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
+          </div>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
           </div>
         <div class="dropdown-content">
           <a  href="/auth/logout">Logout</a>
@@ -21,7 +31,6 @@
         <a class="my-a-white" href="/private/fridge">Fridge</a>
         <a class="my-a-white" href="/private/profile">Recipes</a>
         </div>
-      </div>
       </li>
     </ul>
   </div>
@@ -31,27 +40,33 @@
 
 <div class="my-profile-image-container">
   {{!-- <a href='https://www.freepik.com/vectors/food'>Food vector created by macrovector - www.freepik.com</a> --}}
-    {{!-- <img src="/images/k020-removebg-preview.png" alt=""> --}}
-    <img src="/images/2011.i203.012_hobby cartoon.jpg" alt="">
-   
+  {{!-- <img src="/images/k020-removebg-preview.png"
+    alt=""> --}}
+  <img src="/images/2011.i203.012_hobby cartoon.jpg"
+    alt="">
+
 </div>
 
 
 <div class="recipe-container">
-  
-{{#each user.recipes}}
-    <div class="recipe-card-container">
-      <div class="missing-dropdown">
-    <img src="{{this.image}}" alt="">
-    <span class="missing-dropdown-content">Missing: {{this.missingIngredients}}</span>
+
+  {{#each user.recipes}}
+  <div class="recipe-card-container">
+    <div class="missing-dropdown">
+      <img src="{{this.image}}"
+        alt="">
+      <span class="missing-dropdown-content">Missing: {{this.missingIngredients}}</span>
     </div>
-    <h2>{{this.title}}</h3>
-    <div class="my-buttons-other">
+    <div class="btn-head-recipe-wrap">
+      <h2>{{this.title}}</h3>
+        <div class="my-buttons-other">
           <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
-          <a class="my-btn" href="/private/fridge/compare/recipe/{{this._id}}">compare</a> 
+          <a class="my-btn"
+            href="/private/fridge/compare/recipe/{{this._id}}">Details</a>
+        </div>
     </div>
-    </div>
-    {{/each}}
+  </div>
+  {{/each}}
 </div>
 
 

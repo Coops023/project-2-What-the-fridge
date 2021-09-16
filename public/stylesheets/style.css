@@ -1184,7 +1184,59 @@ transform: translateY(-0.2em);
 
 
 /* END OF FRIDGE STYLES */
+.edit-user-wrap{
+  width: 100%;
+  height: 90vh;
+  border: 5px solid black;
+}
 
+.edit-user-form{
+border: 1px solid black;
+display: flex;
+justify-content: center;
+flex-direction: column;
+width: 30%;
+height: 50%;
+background-color: rgba(255,255,255, 0.5);
+margin: auto;
+margin-top: 15%;
+padding: 2em;
+}
+
+#details-edit-h2{
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-family: "bangers";
+}
+
+#delete-user-button{
+  background-color: #ef233c;
+  padding: 15.9px 10px;
+  color: white;
+  border-color: #ef233c;
+  border-radius: 0.3em;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+#delete-user-button:hover{
+  background-color: #d90429;
+}
+
+#search-active{
+  font-size: 5em;
+}
+
+
+/* #update-user-btn{
+  
+} */
+
+/* START USER EDIT STYLE */
+
+
+/* END USER EDIT STYLE */
 
 /* button click effect */
 
@@ -1215,4 +1267,111 @@ button:active {
   box-shadow: 0 0 0 0 #540d6e;
   transform: scale(0.9);
 } */
+
+@media screen and (max-width: 1300px) {
+  .recipe-card-container{
+    height: 20em;
+    width: 15em;
+  
+  }
+  .my-nav-items{
+    height: 5em;
+    margin: 0;
+  }
+
+  .btn-head-recipe-wrap{
+    position: relative;
+    bottom: 10em;
+  
+  }
+
+  .btn-head-recipe-wrap a{
+    width: 3em;
+    height: 2em;
+    padding: 5px 0 0 0 ;
+  }
+  .btn-head-recipe-wrap h2{
+    font-size: 1.2em;
+    padding-bottom: 0;
+    width: 8em;
+    margin: 0;
+  }
+  #profile-active{
+    font-size: 5em;
+   
+  }
+
+  .my-is-active{
+    width: 20em;
+    top: 30px;
+  }
+
+  .dropdown-content{
+    right: 4em;
+  }
+
+ 
+
+ 
+
+
+
+}
+
+@media screen and (max-width: 1000px){
+
+  #profile-active{
+    font-size: 3em;
+    
+  }
+
+  .my-is-active{
+    top: 100px;
+   
+  }
+ 
+}
+
+
+
+@media screen and (max-width: 800px){
+
+
+  .my-profile-image-container{
+    display: none;
+  }
+
+  .my-a-white{
+    display: none;
+  }
+
+  .my-nav-items{
+    height: 5em;
+    margin: 0;
+  }
+
+  .my-dropdown{
+    width: 2em;
+  }
+
+  .my-is-active{
+    display: inline;
+    top: 20px;
+  }
+
+  .dropdown-content{
+    right: 1.4em;
+  }
+
+}
+
+@media screen and (max-width: 550px){
+.my-logout-link{
+  display: none;
+}
+  
+}
+
+
+
 
