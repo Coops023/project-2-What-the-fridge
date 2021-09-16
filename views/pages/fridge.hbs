@@ -8,19 +8,24 @@
     </div>
 
     <ul>
-    <li id="fridge-active" class="my-is-active">Fridge</li>
-      <li><a class="my-a-white" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li id="fridge-active"
+        class="my-is-active">Fridge</li>
+      <li><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="fridge-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="fridge-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
           </div>
-        <div class="dropdown-content">
-          <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit-profile">View Account</a>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+          </div>
         </div>
-      </div>
       </li>
     </ul>
 
@@ -28,25 +33,64 @@
 </div>
 
 <br>
-<form action="/private/fridge/add"
-  method="POST">
-  <label for="ingredient">Ingredients</label>
-  <input type="text"
-    name="ingredient">
-  <button type="submit">Add</button>
-</form>
+<div class="fridge-add-form">
+  <form action="/private/fridge/add"
+    method="POST">
+    <div class="search-2">
+      <input type="text"
+        class="searchTerm-2"
+        name="ingredient"
+        placeholder="Add ingredients to your fridge!">
+      <button type="submit"
+        class="searchButton-2"><i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </form>
+</div>
 
-<div class="fridge">
-  <ul>
-    <form action="/private/fridge/remove"
+
+<div class="fridge-container">
+
+  <img class="open-fridge-img"
+    src="/images/open-fridge.png"
+    alt="open fridge image">
+  <div class="fridge-ingredient-wrap">
+    <form class="fridge-ingredient-form"
+      action="/private/fridge/remove"
       method="POST">
+
       {{#each ingredients}}
-      <input type="checkbox"
-        value="{{this}}"
-        name="ingredient">
-      <label for="ingredient">{{this}}</label>
+      <div class="checkbox-border">
+        <input id="fridge-checkbox-input"
+          type="checkbox"
+          value="{{this}}"
+          name="ingredient">
+        <label id="ingredient-label"
+          for="ingredient">{{this}}</label>
+      </div>
       {{/each}}
-      <button type="submit">remove</button>
-    </form>
-  </ul>
+
+
+  </div>
+  <button id="fridge-remove-button"
+    type="submit">remove</button>
+  </form>
+
+</div>
+
+<div id="footer-search-page"
+  class="bottom">
+  <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong>
+      by
+      <strong class="has-text-white">Alex Vasconcelos de Almeids</strong>
+      and
+      <strong class="has-text-white">Cooper Bjorkelund
+      </strong>
+      <br />
+      With credit to
+      <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
+  </div>
 </div>

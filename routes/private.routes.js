@@ -5,61 +5,7 @@ const User = require('../models/User.model');
 const bcrypt = require('bcrypt');
 const saltRound = 10;
 
-
-
-
-
-router.get("/profile", (req, res) => {
-    const userId = req.session.currentUser._id;
-    User.findById(userId)
-        .populate({
-            path: 'recipes',
-            populate: {
-                path: 'ingredients',
-                model: 'Ingredient'
-            }
-        })
-        .then(user => {
-            userRecipes = user.recipes
-            for (const indexRecipe in userRecipes) {
-                for (const indexIngredient in userRecipes[indexRecipe].ingredients)
-                    if (!user.ingredients.includes(userRecipes[indexRecipe].ingredients[indexIngredient].name)) {
-                        userRecipes[indexRecipe].ingredients[indexIngredient].userMissing = true
-                        userRecipes[indexRecipe].missingIngredients += 1
-                    }
-            }
-            console.log('line 29', userRecipes);
-            res.render("user-profile", { user })
-        });
-});
-
-
-
-router.post('/fridge/add', (req, res) => {
-    const { ingredient } = req.body
-    console.log(req.body.ingredient)
-    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { ingredients: ingredient } })
-        .then(user => {
-
-            res.redirect(`/private/fridge`)
-        })
-        .catch(err => console.log(err));
-});
-
-router.post('/fridge/remove', (req, res) => {
-    let { ingredient } = req.body
-    if (typeof ingredient === "undefined") ingredient = []
-    if (typeof ingredient === "string") ingredient = [ingredient]
-    User.findByIdAndUpdate(req.session.currentUser._id, { $pullAll: { ingredients: ingredient } })
-        .then(() => {
-            res.redirect(`/private/fridge`)
-        })
-        .catch(err => console.log(err));
-});
-
-
-
-
+//COMPARES INGREDIENTS IN FRIDGE TO INGREDIENTS NEEDED IN RECIPE
 router.get('/fridge/compare/recipe/:id', (req, res) => {
     console.log("THIS IS THE ID", req.params.id)
     Recipes.findById(req.params.id)

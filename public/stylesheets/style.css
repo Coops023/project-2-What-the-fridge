@@ -965,6 +965,159 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   bottom: 58px;
 } 
 
+/* FRIDGE STYLES */
+
+.fridge-add-form{
+position: absolute;
+left: 50%;
+top: 27%;
+transform: translate(-50%, -50%);
+}
+
+.fridge-container{
+  
+  height: 60%;
+  width: 50%;
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.open-fridge-img{
+  position: absolute;
+  z-index: -1;
+}
+
+.fridge-ingredient-wrap{
+ 
+  display: flex;
+ flex-wrap: wrap;
+ width: 27em;
+ height: 19em;
+ position: relative;
+ bottom: 4em;
+}
+
+.fridge-ingredient-form{
+ 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.checkbox-border{
+  border: 1px solid #f28482;
+  background-color: #eae4e9;
+  width: 7em;
+  height: 2em;
+  border-radius: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2em;
+  box-shadow: 3px 2px 8px #293241;
+}
+
+#fridge-checkbox-input{
+  width: 20px;
+  margin-right: 5px;
+  
+}
+
+#ingredient-label{
+color: #6d6875;
+font-family: "bangers";
+}
+
+
+#fridge-remove-button {
+  background: none;
+  border: 1px solid;
+  border-radius: 0.5em;
+  color: white;
+  background-color: #ef476f;
+  padding: 0.5em 2em;
+  font-size: 1em;
+  transition: 0.3s ease;
+  position: relative;
+  right: 6em;
+  top: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#fridge-remove-button:hover {
+  border-color: #540d6e;
+  color: white;
+  box-shadow: 0 0.5em 1em -0.5em #540d6e;
+transform: translateY(-0.2em); 
+  cursor:pointer
+}
+
+#fridge-remove-button:focus {
+  outline: none;;
+}
+#fridge-remove-button:active {
+  border-color: #540d6e;
+ background: #ef476f;
+  box-shadow: 0 0 0 0 #540d6e;
+  transform: scale(0.9);
+}
+
+.fridge-add-form{
+ 
+  width: 30%;
+}
+
+.search-2 {
+  width: 100%;
+  position: relative;
+  display: flex;
+  
+}
+
+.searchTerm-2 {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 60px;
+  border-radius: 1em 0 0 1em;
+  outline: none;
+  color: #9DBFAF;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.searchTerm-2:focus{
+  color: #00B4CC;
+  z-index: 1;
+}
+
+.searchButton-2 {
+  width: 18%;
+  height: 60px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 1em 1em 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+
+/* END OF FRIDGE STYLES */
+
 
 /* button click effect */
 
