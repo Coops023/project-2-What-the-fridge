@@ -54,6 +54,14 @@ body {
   font-family: 'Caveat', cursive;
 }
 
+#results-active {
+  color: white;
+  font-size: 10em;
+  margin: .2em .2em 1em .2em;
+  padding: 0 .4em .2em .3em;
+  font-family: 'Caveat', cursive;
+}
+
 #edit-profile-active {
   color: white;
   font-size: 10em;
@@ -215,6 +223,13 @@ div.bottom {
 
 }
 
+.my-fridge-container {
+  /* background-color: rgb(52, 243, 132); */
+  margin: 2em 1em 0 1em;
+  padding: 2em;
+  border-radius: .2em;
+}
+
 .fridge-img {
   background-image: url('../images/—Pngtree—vector\ fridge\ icon_4051836.png');
 }
@@ -256,7 +271,7 @@ div.bottom {
 }
 
 .my-fridge-login-img {
-  width: 35em;
+  width: 50em;
   height: auto;
 }
 
@@ -747,6 +762,57 @@ margin-left: 1.2em;
   padding: 1em;
 }
 
+/* -- RECIPE RESULTS -- */
+
+.recipe-results-container {
+  display: flex;
+  /* border: 1px solid rgb(154, 245, 8); */
+  /* background-color: rgb(236, 170, 216); */
+  /* background: rgb(252, 183, 236); */
+background: linear-gradient(0deg, rgb(207, 127, 183) 0%, rgb(148, 75, 177) 100%);
+/* background: rgb(255,155,232);
+background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 100%); */
+  /* border-radius: 1em; */
+  margin: auto;
+  width: 100%;
+  min-height: 90vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.recipe-results-card-container {
+  background-color: white;
+  border-radius: 1%;
+  width: 25%;
+  margin: 2em;
+  /* height: 40em; */
+  /* padding: 2em 2em 5em 2em; */
+  padding: 2em;
+  text-align: center;
+  font-family: 'Bangers';
+  box-shadow: 0px 8px 12px 0px rgba(165, 89, 133, 0.521);
+}
+
+.recipe-results-card-container h2 {
+  padding: 1em 0;
+  margin: .7em 2em 1em 2em;
+  font-size: 1.5em;
+  color: rgb(173, 172, 172);
+}
+
+.results-banner {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(88, 88, 173);
+  padding: 1em;
+}
+
+/* -- END OF RECIPE RESULTS -- */
+
 
 /* -- USER PAGE SAVED RECIPES DISPLAY -- */                       
 
@@ -800,6 +866,24 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 }
 
 .my-buttons-other a{
+  height: 3em;
+  width: 6em;
+  font-size: 1.5em;
+  font-family: 'Bangers';
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid rgb(87, 183, 221);
+  border-radius: 7px;
+  margin: .3em;
+  padding: .7em;
+  color: rgb(87, 183, 221);
+  box-shadow: 0px 1px 8px 0px rgb(201, 214, 219);
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.my-buttons-other button {
   height: 3em;
   width: 6em;
   font-size: 1.5em;

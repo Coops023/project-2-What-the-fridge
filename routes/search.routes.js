@@ -49,6 +49,7 @@ router.post('/ingredients', (req, res) => {
             User.findById(req.session.currentUser._id)
                 .populate('recipes')
                 .then(user => {
+                    
                     res.render('search-results', { recipes: response.data, user: user.recipes })
                 })
                 .catch(err => console.log(err));
