@@ -8,47 +8,110 @@
         href="/auth/logout">Logout</a> --}}
     </div>
     <ul>
-      <li class="my-is-active"><a id="edit-profile-active" href="/private/profile">Account</a></li>
-      <li><a class="my-a-white" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a id="edit-profile-active"
+          href="/private/profile">Account</a></li>
+      <li><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="profile-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="profile-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
           </div>
-        <div class="dropdown-content">
-          <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit-profile">View Account</a>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+          </div>
         </div>
-      </div>
       </li>
     </ul>
-
   </div>
 </div>
 
-<h2>Edit user</h2>
 
 
-<form action="/private/profile"
-    method="POST">
 
 
-    <label for=''>Username</label>
-    <input type='text'
-        name='username'
-        value="{{username}}">
 
-    <br>
-    <label for=''>Password</label>
-    <input type='password'
-        name='password'>
-    <br>
-    <button type='submit'>Edit user</button>
-</form>
 
-<form action="/private/edit/:id/delete"
-    method="POST">
-    <button type="submit">Delete Account</button>
-</form>
+
+<div class="my-signup-container">
+  <div class="signup-image">
+    <img src="/images/07.jpg"
+      alt="">
+  </div>
+
+  <div class="form-center-screen">
+    <div id="my-form-center"
+      class="column  is-one-third is-offset-one-third">
+      <form action="/private/edit-profile"
+        method="POST">
+        <h2 id="details-edit-h2">Edit details</h2>
+        <div class="field">
+          <label id="my-lable-username"
+            class="lable is-large has-text-black">Username</label>
+          <p class="control has-icons-left has-icons-right">
+            <input class="input is-large"
+              type="text"
+              placeholder="Username"
+              name="username"
+              value="{{username}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label id="my-lable-email"
+            class="lable is-large has-text-black">Email</label>
+          <p class="control has-icons-left">
+            <input class="input is-large"
+              type="email"
+              placeholder="email"
+              name="email"
+              value="{{email}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <label id="my-lable-password"
+            class="lable is-large has-text-black">Password</label>
+          <p class="control has-icons-left">
+            <input class="input is-large"
+              type="password"
+              placeholder="Update password"
+              name="password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field is-centered">
+          <p class="control is-centered">
+            <button id="my-signup-button update-user-btn"
+              class="button is-primary is-large"
+              type="submit">
+              Update
+            </button>
+          <form id="delete-user-form"
+            action="/private/edit/:id/delete"
+            method="POST">
+            <button id="delete-user-button"
+              type="submit">Delete Account</button>
+          </form>
+          </p>
+        </div>
+      </form>
+    </div>
+    <div>
+    </div>

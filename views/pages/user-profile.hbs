@@ -6,19 +6,24 @@
         alt="">
     </div>
     <ul>
-      <li class="my-is-active"><a id="profile-active" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li class="my-is-active"><a id="profile-active"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="profile-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="profile-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
           </div>
-        <div class="dropdown-content">
-          <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit-profile">View Account</a>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+          </div>
         </div>
-      </div>
       </li>
     </ul>
 
@@ -29,8 +34,10 @@
 
 <div class="my-profile-image-container">
   {{!-- <a href='https://www.freepik.com/vectors/food'>Food vector created by macrovector - www.freepik.com</a> --}}
-    {{!-- <img src="/images/k020-removebg-preview.png" alt=""> --}}
-    <img src="/images/2011.i203.012_hobby cartoon.jpg" alt="">
+  {{!-- <img src="/images/k020-removebg-preview.png"
+    alt=""> --}}
+  <img src="/images/2011.i203.012_hobby cartoon.jpg"
+    alt="">
 </div>
 
 
@@ -43,10 +50,12 @@
 </div> --}}
 
 {{! DISPLAY ALL SAVED RECIPES }}
-{{!-- <ul id="my-recipe-view" class="recipe-view">
+{{!-- <ul id="my-recipe-view"
+  class="recipe-view">
   <div class="columns is-multiline is-centered">
     {{#each user.recipes}}
-    <div id="card-container" class="column is-one-quarter mx-5">
+    <div id="card-container"
+      class="column is-one-quarter mx-5">
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
@@ -54,50 +63,62 @@
               alt="Placeholder image" />
           </figure>
         </div>
-        <div id="my-card-content" class="card-content">
-            <div class="content">
+        <div id="my-card-content"
+          class="card-content">
+          <div class="content">
             <div class="my-title">
-            <p id="my-recipe-title" class="title">{{this.title}}</p>
-          </div>
+              <p id="my-recipe-title"
+                class="title">{{this.title}}</p>
+            </div>
           </div>
         </div>
-            <footer id="my-footer" class="card-footer">
-                <a  id="my-remove-btn" href="/private/fridge/remove/recipe/{{this._id}}" class="card-footer-item">Remove</a>
-                 <a  id="my-compare-btn"  href="/private/fridge/compare/recipe/{{this._id}}" class="card-footer-item">Compare</a>
-                 <a  id="my-missing-btn" href="#" class="card-footer-item">M:{{this.missingIngredients}}</a>
-             </footer>
-            <div class="my-buttons-other">
+        <footer id="my-footer"
+          class="card-footer">
+          <a id="my-remove-btn"
+            href="/private/fridge/remove/recipe/{{this._id}}"
+            class="card-footer-item">Remove</a>
+          <a id="my-compare-btn"
+            href="/private/fridge/compare/recipe/{{this._id}}"
+            class="card-footer-item">Compare</a>
+          <a id="my-missing-btn"
+            href="#"
+            class="card-footer-item">M:{{this.missingIngredients}}</a>
+        </footer>
+        <div class="my-buttons-other">
           <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
           <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>
-          </div>
-          <div id="my-missing-ingredients" class="tags has-addons">
-            <span class="tag is-warning">Missing</span>
-             <span class="tag is-danger">{{this.missingIngredients}}</span>
-        </div>  
-          <div >
+        </div>
+        <div id="my-missing-ingredients"
+          class="tags has-addons">
+          <span class="tag is-warning">Missing</span>
+          <span class="tag is-danger">{{this.missingIngredients}}</span>
+        </div>
+        <div>
           <p><strong>Missing</strong> <span style="color: red">{{this.missingIngredients}}</span></p>
-          </div> 
         </div>
       </div>
+    </div>
     {{/each}}
   </div>
 </ul> --}}
 
 <div class="recipe-container">
-  
-{{#each user.recipes}}
-    <div class="recipe-card-container">
-      <div class="missing-dropdown">
-    <img src="{{this.image}}" alt="">
-    <span class="missing-dropdown-content">M: {{this.missingIngredients}}</span>
+
+  {{#each user.recipes}}
+  <div class="recipe-card-container">
+    <div class="missing-dropdown">
+      <img src="{{this.image}}"
+        alt="">
+      <span class="missing-dropdown-content">M: {{this.missingIngredients}}</span>
     </div>
     <h2>{{this.title}}</h3>
-    <div class="my-buttons-other">
-          <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
-          <a class="my-btn" href="/private/fridge/compare/recipe/{{this._id}}">compare</a> 
-    </div>
-    </div>
-    {{/each}}
+      <div class="my-buttons-other">
+        <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
+        <a class="my-btn"
+          href="/private/fridge/compare/recipe/{{this._id}}">Details</a>
+      </div>
+  </div>
+  {{/each}}
 </div>
 
 

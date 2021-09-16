@@ -82,7 +82,7 @@ router.route("/edit-profile")
     })
     .post((req, res) => {
 
-        const { username, password, email } = req.body
+        const { username, email, password } = req.body
 
         const salt = bcrypt.genSaltSync(saltRound);
         const hashPassword = bcrypt.hashSync(password, salt);
