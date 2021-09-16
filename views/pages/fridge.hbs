@@ -37,12 +37,18 @@
 <div class="fridge-add-form">
   <form action="/private/fridge/add"
     method="POST">
-    <label for="ingredient">Ingredients</label>
-    <input type="text"
-      name="ingredient">
-    <button type="submit">Add</button>
+    <div class="search-2">
+      <input type="text"
+        class="searchTerm-2"
+        name="ingredient"
+        placeholder="Add ingredients to your fridge!">
+      <button type="submit"
+        class="searchButton-2"><i class="fas fa-plus"></i>
+      </button>
+    </div>
   </form>
 </div>
+
 
 <div class="fridge-container">
 
@@ -73,4 +79,19 @@
 
 </div>
 
+<div id="footer-search-page"
+  class="bottom">
+  <div class="content has-text-centered has-text-white">
+    <p>
+      <strong class="has-text-white">What The Fridge</strong>
+      by
+      <strong class="has-text-white">Alex Vasconcelos de Almeids</strong>
+      and
+      <strong class="has-text-white">Cooper Bjorkelund
+      </strong>
+      <br />
+      With credit to
+      <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
+    </p>
+  </div>
 </div>
