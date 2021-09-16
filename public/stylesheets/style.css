@@ -254,16 +254,41 @@ div.bottom {
 
 /* position login form to center of screen */
 .form-center-screen {
-  width: 80em;
-  margin-right: 11em;
-  background-image: url('/images/6235-removebg-preview.png');
+  /* width: 80em; */
+  /* margin-left: 5em; */
+   /* background-image: url('/images/6235-removebg-preview.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position-y: top;
-  background-position-x: left;
-  /* border: 1px solid yellow; */
-  padding: 9em 8em 8em 8em;
-  margin-top: 0;
+  background-position-x: left;   */
+  /* padding: 9em 8em 8em 8em; */
+  /* margin-top: 0; */
+}
+
+#my-login-form-container {
+background-image: url('/images/6235-removebg-preview.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: top;
+  background-position-x: left;  
+  padding: 10em 12em 8em 0em;
+  width: 52%;
+}
+
+#my-login-form-center-screen {
+  padding: .8em 2em;
+  border-radius: .5em;
+  font-size: 2em;
+  width: 60%;
+  background-color: rgb(235, 240, 252);
+  box-shadow: 5px 10px 12px 5px rgb(89, 93, 136);
+  border: 3px solid rgb(0, 195, 255);
+}
+
+#login-button {
+  padding: 0;
+  height: 2em;
+
 }
 
 #my-form-center {
@@ -292,10 +317,12 @@ div.bottom {
 
 .my-login-container {
   display: flex;
-  flex-direction: row;
-  justify-content:space-around;
+  justify-content:center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 85vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .my-fridge-login-img {
@@ -353,18 +380,20 @@ div.bottom {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(84, 121, 224);
-  border: 4px solid rgb(84, 121, 224);
+  background-color: rgb(88, 74, 151);
+  /* border: 4px solid rgb(84, 121, 224); */
   border-radius: 5px;
-  margin: 9em 9em 5em 9em;
+  margin: 9em 0em 0em 0em;
+  border-left: 1em solid pink;
+  border-right: 1em solid pink;
 }
 
 .my-profile-image-container img{
-  height: 40em;
-  width: 95%;
+  height: 20em;
+  width: 33%;
   /* background-color: rgb(84, 121, 224); */
   padding: 0 3em;
-  margin: 3em 14em;
+  margin: 1em 14em;
   /* margin-bottom: .3em; */
 }
 
