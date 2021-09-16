@@ -228,9 +228,12 @@ div.bottom {
 
 .my-fridge-container {
   /* background-color: rgb(52, 243, 132); */
-  margin: 2em 1em 0 1em;
-  padding: 2em;
-  border-radius: .2em;
+  margin: 2em 5em 0 3em;
+  padding: 4em 2em;
+  background-image: url('/images/pinpng.com-paint-brush-stroke-png-27380.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .fridge-img {
@@ -240,6 +243,7 @@ div.bottom {
 /* position login form to center of screen */
 .form-center-screen {
   width: 40em;
+  margin-right: 14em;
 }
 
 #my-form-center {
@@ -251,8 +255,9 @@ div.bottom {
   margin: 0;
   width: 100%;
   background-color: rgb(235, 240, 252);
-  box-shadow: 0px 5px 16px 0px rgb(89, 93, 136);
+  box-shadow: 5px 10px 12px 5px rgb(89, 93, 136);
   overflow: hidden;
+  border: 3px solid rgb(0, 195, 255);
 }
 
 /* #my-input-color-username {
@@ -268,7 +273,7 @@ div.bottom {
 .my-login-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
   min-height: 90vh;
 }
@@ -276,6 +281,7 @@ div.bottom {
 .my-fridge-login-img {
   width: 50em;
   height: auto;
+  padding: 6em 6em 6em 9em;
 }
 
 .my-signup-container {
@@ -287,16 +293,29 @@ div.bottom {
 }
 
 .signup-image {
-  background-color: rgb(97, 36, 82);
-  margin: 0 8em 0 0;
-  padding: 3em 1em;
-  border-radius: .2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(163, 50, 135); */
+  /* border: 5px solid rgb(238, 90, 134); */
+  margin: 0 8em 0 4em;
+  /* padding: 4em 1em 4em 1em; */
+  border-radius: 5em;
+  height: 50em;
+  width: 50em;
+  padding: 0;
+  /* background-color: rgba(179, 33, 118, 0.856); */
+ 
 }
 
 .signup-image img {
-  width: 45em;
-  height: 25em;
-  margin: 0 5em 0 4em;
+  width: 100%;
+  height: 100%;
+  /* margin: 0 5em 0 4em; */
+  border-radius: 50em;
+  background-color: rgb(97, 36, 82);
+  margin: 0;
+  padding: 7em 7em;
 }
 
 
