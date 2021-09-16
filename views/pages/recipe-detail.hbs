@@ -8,15 +8,31 @@
     </div>
 
     <ul>
-      <li class="my-is-active"><a id="my-a-white"
-          class="my-a-white"
-          href="/private/profile">Details</a></li>
+      <li id="recipe-details-active" class="my-is-active">Details</li>
       <li><a class="my-a-white"
           href="/private/profile">Recipes</a></li>
-      {{!-- <li><a class="my-a-white"
-          href="/private/fridge">Fridge</a></li> --}}
+      <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
       <li><a class="my-a-white"
           href="/search/ingredients">Search</a></li>
+          <li>
+        <div class="my-dropdown">
+          <div class="menu-icon-div">
+            <span id="fridge-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
+          </div>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+            <a class="my-a-white"
+          href="/private/profile">Recipes</a>
+          <a class="my-a-white"
+          href="/search/ingredients">Search</a>
+          <a class="my-a-white" href="/private/fridge">Fridge</a>
+          </div>
+        </div>
+      </li>
     </ul>
 
   </div>
