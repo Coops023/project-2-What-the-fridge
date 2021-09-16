@@ -22,6 +22,7 @@ router.get('/fridge/compare/recipe/:id', (req, res) => {
                     }
                     res.render('recipe-detail', { recipe: recipe, user: user })
                 })
+                .catch(err => console.log(err))
         })
         .catch((error) => {
             console.log(error);

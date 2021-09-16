@@ -17,48 +17,67 @@ body {
   
 }
 
-.my-intro-container {
-  /* border: 1px solid black; */
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
+
+/* -- CURRENT ACTIVE PAGE STYLING -- */
 
 .my-is-active {
   color: white;
   border-radius: 5px;
   position: absolute;
   left: 49%;
-  top: 5%;
+  top: 8%;
   text-align: center;
   transform: translate(-50%, -50%);
-  /* margin-right: 15em; */
+  border: 1px solid rgb(255, 255, 255);
 }
 
-.my-is-active a {
-  font-size: 3em;
-}
-
-.my-a-white {
+#profile-active {
   color: white;
-  font-size: 3em;
-}
-
-#my-a-white {
-  color: white;
-  font-size: 5em;
+  font-size: 10em;
+  margin: .2em;
   font-family: 'Caveat', cursive;
 }
+
+#fridge-active {
+  color: white;
+  font-size: 10em;
+  margin: .2em;
+  padding: 0 .3em .2em .3em;
+  font-family: 'Caveat', cursive;
+}
+
+#search-active {
+  color: white;
+  font-size: 10em;
+  margin: .2em;
+  padding: 0 .4em .2em .3em;
+  font-family: 'Caveat', cursive;
+}
+
+#edit-profile-active {
+  color: white;
+  font-size: 10em;
+  margin: .2em;
+  padding: 0 .4em .2em .3em;
+  font-family: 'Caveat', cursive;
+}
+
+/* ** END OF ACTIVE PAGE SECTION ** */
 
 a {
   color: #00B7FF;
 }
 
+/* --- NAVBAR --- */
+
 .my-navbar {
   height: 80px;
   width: 100%;
+}
+
+.my-a-white {
+  color: white;
+  font-size: 10em;
 }
 
 .my-navbar ul {
@@ -84,11 +103,6 @@ a {
   font-size: 20px;
 }
 
-/* .my-logout {
-  float: left;
-  margin-left: 50px;
-} */
-
 .my-nav-items {
   margin: 0 2em;
   display: flex;
@@ -102,12 +116,27 @@ a {
 
 .my-logout-link{
   font-size: 1.2em;
+  color: white;
 }
 
 .my-logo {
   width: 100px;
   height: auto;
   padding: 10px 20px;
+}
+
+/* ** END OF SECTION ** */
+
+
+/* --- INDEX PAGE --- */
+.my-intro-container {
+  min-height: 100vh;
+  display: flex;
+  width: 70%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .my-image-index img {
@@ -118,68 +147,46 @@ a {
 .my-center h1 {
   font-size: 70px;
   font-weight: bold;
-  width: 900px;
+  /* width: 900px; */
   text-align: center;
 }
 
 .my-center h2 {
   font-size: 20px;
   font-weight: bold;
-  width: 885px;
   margin-top: 10px;
   text-align: center;
   font-style: italic;
 }
 
-.my-center .my-buttons {
-  margin: 35px 280px;
+.my-buttons button {
+  height: 100px;
+  width: 200px;
+  font-family: 'Bangers';
+  font-size: 32px;
+  font-weight: bold;
+  background-color: rgb(87, 183, 221);
+  border-radius: 7px;
+  margin: .5em;
+  border: none;
+  box-shadow: 0px 8px 16px 0px rgb(46, 86, 105);
 }
 
-/* .my-buttons button {
-  height: 50px;
-  width: 150px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: rgb(87, 183, 221);
-  border-radius: 7px;
-  border: none;
-} */
-
-/* .my-buttons-other {
-  display: flex;
-  justify-content:center;
-  align-items:center
-} */
-
-/* .my-buttons-other button{
-  height: 50px;
-  width: 100px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: rgb(87, 183, 221);
-  border-radius: 7px;
-  border: none;
-  margin: .5em;
+.my-buttons button a {
+  color:white;
 }
 
 .my-buttons .my-btn {
   background-color: rgb(28, 209, 155);
 }
 
-.my-buttons-other .my-btn {
-  background-color: rgb(28, 209, 155);
+.my-center .my-buttons {
+  margin: 35px 280px;
 }
 
-.my-buttons a {
-  color:white;
-}
-
-.my-buttons-other a {
-  color:white;
-} */
+/* ** END OF INDEX PAGE ** */
 
 .fridge {
-  /* border: 1px solid black; */
   height: 400px;
  display: flex;
  flex-wrap: wrap;
@@ -274,12 +281,17 @@ div.bottom {
   justify-content: center;
   align-items: center;
   background-color: rgb(84, 121, 224);
-  margin: 7em 25em;
+  border: 4px solid rgb(84, 121, 224);
+  border-radius: 5px;
+  margin: 9em 13em;
 }
 
 .my-profile-image-container img{
-  height: 45em;
-  width: 70%;
+  height: 40em;
+  width: 95%;
+  /* background-color: rgb(84, 121, 224); */
+  padding: 0 3em;
+  margin: 3em 14em;
   /* margin-bottom: .3em; */
 }
 
@@ -646,12 +658,23 @@ margin-left: 1.2em;
   height: 5em;
   font-size: 1em;
   margin: 0;
-  padding: 0;
 }
 
 .my-dropbtn {
   color: white;
   width: 50%;
+}
+
+#profile-menu {
+  font-size: 1.5em;
+}
+
+#search-menu {
+  font-size: 1.5em;
+}
+
+#fridge-menu {
+  font-size: 1.5em;
 }
 
 .dropdown-content {
@@ -700,10 +723,16 @@ margin-left: 1.2em;
   justify-content: center;
   align-items: center;
   border: 1px solid white;
-  width: 2em;
-  height: 2em;
+  border-radius: 5px;
+  width: 3em;
+  height: 3em;
   margin-left: 10px;
+  margin-top: .5em;
+  padding: 1em;
 }
+
+
+/* -- USER PAGE SAVED RECIPES DISPLAY -- */                       
 
 .recipe-container {
   display: flex;
@@ -728,19 +757,21 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   border-radius: 1%;
   width: 25%;
   margin: 2em;
+  /* height: 40em; */
+  /* padding: 2em 2em 5em 2em; */
   padding: 2em;
   text-align: center;
   font-family: 'Bangers';
-  box-shadow: 0px 4px 8px 0px rgba(63, 63, 63, 0.2);
+  box-shadow: 0px 8px 12px 0px rgba(231, 137, 137, 0.521);
 }
 
 .recipe-card-container:hover {
-  box-shadow: 0px 12px 20px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 20px 30px 0px rgba(177, 80, 80, 0.664);
 }
 
 .recipe-card-container h2 {
   padding: 1em 0;
-  margin: .5em 2em;
+  margin: .7em 2em 1em 2em;
   font-size: 1.5em;
   color: rgb(173, 172, 172);
 }
@@ -749,31 +780,36 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   display: flex;
   justify-content:center;
   align-items:center;
+  text-align: center;
 }
 
-.my-buttons-other button{
-  height: 80px;
-  width: 150px;
-  font-size: 25px;
+.my-buttons-other a{
+  height: 3em;
+  width: 6em;
+  font-size: 1.5em;
   font-family: 'Bangers';
   font-weight: bold;
   background-color: white;
   border: 1px solid rgb(87, 183, 221);
   border-radius: 7px;
   margin: .3em;
+  padding: .7em;
   color: rgb(87, 183, 221);
   box-shadow: 0px 1px 8px 0px rgb(201, 214, 219);
+  text-align: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.my-buttons-other button:hover {
+/* .my-buttons-other :hover {
   background-color: rgb(87, 183, 221);
-}
+} */
 
 .my-buttons-other:hover {
   color: white;
 }
 
-.my-buttons-other button a:hover {
+.my-buttons-other a:hover {
   background-color: rgb(87, 183, 221);
   color: white;
 }
@@ -792,18 +828,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
   color:rgb(28, 209, 155);
 }
 
-.my-buttons-other a {
+/* .my-buttons-other a {
   color:rgb(87, 183, 221);
-}
+} */
 
-.my-buttons button {
-  height: 50px;
-  width: 150px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: rgb(87, 183, 221);
-  border-radius: 7px;
-}
+/*  ---- missing ingredients hover effect ---- */
 
  .missing-dropdown {
   height: 300px;

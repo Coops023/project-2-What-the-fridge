@@ -57,41 +57,6 @@ router.post('/ingredients', (req, res) => {
 
 // -- SAVE NEW RECIPE TO USER ROUTES --
 
-// router.post('/fridge/recipe/save', (req, res) => {
-//     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
-//     axios({
-//         method: 'get',
-//         url: `https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`
-//     })
-//         .then(response1 => {
-
-//             const allIngredients = response1.data.extendedIngredients.map(ingredient => ({ name: ingredient.name, isMissing: false }))
-
-//             newRecipe.title = response1.data.title;
-//             newRecipe.image = response1.data.image;
-//             newRecipe.ingredients = allIngredients;
-//             newRecipe.missingIngredients = 0;
-
-//             axios({
-//                 method: 'get',
-//                 url: `https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`
-//             })
-//                 .then(response2 => {
-//                     // data is returned as an array of 1
-//                     newRecipe.instructions = response2.data[0].steps.map((nextStep) => nextStep.step);
-//                     Recipe.create({ apidDBId: req.body.id, title: newRecipe.title, image: newRecipe.image, ingredients: newRecipe.ingredients, instructions: newRecipe.instructions, missingIngredients: newRecipe.missingIngredients })
-//                         .then(recipe => {
-//                             User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { recipes: recipe._id } })
-//                                 .then(() => console.log('new recipe added: ', recipe))
-//                                 .catch(err => console.log(err));
-//                         })
-//                         .catch(err => console.log(err));
-//                 })
-//                 .catch((err) => console.log(err));
-//         })
-//         .catch(err => console.log(err));
-// });
-
 router.post('/fridge/recipe/save', async (req, res) => {
     const user = await User.findById(req.session.currentUser._id)
     const newRecipe = { title: '', image: '', ingredients: [], instructions: [], missingIngredients: 0 };
@@ -99,18 +64,18 @@ router.post('/fridge/recipe/save', async (req, res) => {
     const recipeInfoResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/information?apiKey=${process.env.API_KEY}&includeNutrition=false`);
     const { extendedIngredients } = recipeInfoResponse.data;
 
-    // const arrayOfMgsIngredients = await extendedIngredients.map(async (ingredient)=> {
-    //     const user = await User.findById(req.session.currentUser._id)
+    const arrayOfMgsIngredients = await extendedIngredients.map(async (ingredient) => {
+        const user = await User.findById(req.session.currentUser._id)
+        const userHas = user.ingredients.includes(ingredient.name)
+        const ingredients = await Ingredient.create({ name: ingredient.name, image: ingredient.image, userMissing: userHas })
+        return newRecipe.ingredients.push(ingredients._id);
+    })
+
+    // for(const ingredient of extendedIngredients) {
     //     const userHas = user.ingredients.includes(ingredient.name)
     //     const ingredient = await Ingredient.create({name: ingredient.name, image: ingredient.image, userMissing: userHas})
-    //     return newRecipe.ingredients.push(ingredient._id);
-    // })
-
-    for (const ingredient of extendedIngredients) {
-        const userHas = user.ingredients.includes(ingredient.name)
-        const ingredient = await Ingredient.create({ name: ingredient.name, image: ingredient.image, userMissing: userHas })
-        newRecipe.ingredients.push(ingredient._id);
-    }
+    //     newRecipe.ingredients.push(ingredient._id);
+    // }
 
     const recipeInstructionsResponse = await axios.get(`https://api.spoonacular.com/recipes/${req.body.id}/analyzedInstructions?apiKey=${process.env.API_KEY}`)
     const { steps } = recipeInstructionsResponse.data[0]

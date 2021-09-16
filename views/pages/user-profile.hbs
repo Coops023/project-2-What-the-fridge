@@ -8,7 +8,7 @@
         href="/auth/logout">Logout</a>
     </div>
     <ul>
-      <li class="my-is-active"><a id="my-a-white" class="my-orange" href="/private/profile">Recipes</a></li>
+      <li class="my-is-active"><a id="profile-active" href="/private/profile">Recipes</a></li>
       <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
       <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
       <li>
@@ -18,7 +18,7 @@
           </div>
         <div class="dropdown-content">
           <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit">View Account</a>
+        <a href="/private/edit-profile">View Account</a>
         </div>
       </div>
       </li>
@@ -30,7 +30,9 @@
 {{! SUB HEADING OF PAGE }}
 
 <div class="my-profile-image-container">
-    <img src="/images/k020-removebg-preview.png" alt="">
+  {{!-- <a href='https://www.freepik.com/vectors/food'>Food vector created by macrovector - www.freepik.com</a> --}}
+    {{!-- <img src="/images/k020-removebg-preview.png" alt=""> --}}
+    <img src="/images/2011.i203.012_hobby cartoon.jpg" alt="">
 </div>
 
 
@@ -93,8 +95,8 @@
     </div>
     <h2>{{this.title}}</h3>
     <div class="my-buttons-other">
-          <button><a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a></button>
-          <button class="my-btn"><a href="/private/fridge/compare/recipe/{{this._id}}">compare</a></button>   
+          <a href="/private/fridge/remove/recipe/{{this._id}}">Remove</a>
+          <a class="my-btn" href="/private/fridge/compare/recipe/{{this._id}}">compare</a> 
     </div>
     </div>
     {{/each}}
