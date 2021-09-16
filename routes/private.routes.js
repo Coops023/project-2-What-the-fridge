@@ -119,7 +119,7 @@ router.post('/fridge/add', (req, res) => {
         .catch(err => console.log(err));
 });
 
-router.post("/edit/:id/delete", (req, res) => {
+router.post("/edit/delete", (req, res) => {
     console.log("LINE 68", req.session.currentUser._id)
     User.findByIdAndDelete(req.session.currentUser._id)
         .then(() => {
