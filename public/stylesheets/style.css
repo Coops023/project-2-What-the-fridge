@@ -5,7 +5,7 @@
 /* results card missing drop down edit */
 #my-missing-results-card{
  height: 0;
- width: 15em;
+ width: 11em;
 }
 
 
@@ -1047,6 +1047,7 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 
  .missing-dropdown {
   height: 15em;
+  
   z-index: -1;
 }
 .missing-dropdown h2 {
@@ -1391,7 +1392,7 @@ button:active {
   .open-fridge-img{
  width: 30em;
 
- height: 30em;
+ height: 26em;
   }
  
   .fridge-ingredient-wrap{
@@ -1410,6 +1411,7 @@ button:active {
 
   .missing-dropdown{
     height: 17em;
+
   }
 
   
