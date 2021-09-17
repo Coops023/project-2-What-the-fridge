@@ -4,27 +4,36 @@
       <img class="my-logo"
         src="/images/Electronic_Devices__506_-removebg-preview.png"
         alt="">
-        <span class="my-logout-link">WTF</span>
+      <span class="my-logout-link">WTF</span>
     </div>
 
     <ul>
-       <li id="results-active" class="my-is-active">Results</li>
-      <li ><a class="my-a-white" href="/private/profile">Recipes</a></li>
-      <li><a class="my-a-white" href="/private/fridge">Fridge</a></li>
-      <li><a class="my-a-white" href="/search/ingredients">Search</a></li>
+      <li id="results-active"
+        class="my-is-active">Results</li>
+      <li><a class="my-a-white"
+          href="/private/profile">Recipes</a></li>
+      <li><a class="my-a-white"
+          href="/private/fridge">Fridge</a></li>
+      <li><a class="my-a-white"
+          href="/search/ingredients">Search</a></li>
       <li>
         <div class="my-dropdown">
           <div class="menu-icon-div">
-          <span id="profile-menu" style="color: white;" class="my-dropbtn fas fa-align-justify"></span>
+            <span id="profile-menu"
+              style="color: white;"
+              class="my-dropbtn fas fa-align-justify"></span>
           </div>
-        <div class="dropdown-content">
-          <a  href="/auth/logout">Logout</a>
-        <a href="/private/edit-profile">View Account</a>
-        <a class="my-a-white" href="/search/ingredients">Search</a>
-        <a class="my-a-white" href="/private/fridge">Fridge</a>
-        <a class="my-a-white" href="/private/profile">Recipes</a>
+          <div class="dropdown-content">
+            <a href="/auth/logout">Logout</a>
+            <a href="/private/edit-profile">View Account</a>
+            <a class="my-a-white"
+              href="/search/ingredients">Search</a>
+            <a class="my-a-white"
+              href="/private/fridge">Fridge</a>
+            <a class="my-a-white"
+              href="/private/profile">Recipes</a>
+          </div>
         </div>
-      </div>
       </li>
     </ul>
 
@@ -40,32 +49,35 @@
 
 <div class="results-banner">
   {{!-- <span class="icon has-text-info">
-        <i class="fas fa-utensils"></i>
-      </span> --}}
-      <img src="/images/5533102.jpg" alt="">
-      {{!-- <span class="icon has-text-info">
-        <i class="fas fa-utensils"></i>
-      </span> --}}
+    <i class="fas fa-utensils"></i>
+  </span> --}}
+  <img src="/images/5533102.jpg"
+    alt="">
+  {{!-- <span class="icon has-text-info">
+    <i class="fas fa-utensils"></i>
+  </span> --}}
 </div>
 
 <div class="recipe-container">
-{{#each recipes}}
-    <div  class="recipe-card-container">
-      <img src="{{this.image}}" alt="">
-      <div id="my-missing-results-card" class="missing-dropdown">
-    
-    <span class="missing-dropdown-content">Missing: {{this.missedIngredientCount}}</span>
+  {{#each recipes}}
+  <div class="recipe-card-container">
+    <img src="{{this.image}}"
+      alt="">
+    <div id="my-missing-results-card"
+      class="missing-dropdown">
+
+      <span class="missing-dropdown-content">Missing: {{this.missedIngredientCount}}</span>
     </div>
-    <h2>{{this.title}}</h3>
-    <div class="my-buttons-other">
-      <form action="/search/fridge/recipe/save" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-            <button type="submit">Save</button>
-      </form>
-    </div>
-    </div>
-    {{/each}}
+    <h2 id="result-card-heading">{{this.title}}</h3>
+      <div class="my-buttons-other">
+        <form action="/search/fridge/recipe/save"
+          method="POST">
+          <input type="hidden"
+            name="id"
+            value="{{this.id}}">
+          <button type="submit">Save</button>
+        </form>
+      </div>
+  </div>
+  {{/each}}
 </div>
-
-
-

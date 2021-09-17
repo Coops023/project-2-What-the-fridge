@@ -4,7 +4,8 @@
 
 /* results card missing drop down edit */
 #my-missing-results-card{
-  height: 0em
+ height: 0;
+ width: 100px;
 }
 
 
@@ -1332,10 +1333,16 @@ button:active {
 
 @media screen and (max-width: 1300px) {
   .recipe-card-container{
-    height: 20em;
+    height: 21em;
     width: 15em;
   
   }
+
+  #result-card-heading{
+    margin: 0;
+    font-size: small;
+  }
+
   .my-nav-items{
     height: 5em;
     margin: 0;
@@ -1404,6 +1411,8 @@ button:active {
   .missing-dropdown{
     height: 17em;
   }
+
+  
 
  
 
