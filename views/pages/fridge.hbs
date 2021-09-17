@@ -4,7 +4,7 @@
       <img class="my-logo"
         src="/images/Electronic_Devices__506_-removebg-preview.png"
         alt="">
-       <span class="my-logout-link">WTF</span>
+      <span class="my-logout-link">WTF</span>
     </div>
 
     <ul>
@@ -25,9 +25,9 @@
             <a href="/auth/logout">Logout</a>
             <a href="/private/edit-profile">View Account</a>
             <a class="my-a-white"
-          href="/search/ingredients">Search</a>
-          <a class="my-a-white"
-          href="/private/profile">Recipes</a>
+              href="/search/ingredients">Search</a>
+            <a class="my-a-white"
+              href="/private/profile">Recipes</a>
           </div>
         </div>
       </li>
@@ -35,54 +35,57 @@
 
   </div>
 </div>
-
-<br>
-<div class="fridge-add-form">
-  <form action="/private/fridge/add"
-    method="POST">
-    <div class="search-2">
-      <input type="text"
-        class="searchTerm-2"
-        name="ingredient"
-        placeholder="Add ingredients to your fridge!">
-      <button type="submit"
-        class="searchButton-2"><i class="fas fa-plus"></i>
-      </button>
-    </div>
-  </form>
-</div>
-
-
-<div class="fridge-container">
-
-  <img class="open-fridge-img"
-    src="/images/open-fridge.png"
-    alt="open fridge image">
-  <div class="fridge-ingredient-wrap">
-    <form class="fridge-ingredient-form"
-      action="/private/fridge/remove"
+<div class="fridge-content-wrap">
+  <br>
+  <div class="fridge-add-form">
+    <form action="/private/fridge/add"
       method="POST">
-
-      {{#each ingredients}}
-      <div class="checkbox-border">
-        <input id="fridge-checkbox-input"
-          type="checkbox"
-          value="{{this}}"
-          name="ingredient">
-        <label id="ingredient-label"
-          for="ingredient">{{this}}</label>
+      <div class="search-2">
+        <input type="text"
+          class="searchTerm-2"
+          name="ingredient"
+          placeholder="Add ingredients to your fridge!">
+        <button type="submit"
+          class="searchButton-2"><i class="fas fa-plus"></i>
+        </button>
       </div>
-      {{/each}}
+    </form>
+  </div>
 
+
+  <div class="fridge-container">
+
+    <img class="open-fridge-img"
+      src="/images/open-fridge.png"
+      alt="open fridge image">
+    <div class="fridge-ingredient-wrap">
+      <form class="fridge-ingredient-form"
+        action="/private/fridge/remove"
+        method="POST">
+
+        {{#each ingredients}}
+        <div class="checkbox-border">
+          <input id="fridge-checkbox-input"
+            type="checkbox"
+            value="{{this}}"
+            name="ingredient">
+          <label id="ingredient-label"
+            for="ingredient">{{this}}</label>
+        </div>
+        {{/each}}
+
+
+    </div>
+    <button id="fridge-remove-button"
+      type="submit">remove</button>
+    </form>
 
   </div>
-  <button id="fridge-remove-button"
-    type="submit">remove</button>
-  </form>
+
+
 
 </div>
-
-<div id="footer-search-page"
+{{!-- <div id="footer-search-page"
   class="bottom">
   <div class="content has-text-centered has-text-white">
     <p>
@@ -97,4 +100,4 @@
       <strong><a href="https://spoonacular.com/food-api">spoonacular API</a></strong>
     </p>
   </div>
-</div>
+</div> --}}

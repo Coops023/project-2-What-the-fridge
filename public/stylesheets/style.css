@@ -30,28 +30,28 @@ body {
   position: absolute;
   left: 49%;
   top: 8%;
+  
   text-align: center;
   transform: translate(-50%, -50%);
   /* border: 1px solid rgb(255, 255, 255); */
   background-image: url('/images/Dry-Brush-Stroke-PNG-File.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-size: 18em;
-
+  background-size: 70%;
   background-position-y: center;
   background-position-x: center;
 }
 
 #profile-active {
   color: white;
-  font-size: 10em;
+  font-size: 7em;
   margin: .2em;
   font-family: 'Caveat', cursive;
 }
 
 #fridge-active {
   color: white;
-  font-size: 10em;
+  font-size: 7em;
   margin: .2em;
   padding: 0 .3em .2em .3em;
   font-family: 'Caveat', cursive;
@@ -61,6 +61,7 @@ body {
   color: white;
   font-size: 10em;
   margin: .2em;
+  width: 5em;
   padding: 0 .4em .2em .3em;
   font-family: 'Caveat', cursive;
 }
@@ -75,7 +76,7 @@ body {
 
 #edit-profile-active {
   color: white;
-  font-size: 10em;
+  font-size: 7em;
   margin: .2em;
   padding: 0 .3em .2em .2em;
   font-family: 'Caveat', cursive;
@@ -83,8 +84,9 @@ body {
 
 #recipe-details-active {
   color: white;
-  font-size: 10em;
+  font-size: 6em;
   margin: .2em;
+  top: 0.4em;
   padding: 0 .3em .2em .2em;
   font-family: 'Caveat', cursive;
 }
@@ -186,6 +188,8 @@ a {
   font-style: italic;
 }
 
+
+
 .my-buttons button {
   height: 100px;
   width: 200px;
@@ -257,7 +261,7 @@ div.bottom {
 }
 
 /* position login form to center of screen */
-.form-center-screen {
+
   /* width: 80em; */
   /* margin-left: 5em; */
    /* background-image: url('/images/6235-removebg-preview.png');
@@ -267,7 +271,7 @@ div.bottom {
   background-position-x: left;   */
   /* padding: 9em 8em 8em 8em; */
   /* margin-top: 0; */
-}
+
 
 #my-login-form-container {
 background-image: url('/images/6235-removebg-preview.png');
@@ -515,12 +519,12 @@ flex-wrap: wrap;
 justify-content: center;
 }
 
-#footer-search-page{
+/* #footer-search-page{
   height: 5em;
-  position: absolute;
+  position: relative;
   bottom: 0;
   padding-top: 10px;
-}
+} */
 /* CHECK BOX STYLING */
 .container {
   max-width: 640px;
@@ -1024,8 +1028,11 @@ background: linear-gradient(66deg, rgba(255,155,232,1) 0%, rgba(250,140,180,1) 1
 /*  ---- missing ingredients hover effect ---- */
 
  .missing-dropdown {
-  height: 300px;
+  height: 15em;
   z-index: -1;
+}
+.missing-dropdown h2 {
+  margin: 0;
 }
 
 /* .missing-dropdown-content {
@@ -1132,6 +1139,7 @@ transform: translate(-50%, -50%);
   
 }
 
+
 #ingredient-label{
 color: #6d6875;
 font-family: "bangers";
@@ -1181,7 +1189,7 @@ transform: translateY(-0.2em);
   width: 100%;
   position: relative;
   display: flex;
-  
+  bottom: 50px;
 }
 
 .searchTerm-2 {
@@ -1259,6 +1267,10 @@ padding: 2em;
 
 #search-active{
   font-size: 5em;
+}
+
+.fridge-content-wrap{
+  height: 48em;
 }
 
 
@@ -1343,7 +1355,38 @@ button:active {
     right: 4em;
   }
 
+  #fridge-active{
+    width: 30%;
+    font-size: 5em;
+  }
+
+  .fridge-container{
+    height: 20em;
+  }
+
+  .open-fridge-img{
+ width: 30em;
+
+ height: 30em;
+  }
  
+  .fridge-ingredient-wrap{
+    width: 25em;
+    bottom: 0;
+    height: 500px;
+  }
+
+  .fridge-content-wrap{
+    height: 35em;
+  }
+
+  .search-2{
+    bottom: 3em;
+  }
+
+  .missing-dropdown{
+    height: 17em;
+  }
 
  
 
@@ -1355,13 +1398,24 @@ button:active {
 
   #profile-active{
     font-size: 3em;
-    
+   
   }
 
   .my-is-active{
-    top: 25px;
-    background-size: 11em;
+    width: 20em;
+    top: 30px;
   }
+  #profile-active{
+    font-size: 5em;
+   
+  }
+
+  #fridge-active{
+    width: 30%;
+    font-size: 5em;
+  }
+
+
  
 }
 
@@ -1396,7 +1450,39 @@ button:active {
     right: 1.4em;
   }
 
+  
+
 }
+
+
+
+@media screen and (max-width: 750px){
+  .fridge-container{
+    height: 20em;
+  }
+
+  .open-fridge-img{
+  width: 35em;
+
+ 
+  }
+ 
+  .fridge-ingredient-form{
+    width: 25em;
+    bottom: 0;
+    height: 15em;
+    width: 30em;
+  }
+
+  .fridge-content-wrap{
+    height: 30em;
+  }
+
+  .search-2{
+    bottom: 3em;
+  }
+}
+
 
 @media screen and (max-width: 550px){
 .my-logout-link{
