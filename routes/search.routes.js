@@ -32,6 +32,7 @@ router.get('/ingredients', (req, res) => {
 router.post('/ingredients', (req, res) => {
     const { ingredients } = req.body
     console.log("line 25", ingredients)
+    let concatIngredients
 
     if (ingredients.includes('') && Array.isArray(ingredients)) {
         concatIngredients = ingredients.reduce((prev, curr) => { return prev + ',+' + curr })
