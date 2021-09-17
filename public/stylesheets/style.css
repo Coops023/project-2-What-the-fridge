@@ -32,6 +32,10 @@ body {
   background-image: url('/images/Dry-Brush-Stroke-PNG-File.png');
   background-size: cover;
   background-repeat: no-repeat;
+  background-size: 18em;
+
+  background-position-y: center;
+  background-position-x: center;
 }
 
 #profile-active {
@@ -1306,15 +1310,15 @@ button:active {
   }
 
   .my-is-active{
-    top: 100px;
-   
+    top: 25px;
+    background-size: 11em;
   }
  
 }
 
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 860px){
 
 
   .my-profile-image-container{
