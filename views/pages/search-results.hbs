@@ -50,9 +50,9 @@
 
 <div class="recipe-container">
 {{#each recipes}}
-    <div class="recipe-card-container">
+    <div  class="recipe-card-container">
       <img src="{{this.image}}" alt="">
-      <div class="missing-dropdown">
+      <div id="my-missing-results-card" class="missing-dropdown">
     
     <span class="missing-dropdown-content">Missing: {{this.missedIngredientCount}}</span>
     </div>

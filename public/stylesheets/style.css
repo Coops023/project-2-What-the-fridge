@@ -1,6 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Comfortaa:wght@300&display=swap');
 
+
+/* results card missing drop down edit */
+#my-missing-results-card{
+  height: 0em
+}
+
+
+
 html{
 
   height: 100vh;
